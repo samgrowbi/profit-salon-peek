@@ -1,24 +1,462 @@
 import { createFileRoute } from "@tanstack/react-router";
+import heroSalon from "@/assets/hero-salon.jpg";
+import advisorHeadshot from "@/assets/advisor-headshot.jpg";
+import { LeadForm } from "@/components/lp/LeadForm";
+import { StickyMobileCta } from "@/components/lp/StickyMobileCta";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "Profit Clarity Analysis for Salon Owners — 50% Off | True Profit Salons";
+const DESCRIPTION =
+  "A 60-minute one-on-one deep dive into your salon's numbers with a Profit First Certified salon CFO. Normally $500 — now $250 for a limited time.";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+    ],
+  }),
+  component: LandingPage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const PHONE = "(555) 010-2030"; // PLACEHOLDER — replace with real number
+const EMAIL = "hello@trueprofitsalons.com"; // PLACEHOLDER — confirm before launch
+const OFFER_EXPIRES = "December 31"; // PLACEHOLDER — set real expiry date
+
+const stats = [
+  { label: "Avg Revenue Increase", value: "$0K" },
+  { label: "Avg Profit Increase", value: "$0K" },
+  { label: "Avg Cash Reserves Increase", value: "$0K" },
+];
+
+const pains = [
+  "Money's coming in, but it never seems to stay.",
+  "You don't actually know what you pay yourself vs. what the business owes.",
+  "Your bookkeeper (or spreadsheet) tells you the past, not what to do next.",
+  "You've never gotten a straight answer on pricing, service mix, or margins.",
+];
+
+const included = [
+  "A clear snapshot of current revenue, expenses, and real profit.",
+  "Review of owner's pay, cash flow, and overall financial health.",
+  "Quick check of pricing, service mix, and margins to spot hidden leaks.",
+  "Your top 3–5 opportunities to protect and increase profit.",
+  "A simple 90-day action plan you can implement with us, your current accountant, or on your own.",
+];
+
+const differentiators = [
+  {
+    title: "This isn't a free sales call in disguise",
+    body: "It's a paid, structured session with a real deliverable, led by an Advanced Certified Profit First Professional.",
+  },
+  {
+    title: "Salon-exclusive expertise",
+    body: "Booth rent vs. commission, tips, service vs. retail — no explaining your industry to a generalist.",
+  },
+  {
+    title: "You leave with a written plan",
+    body: "A 90-day action plan in your hands, not a slide deck you never open again.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "For the first time I know exactly what the salon can afford to pay me — and why. The 90-day plan was the clearest financial advice I've gotten in twelve years.",
+    name: "Placeholder Name",
+    business: "Placeholder Salon",
+  },
+  {
+    quote:
+      "We found profit leaking out of our service mix in under an hour. Pricing changes paid for the session several times over.",
+    name: "Placeholder Name",
+    business: "Placeholder Studio",
+  },
+  {
+    quote:
+      "Finally, someone who speaks salon. No translating booth rent or tips into accountant language.",
+    name: "Placeholder Name",
+    business: "Placeholder Spa",
+  },
+];
+
+const faqs = [
+  {
+    q: "What happens after I book?",
+    a: "You'll pay securely, complete a short intake form, and pick your 60-minute time slot. We review your numbers before the call so the session is spent on answers, not setup.",
+  },
+  {
+    q: "Is this a sales pitch for ongoing services?",
+    a: "No. It's a paid diagnostic with a written deliverable. If ongoing bookkeeping or CFO work is a fit, we'll say so — but the plan is yours either way.",
+  },
+  {
+    q: "What do I need to prepare?",
+    a: "Your most recent profit and loss statement, balance sheet, and a rough sense of your owner pay. If your books are messy, bring them as they are.",
+  },
+  {
+    q: "What if I'm not on QuickBooks?",
+    a: "That's fine. Xero, spreadsheets, or nothing at all — we'll work with what you have and tell you what to fix first.",
+  },
+  {
+    q: "Is the $250 refundable?",
+    a: "The session is non-refundable once your time slot is confirmed, but it can be rescheduled with at least 24 hours' notice.",
+  },
+  {
+    q: "Do you only work with salons at $1M+ in revenue?",
+    a: "That's who we're built for, and where this session delivers the most. Close to that range? Book it — we'll tell you honestly if the timing isn't right.",
+  },
+];
+
+function LandingPage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background pb-20 md:pb-0">
+      {/* Sticky top bar */}
+      <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
+        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3">
+          <div className="min-w-0 text-sm">
+            <p className="font-display text-base font-semibold text-foreground">
+              True Profit Salons
+            </p>
+            <p className="truncate text-muted-foreground">
+              <a href={`tel:${PHONE.replace(/[^\d]/g, "")}`} className="hover:text-primary">
+                {PHONE}
+              </a>
+              <span className="mx-2 hidden sm:inline">•</span>
+              <a href={`mailto:${EMAIL}`} className="hidden hover:text-primary sm:inline">
+                {EMAIL}
+              </a>
+            </p>
+          </div>
+          <a
+            href="#claim"
+            className="shrink-0 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:px-6"
+          >
+            Claim 50% Off
+          </a>
+        </div>
+      </header>
+
+      <main>
+        {/* Hero */}
+        <section className="border-b border-border bg-cream">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-2 lg:items-center lg:py-20">
+            <div>
+              <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wider text-accent-foreground uppercase">
+                Limited time — 50% off
+              </span>
+              <h1 className="mt-5 text-4xl leading-[1.08] text-foreground sm:text-5xl lg:text-[3.4rem]">
+                Find Out Exactly Where Your Salon's Profit Is Leaking — In 60 Minutes
+              </h1>
+              <p className="mt-5 max-w-xl text-lg text-muted-foreground">
+                A one-on-one deep dive into your numbers with a Profit First Certified salon CFO.
+                Normally $500 — right now 50% off at $250.
+              </p>
+              <a
+                href="#claim"
+                className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+              >
+                Claim My 50% Off Deep Dive
+              </a>
+              <p className="mt-3 text-sm text-muted-foreground">
+                $500 value, now $250 • 60 minutes • Pay securely via Stripe
+              </p>
+
+              <dl className="mt-10 grid grid-cols-3 gap-3 border-t border-border pt-6">
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <dt className="text-xs text-muted-foreground">{stat.label}</dt>
+                    <dd className="font-display text-2xl font-semibold text-foreground sm:text-3xl">
+                      {stat.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-2 text-xs text-muted-foreground italic">
+                [PLACEHOLDER figures — replace with approved client averages before launch.]
+              </p>
+            </div>
+
+            <div className="relative">
+              <img
+                src={heroSalon}
+                alt="Sunlit modern salon interior with styling chairs and mirrors"
+                width={1280}
+                height={1600}
+                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-lg"
+              />
+              <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-card/95 p-4 backdrop-blur sm:left-6 sm:right-auto sm:max-w-xs">
+                <p className="text-sm font-semibold text-foreground">Profit Clarity Analysis</p>
+                <p className="text-sm text-muted-foreground">
+                  60 minutes, one-on-one, with a written 90-day plan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pain */}
+        <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+          <h2 className="text-3xl sm:text-4xl">Sound familiar?</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {pains.map((pain) => (
+              <div
+                key={pain}
+                className="rounded-2xl border border-border bg-card p-6 text-lg text-foreground shadow-sm"
+              >
+                {pain}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* What's included */}
+        <section className="bg-ink text-ink-foreground">
+          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+            <h2 className="text-3xl text-ink-foreground sm:text-4xl">
+              What's included in your deep dive
+            </h2>
+            <p className="mt-3 max-w-2xl text-ink-foreground/70">
+              Sixty focused minutes on your numbers — and a plan you can act on the same week.
+            </p>
+            <ul className="mt-9 grid gap-5 sm:grid-cols-2">
+              {included.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold text-sm font-bold text-ink"
+                  >
+                    ✓
+                  </span>
+                  <span className="text-base text-ink-foreground/90">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Why this */}
+        <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+          <h2 className="text-3xl sm:text-4xl">Why this, not a generic bookkeeper</h2>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {differentiators.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                <h3 className="text-xl">{item.title}</h3>
+                <p className="mt-2 text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Offer */}
+        <section className="bg-cream">
+          <div className="mx-auto max-w-4xl px-4 py-14 lg:py-20">
+            <div className="rounded-3xl border border-border bg-card p-6 shadow-md sm:p-10">
+              <div className="grid gap-8 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center">
+                <div className="text-center sm:text-left">
+                  <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold tracking-wider text-primary-foreground uppercase">
+                    50% off
+                  </span>
+                  <p className="mt-4 flex items-baseline justify-center gap-3 sm:justify-start">
+                    <span className="font-display text-2xl text-muted-foreground line-through">
+                      $500
+                    </span>
+                    <span className="font-display text-5xl font-bold text-foreground">$250</span>
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">One-time, paid upfront</p>
+                </div>
+                <div>
+                  <h2 className="text-2xl sm:text-3xl">The Profit Clarity Analysis</h2>
+                  <ol className="mt-4 space-y-3">
+                    {[
+                      "Book & pay securely online.",
+                      "Complete a short intake form.",
+                      "Join your 60-minute one-on-one call.",
+                    ].map((step, i) => (
+                      <li key={step} className="flex gap-3 text-foreground">
+                        <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-sm font-semibold text-accent-foreground">
+                          {i + 1}
+                        </span>
+                        {step}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+
+              <p className="mt-8 rounded-xl bg-secondary p-4 text-sm text-muted-foreground">
+                We hold a limited number of these sessions each month. This 50% offer ends{" "}
+                <strong className="text-foreground">{OFFER_EXPIRES}</strong>.{" "}
+                <span className="italic">[PLACEHOLDER date — set before launch.]</span>
+              </p>
+
+              <a
+                href="#claim"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                Claim My 50% Off Deep Dive
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Social proof */}
+        <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+          <h2 className="text-3xl sm:text-4xl">What salon owners say</h2>
+          <p className="mt-2 text-sm font-semibold tracking-wide text-primary uppercase">
+            [Placeholder testimonials — replace with real approved quotes before launch]
+          </p>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure key={t.quote} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                <blockquote className="text-foreground">"{t.quote}"</blockquote>
+                <figcaption className="mt-4 text-sm text-muted-foreground">
+                  <span className="font-semibold text-foreground">{t.name}</span> — {t.business}
+                  <span className="block text-xs italic">(placeholder)</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-3 border-t border-border pt-8">
+            {[
+              "QuickBooks Certified ProAdvisor",
+              "Profit First Certified",
+              "Advanced Certified PFP",
+            ].map((badge) => (
+              <li
+                key={badge}
+                className="rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground"
+              >
+                {badge}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* About the advisor */}
+        <section className="bg-cream">
+          <div className="mx-auto grid max-w-4xl gap-6 px-4 py-14 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center lg:py-20">
+            <img
+              src={advisorHeadshot}
+              alt="Ross Loveland, Advanced Certified Profit First Professional (placeholder headshot)"
+              loading="lazy"
+              width={816}
+              height={816}
+              className="h-32 w-32 rounded-full object-cover shadow-sm sm:h-40 sm:w-40"
+            />
+            <div>
+              <h2 className="text-3xl">Ross Loveland</h2>
+              <p className="mt-1 text-sm font-semibold tracking-wide text-primary uppercase">
+                Advanced Certified Profit First Professional
+              </p>
+              <p className="mt-3 text-muted-foreground">
+                Ross works exclusively with salon and beauty business owners, translating messy books
+                into clear decisions about owner pay, pricing, and profit. He's led hundreds of
+                salon-specific financial reviews using the Profit First method.
+              </p>
+              <p className="mt-2 text-xs text-muted-foreground italic">
+                [Placeholder headshot and bio details — confirm before launch.]
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mx-auto max-w-3xl px-4 py-14 lg:py-20">
+          <h2 className="text-3xl sm:text-4xl">Questions, answered</h2>
+          <div className="mt-8 divide-y divide-border rounded-2xl border border-border bg-card">
+            {faqs.map((faq) => (
+              <details key={faq.q} className="group p-5">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-foreground">
+                  {faq.q}
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 text-primary transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-muted-foreground">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* Final CTA + form */}
+        <section id="claim" className="scroll-mt-24 bg-ink text-ink-foreground">
+          <div className="mx-auto max-w-3xl px-4 py-14 lg:py-20">
+            <h2 className="text-3xl text-ink-foreground sm:text-4xl">
+              Claim your 50% off Profit Clarity Analysis
+            </h2>
+            <p className="mt-3 text-ink-foreground/75">
+              Tell us a little about your salon. Next you'll pay securely and pick your time.
+            </p>
+            <div className="mt-8">
+              <LeadForm />
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-border bg-background">
+        <div className="mx-auto max-w-6xl px-4 py-10">
+          <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto]">
+            <div className="min-w-0">
+              <p className="font-display text-lg font-semibold text-foreground">
+                True Profit Salons
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Bookkeeping, CFO advisory, and tax — built for salon owners.
+              </p>
+              <p className="mt-3 text-sm text-muted-foreground">
+                <a href={`tel:${PHONE.replace(/[^\d]/g, "")}`} className="hover:text-primary">
+                  {PHONE}
+                </a>
+                <span className="mx-2">•</span>
+                <a href={`mailto:${EMAIL}`} className="break-all hover:text-primary">
+                  {EMAIL}
+                </a>
+              </p>
+            </div>
+            <nav aria-label="Footer" className="text-sm">
+              <ul className="flex flex-wrap gap-x-5 gap-y-2 text-muted-foreground">
+                <li>
+                  <a href="#claim" className="hover:text-primary">
+                    Book the analysis
+                  </a>
+                </li>
+                <li>
+                  <a href="https://trueprofitsalons.com" className="hover:text-primary">
+                    Main site
+                  </a>
+                </li>
+                <li>
+                  <a href="https://trueprofitsalons.com/privacy" className="hover:text-primary">
+                    Privacy policy
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com" className="hover:text-primary">
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com" className="hover:text-primary">
+                    Facebook
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <p className="mt-8 border-t border-border pt-5 text-xs text-muted-foreground">
+            Average client results. Individual results may vary. © {new Date().getFullYear()} True
+            Profit Salons.
+          </p>
+        </div>
+      </footer>
+
+      <StickyMobileCta />
     </div>
   );
 }
