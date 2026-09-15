@@ -339,24 +339,19 @@ function LandingPage() {
           <div className="mx-auto grid max-w-4xl gap-6 px-4 py-14 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center lg:py-20">
             <img
               src={advisorHeadshot}
-              alt="Ross Loveland, Advanced Certified Profit First Professional (placeholder headshot)"
+              alt="Ross Loveland, Advanced Certified Profit First Professional"
               loading="lazy"
-              width={816}
-              height={816}
+              width={683}
+              height={1024}
               className="h-32 w-32 rounded-full object-cover shadow-sm sm:h-40 sm:w-40"
             />
             <div>
-              <h2 className="text-3xl">Ross Loveland</h2>
-              <p className="mt-1 text-sm font-semibold tracking-wide text-primary uppercase">
-                Advanced Certified Profit First Professional
-              </p>
+              <h2 className="text-3xl">Meet The People Behind Your Numbers</h2>
               <p className="mt-3 text-muted-foreground">
-                Ross works exclusively with salon and beauty business owners, translating messy books
-                into clear decisions about owner pay, pricing, and profit. He's led hundreds of
-                salon-specific financial reviews using the Profit First method.
-              </p>
-              <p className="mt-2 text-xs text-muted-foreground italic">
-                [Placeholder headshot and bio details — confirm before launch.]
+                Ross Loveland is an Advanced Certified Profit First Professional and Certified Master
+                who has helped hundreds of salons increase profit, take home more money, and build
+                businesses that feel calm and predictable. You're supported by a warm, knowledgeable
+                team who understands the beauty industry inside and out.
               </p>
             </div>
           </div>
