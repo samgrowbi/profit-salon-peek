@@ -20,10 +20,13 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const PHONE = "(555) 010-2030"; // PLACEHOLDER — replace with real number
-const EMAIL = "hello@trueprofitsalons.com"; // PLACEHOLDER — confirm before launch
+const PHONE = "+1 385-985-7709";
+const EMAIL = "hello@trueprofitsalons.com";
 const OFFER_EXPIRES = "December 31"; // PLACEHOLDER — set real expiry date
 
+// PLACEHOLDER: These "$0K" counters must be replaced with real figures from the client
+// before launch — the live site animates real numbers we don't have from a static read.
+// Do NOT fabricate numbers here.
 const stats = [
   { label: "Avg Revenue Increase", value: "$0K" },
   { label: "Avg Profit Increase", value: "$0K" },
@@ -63,32 +66,32 @@ const differentiators = [
 const testimonials = [
   {
     quote:
-      "For the first time I know exactly what the salon can afford to pay me — and why. The 90-day plan was the clearest financial advice I've gotten in twelve years.",
-    name: "Placeholder Name",
-    business: "Placeholder Salon",
+      "I wish everyone had a CFO like Josh. He is so knowledgeable — not just with financials but with business as a whole.",
+    name: "Salon Gloss",
+    business: "Salon Owner",
   },
   {
     quote:
-      "We found profit leaking out of our service mix in under an hour. Pricing changes paid for the session several times over.",
-    name: "Placeholder Name",
-    business: "Placeholder Studio",
+      "Our business is so much better with Erika. We couldn't do it without her. Her spreadsheets keep us organized and we finally understand our numbers.",
+    name: "Bon Bini Aesthetics",
+    business: "Salon Owner",
   },
   {
     quote:
-      "Finally, someone who speaks salon. No translating booth rent or tips into accountant language.",
-    name: "Placeholder Name",
-    business: "Placeholder Spa",
+      "Since working with my CFO I have gotten my financials under control and am actively making profit and saving for taxes.",
+    name: "Bodhi Sanctuary",
+    business: "Salon Owner",
   },
 ];
 
 const faqs = [
   {
-    q: "What happens after I book?",
-    a: "You'll pay securely, complete a short intake form, and pick your 60-minute time slot. We review your numbers before the call so the session is spent on answers, not setup.",
+    q: "How do I get started?",
+    a: "Book your session and complete payment via Stripe, fill out a short intake form, then join your 60-minute call.",
   },
   {
-    q: "Is this a sales pitch for ongoing services?",
-    a: "No. It's a paid diagnostic with a written deliverable. If ongoing bookkeeping or CFO work is a fit, we'll say so — but the plan is yours either way.",
+    q: "Do you only work with salons?",
+    a: "Yes. We work exclusively with salons and beauty businesses.",
   },
   {
     q: "What do I need to prepare?",
@@ -103,8 +106,8 @@ const faqs = [
     a: "The session is non-refundable once your time slot is confirmed, but it can be rescheduled with at least 24 hours' notice.",
   },
   {
-    q: "Do you only work with salons at $1M+ in revenue?",
-    a: "That's who we're built for, and where this session delivers the most. Close to that range? Book it — we'll tell you honestly if the timing isn't right.",
+    q: "Is this a sales pitch for ongoing services?",
+    a: "No. It's a paid diagnostic with a written deliverable. If ongoing bookkeeping or CFO work is a fit, we'll say so — but the plan is yours either way.",
   },
 ];
 
@@ -235,6 +238,30 @@ function LandingPage() {
           </div>
         </section>
 
+        {/* Who this is for */}
+        <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+          <h2 className="text-3xl sm:text-4xl">Who this is for</h2>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+            {[
+              "Own or lead a hair salon, beauty salon, or multi-stylist business",
+              "Feel like money is coming in but not staying",
+              "Want clarity on your numbers without the overwhelm",
+              "Are serious about improving profit and paying yourself properly",
+              "Value honest, Profit First inspired guidance from someone who understands the salon industry",
+            ].map((item) => (
+              <li key={item} className="flex gap-3 rounded-2xl border border-border bg-card p-5 shadow-sm">
+                <span
+                  aria-hidden="true"
+                  className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold text-sm font-bold text-ink"
+                >
+                  ✓
+                </span>
+                <span className="text-base text-foreground/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {/* Why this */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">Why this, not a generic bookkeeper</h2>
@@ -303,16 +330,12 @@ function LandingPage() {
         {/* Social proof */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">What salon owners say</h2>
-          <p className="mt-2 text-sm font-semibold tracking-wide text-primary uppercase">
-            [Placeholder testimonials — replace with real approved quotes before launch]
-          </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {testimonials.map((t) => (
               <figure key={t.quote} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
                 <blockquote className="text-foreground">"{t.quote}"</blockquote>
                 <figcaption className="mt-4 text-sm text-muted-foreground">
                   <span className="font-semibold text-foreground">{t.name}</span> — {t.business}
-                  <span className="block text-xs italic">(placeholder)</span>
                 </figcaption>
               </figure>
             ))}
@@ -347,6 +370,10 @@ function LandingPage() {
             />
             <div>
               <h2 className="text-3xl">Meet The People Behind Your Numbers</h2>
+              <p className="mt-3 text-sm font-semibold tracking-wide text-primary uppercase">
+                Backed by a team of dedicated Profit Advisors — including Nicole, Patrick,
+                Alexandra, and Erika — who work exclusively with salons.
+              </p>
               <p className="mt-3 text-muted-foreground">
                 Ross Loveland is an Advanced Certified Profit First Professional and Certified Master
                 who has helped hundreds of salons increase profit, take home more money, and build
@@ -355,6 +382,23 @@ function LandingPage() {
               </p>
             </div>
           </div>
+        </section>
+
+        {/* Tools we work inside */}
+        <section className="mx-auto max-w-4xl px-4 py-10 text-center">
+          <p className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">
+            We work inside the tools you already use
+          </p>
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-3">
+            {["QuickBooks Online", "ProConnect", "GoHighLevel"].map((tool) => (
+              <li
+                key={tool}
+                className="rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground"
+              >
+                {tool}
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* FAQ */}
@@ -413,6 +457,9 @@ function LandingPage() {
                   {EMAIL}
                 </a>
               </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Fully remote team, based in the U.S. — Mon–Fri, 9am–5pm MST.
+              </p>
             </div>
             <nav aria-label="Footer" className="text-sm">
               <ul className="flex flex-wrap gap-x-5 gap-y-2 text-muted-foreground">
@@ -446,7 +493,7 @@ function LandingPage() {
           </div>
           <p className="mt-8 border-t border-border pt-5 text-xs text-muted-foreground">
             Average client results. Individual results may vary. © {new Date().getFullYear()} True
-            Profit Salons.
+            Profit Salons. True Profit Salons is a DBA of Grow Green Financial, LLC.
           </p>
         </div>
       </footer>
