@@ -301,9 +301,7 @@ function LandingPage() {
               </div>
 
               <p className="mt-8 rounded-xl bg-secondary p-4 text-sm text-muted-foreground">
-                We hold a limited number of these sessions each month. This 50% offer ends{" "}
-                <strong className="text-foreground">{OFFER_EXPIRES}</strong>.{" "}
-                <span className="italic">[PLACEHOLDER date - set before launch.]</span>
+                We hold a limited number of these sessions each month.
               </p>
 
               <a
