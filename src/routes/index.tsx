@@ -425,6 +425,27 @@ function LandingPage() {
           </div>
         </section>
 
+        {/* Condensed results band */}
+        <section className="bg-plum text-plum-foreground">
+          <div className="mx-auto max-w-6xl px-4 py-10">
+            <div className="grid gap-6 text-center sm:grid-cols-3">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-display text-3xl font-bold text-white sm:text-4xl">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1 text-xs uppercase tracking-wider text-plum-foreground/80">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-center text-xs text-plum-foreground/70">
+              Average client results. Individual results may vary.
+            </p>
+          </div>
+        </section>
+
         {/* Final CTA + form */}
         <section id="claim" className="scroll-mt-24 bg-ink text-ink-foreground">
           <div className="mx-auto max-w-3xl px-4 py-14 lg:py-20">
