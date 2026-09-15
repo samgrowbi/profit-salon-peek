@@ -68,16 +68,34 @@ const testimonials = [
   },
 ];
 
-// Source-verified FAQs only. Leave space to add more entries (refunds,
-// session prep, software requirements) once the client confirms policy.
 const faqs = [
   {
-    q: "Do you only work with salons?",
-    a: "Yes. We work exclusively with salons and beauty businesses.",
+    q: "What happens after I book?",
+    a: "You'll pay securely via Stripe to confirm your spot, complete a short intake form about your salon, and then join your 60-minute call at the time you picked.",
   },
   {
-    q: "Do you work virtually?",
-    a: "Yes. Our team is fully remote and supports salons across the U.S.",
+    q: "How is this different from a free consultation?",
+    a: "This isn't a sales call. It's a paid, structured 60-minute session built around your actual numbers, and you leave with a written 90-day action plan - not a pitch for more services.",
+  },
+  {
+    q: "Who will I be meeting with?",
+    a: "A Profit First Certified salon Profit Advisor from the True Profit Salons team.",
+  },
+  {
+    q: "What if my books are messy or out of date?",
+    a: "That's fine. Bring what you have. Part of the session is identifying what needs to be cleaned up and what to prioritize first.",
+  },
+  {
+    q: "Do I need to be on QuickBooks?",
+    a: "No. We work with QuickBooks Online, Xero, spreadsheets, or no formal system at all - the intake form asks what you currently use so we can prepare.",
+  },
+  {
+    q: "Is this only for salons already doing well, or can newer salons book too?",
+    a: "This session is built for salon owners who want clarity on their numbers, whatever stage they're at - from those feeling stuck to those ready to scale.",
+  },
+  {
+    q: "Will you try to sell me on ongoing bookkeeping or CFO services afterward?",
+    a: "If ongoing support looks like a fit based on what we find, we'll say so - but the 90-day plan is yours to use with us, your current accountant, or on your own either way.",
   },
 ];
 
