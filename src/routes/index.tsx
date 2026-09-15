@@ -158,9 +158,9 @@ function LandingPage() {
             <div className="relative">
               <img
                 src={heroSalon}
-                alt="Sunlit modern salon interior with styling chairs and mirrors"
-                width={1280}
-                height={1600}
+                alt="Confident salon owner reviewing her business numbers on a tablet in her warm, upscale salon"
+                width={1120}
+                height={1408}
                 className="aspect-[4/5] w-full rounded-3xl object-cover shadow-lg"
               />
               <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-card/95 p-4 backdrop-blur sm:left-6 sm:right-auto sm:max-w-xs">
