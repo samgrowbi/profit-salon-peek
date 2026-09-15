@@ -384,6 +384,23 @@ function LandingPage() {
           </div>
         </section>
 
+        {/* Tools we work inside */}
+        <section className="mx-auto max-w-4xl px-4 py-10 text-center">
+          <p className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">
+            We work inside the tools you already use
+          </p>
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-3">
+            {["QuickBooks Online", "ProConnect", "GoHighLevel"].map((tool) => (
+              <li
+                key={tool}
+                className="rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground"
+              >
+                {tool}
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {/* FAQ */}
         <section className="mx-auto max-w-3xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">Questions, answered</h2>
@@ -440,6 +457,9 @@ function LandingPage() {
                   {EMAIL}
                 </a>
               </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Fully remote team, based in the U.S. — Mon–Fri, 9am–5pm MST.
+              </p>
             </div>
             <nav aria-label="Footer" className="text-sm">
               <ul className="flex flex-wrap gap-x-5 gap-y-2 text-muted-foreground">
@@ -473,7 +493,7 @@ function LandingPage() {
           </div>
           <p className="mt-8 border-t border-border pt-5 text-xs text-muted-foreground">
             Average client results. Individual results may vary. © {new Date().getFullYear()} True
-            Profit Salons.
+            Profit Salons. True Profit Salons is a DBA of Grow Green Financial, LLC.
           </p>
         </div>
       </footer>
