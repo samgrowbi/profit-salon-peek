@@ -68,16 +68,31 @@ const testimonials = [
   },
 ];
 
-// Source-verified FAQs only. Leave space to add more entries (refunds,
-// session prep, software requirements) once the client confirms policy.
+// Source-verified FAQs from trueprofitsalons.com/services/salon-cfo-and-advisory-services/
 const faqs = [
   {
     q: "Do you only work with salons?",
     a: "Yes. We work exclusively with salons and beauty businesses.",
   },
   {
-    q: "Do you work virtually?",
-    a: "Yes. Our team is fully remote and supports salons across the U.S.",
+    q: "What do monthly CFO meetings include?",
+    a: "We review your numbers, KPIs, cash flow, and next steps each month.",
+  },
+  {
+    q: "Do you help with owner pay?",
+    a: "Yes. Owner pay strategy is a core part of our CFO support.",
+  },
+  {
+    q: "Do you help with Profit First?",
+    a: "Yes. As part of your CFO support, we can set up Profit First for Salons and tailor it to your team and revenue.",
+  },
+  {
+    q: "Can you help with pricing or service menu changes?",
+    a: "Yes. We help you price services in a way that supports healthy margins.",
+  },
+  {
+    q: "Do I need bookkeeping with this?",
+    a: "We require clean books for CFO support. If needed, we handle bookkeeping for you.",
   },
 ];
 
