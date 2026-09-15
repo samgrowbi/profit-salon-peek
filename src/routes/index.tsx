@@ -489,35 +489,68 @@ function LandingPage() {
                 Fully remote team, based in the U.S. - Mon–Fri, 9am–5pm MST.
               </p>
             </div>
-            <nav aria-label="Footer" className="text-sm">
-              <ul className="flex flex-wrap gap-x-5 gap-y-2 text-muted-foreground">
+            <div className="text-sm">
+              <nav aria-label="Footer" className="text-muted-foreground">
+                <ul className="flex flex-wrap gap-x-5 gap-y-2">
+                  <li>
+                    <a href="#claim" className="hover:text-primary">
+                      Book the analysis
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://trueprofitsalons.com/privacy" className="hover:text-primary">
+                      Privacy policy
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <ul className="mt-4 flex items-center gap-4 text-muted-foreground">
                 <li>
-                  <a href="#claim" className="hover:text-primary">
-                    Book the analysis
+                  <a
+                    href="https://www.linkedin.com/in/rossloveland/"
+                    aria-label="LinkedIn"
+                    className="hover:text-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin className="h-5 w-5" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://trueprofitsalons.com" className="hover:text-primary">
-                    Main site
+                  <a
+                    href="https://www.instagram.com/trueprofitsalons/"
+                    aria-label="Instagram"
+                    className="hover:text-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Instagram className="h-5 w-5" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://trueprofitsalons.com/privacy" className="hover:text-primary">
-                    Privacy policy
+                  <a
+                    href="https://www.facebook.com/TrueProfitSalons/"
+                    aria-label="Facebook"
+                    className="hover:text-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Facebook className="h-5 w-5" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com" className="hover:text-primary">
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.facebook.com" className="hover:text-primary">
-                    Facebook
+                  <a
+                    href="https://www.youtube.com/@TrueProfitSalons"
+                    aria-label="YouTube"
+                    className="hover:text-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Youtube className="h-5 w-5" />
                   </a>
                 </li>
               </ul>
-            </nav>
+            </div>
           </div>
           <p className="mt-8 border-t border-border pt-5 text-xs text-muted-foreground">
             Average client results. Individual results may vary. © {new Date().getFullYear()} True
