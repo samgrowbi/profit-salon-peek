@@ -238,6 +238,30 @@ function LandingPage() {
           </div>
         </section>
 
+        {/* Who this is for */}
+        <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+          <h2 className="text-3xl sm:text-4xl">Who this is for</h2>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+            {[
+              "Own or lead a hair salon, beauty salon, or multi-stylist business",
+              "Feel like money is coming in but not staying",
+              "Want clarity on your numbers without the overwhelm",
+              "Are serious about improving profit and paying yourself properly",
+              "Value honest, Profit First inspired guidance from someone who understands the salon industry",
+            ].map((item) => (
+              <li key={item} className="flex gap-3 rounded-2xl border border-border bg-card p-5 shadow-sm">
+                <span
+                  aria-hidden="true"
+                  className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold text-sm font-bold text-ink"
+                >
+                  ✓
+                </span>
+                <span className="text-base text-foreground/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {/* Why this */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">Why this, not a generic bookkeeper</h2>
@@ -306,16 +330,12 @@ function LandingPage() {
         {/* Social proof */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">What salon owners say</h2>
-          <p className="mt-2 text-sm font-semibold tracking-wide text-primary uppercase">
-            [Placeholder testimonials — replace with real approved quotes before launch]
-          </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {testimonials.map((t) => (
               <figure key={t.quote} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
                 <blockquote className="text-foreground">"{t.quote}"</blockquote>
                 <figcaption className="mt-4 text-sm text-muted-foreground">
                   <span className="font-semibold text-foreground">{t.name}</span> — {t.business}
-                  <span className="block text-xs italic">(placeholder)</span>
                 </figcaption>
               </figure>
             ))}
@@ -350,6 +370,10 @@ function LandingPage() {
             />
             <div>
               <h2 className="text-3xl">Meet The People Behind Your Numbers</h2>
+              <p className="mt-3 text-sm font-semibold tracking-wide text-primary uppercase">
+                Backed by a team of dedicated Profit Advisors — including Nicole, Patrick,
+                Alexandra, and Erika — who work exclusively with salons.
+              </p>
               <p className="mt-3 text-muted-foreground">
                 Ross Loveland is an Advanced Certified Profit First Professional and Certified Master
                 who has helped hundreds of salons increase profit, take home more money, and build
