@@ -20,10 +20,13 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const PHONE = "(555) 010-2030"; // PLACEHOLDER — replace with real number
-const EMAIL = "hello@trueprofitsalons.com"; // PLACEHOLDER — confirm before launch
+const PHONE = "+1 385-985-7709";
+const EMAIL = "hello@trueprofitsalons.com";
 const OFFER_EXPIRES = "December 31"; // PLACEHOLDER — set real expiry date
 
+// PLACEHOLDER: These "$0K" counters must be replaced with real figures from the client
+// before launch — the live site animates real numbers we don't have from a static read.
+// Do NOT fabricate numbers here.
 const stats = [
   { label: "Avg Revenue Increase", value: "$0K" },
   { label: "Avg Profit Increase", value: "$0K" },
@@ -63,32 +66,32 @@ const differentiators = [
 const testimonials = [
   {
     quote:
-      "For the first time I know exactly what the salon can afford to pay me — and why. The 90-day plan was the clearest financial advice I've gotten in twelve years.",
-    name: "Placeholder Name",
-    business: "Placeholder Salon",
+      "I wish everyone had a CFO like Josh. He is so knowledgeable — not just with financials but with business as a whole.",
+    name: "Salon Gloss",
+    business: "Salon Owner",
   },
   {
     quote:
-      "We found profit leaking out of our service mix in under an hour. Pricing changes paid for the session several times over.",
-    name: "Placeholder Name",
-    business: "Placeholder Studio",
+      "Our business is so much better with Erika. We couldn't do it without her. Her spreadsheets keep us organized and we finally understand our numbers.",
+    name: "Bon Bini Aesthetics",
+    business: "Salon Owner",
   },
   {
     quote:
-      "Finally, someone who speaks salon. No translating booth rent or tips into accountant language.",
-    name: "Placeholder Name",
-    business: "Placeholder Spa",
+      "Since working with my CFO I have gotten my financials under control and am actively making profit and saving for taxes.",
+    name: "Bodhi Sanctuary",
+    business: "Salon Owner",
   },
 ];
 
 const faqs = [
   {
-    q: "What happens after I book?",
-    a: "You'll pay securely, complete a short intake form, and pick your 60-minute time slot. We review your numbers before the call so the session is spent on answers, not setup.",
+    q: "How do I get started?",
+    a: "Book your session and complete payment via Stripe, fill out a short intake form, then join your 60-minute call.",
   },
   {
-    q: "Is this a sales pitch for ongoing services?",
-    a: "No. It's a paid diagnostic with a written deliverable. If ongoing bookkeeping or CFO work is a fit, we'll say so — but the plan is yours either way.",
+    q: "Do you only work with salons?",
+    a: "Yes. We work exclusively with salons and beauty businesses.",
   },
   {
     q: "What do I need to prepare?",
@@ -103,8 +106,8 @@ const faqs = [
     a: "The session is non-refundable once your time slot is confirmed, but it can be rescheduled with at least 24 hours' notice.",
   },
   {
-    q: "Do you only work with salons at $1M+ in revenue?",
-    a: "That's who we're built for, and where this session delivers the most. Close to that range? Book it — we'll tell you honestly if the timing isn't right.",
+    q: "Is this a sales pitch for ongoing services?",
+    a: "No. It's a paid diagnostic with a written deliverable. If ongoing bookkeeping or CFO work is a fit, we'll say so — but the plan is yours either way.",
   },
 ];
 
