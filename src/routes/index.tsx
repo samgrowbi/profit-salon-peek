@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
 import heroSalon from "@/assets/hero-salon.jpg";
 import advisorHeadshot from "@/assets/advisor-headshot.jpg";
 import { LeadForm } from "@/components/lp/LeadForm";
