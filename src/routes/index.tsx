@@ -24,13 +24,11 @@ const PHONE = "+1 385-985-7709";
 const EMAIL = "hello@trueprofitsalons.com";
 const OFFER_EXPIRES = "December 31"; // PLACEHOLDER — set real expiry date
 
-// PLACEHOLDER: These "$0K" counters must be replaced with real figures from the client
-// before launch — the live site animates real numbers we don't have from a static read.
-// Do NOT fabricate numbers here.
+// Real client averages, confirmed from the live site (trueprofitsalons.com).
 const stats = [
-  { label: "Avg Revenue Increase", value: "$0K" },
-  { label: "Avg Profit Increase", value: "$0K" },
-  { label: "Avg Cash Reserves Increase", value: "$0K" },
+  { label: "Increased In Revenue", value: "$164K" },
+  { label: "Increased In Profit", value: "$55K" },
+  { label: "Increased In Cash Reserves", value: "$114K" },
 ];
 
 const pains = [
@@ -48,20 +46,6 @@ const included = [
   "A simple 90-day action plan you can implement with us, your current accountant, or on your own.",
 ];
 
-const differentiators = [
-  {
-    title: "This isn't a free sales call in disguise",
-    body: "It's a paid, structured session with a real deliverable, led by an Advanced Certified Profit First Professional.",
-  },
-  {
-    title: "Salon-exclusive expertise",
-    body: "Booth rent vs. commission, tips, service vs. retail — no explaining your industry to a generalist.",
-  },
-  {
-    title: "You leave with a written plan",
-    body: "A 90-day action plan in your hands, not a slide deck you never open again.",
-  },
-];
 
 const testimonials = [
   {
@@ -165,19 +149,6 @@ function LandingPage() {
                 $500 value, now $250 • 60 minutes • Pay securely via Stripe
               </p>
 
-              <dl className="mt-10 grid grid-cols-3 gap-3 border-t border-border pt-6">
-                {stats.map((stat) => (
-                  <div key={stat.label}>
-                    <dt className="text-xs text-muted-foreground">{stat.label}</dt>
-                    <dd className="font-display text-2xl font-semibold text-foreground sm:text-3xl">
-                      {stat.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="mt-2 text-xs text-muted-foreground italic">
-                [PLACEHOLDER figures — replace with approved client averages before launch.]
-              </p>
             </div>
 
             <div className="relative">
@@ -195,6 +166,27 @@ function LandingPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Results band */}
+        <section className="bg-plum text-plum-foreground">
+          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+            <div className="grid gap-8 text-center sm:grid-cols-3">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-display text-5xl font-bold text-white sm:text-6xl">
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 text-sm uppercase tracking-wider text-plum-foreground/80">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-center text-sm text-plum-foreground/70">
+              Average client results. Individual results may vary.
+            </p>
           </div>
         </section>
 
