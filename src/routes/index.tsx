@@ -4,9 +4,9 @@ import advisorHeadshot from "@/assets/advisor-headshot.jpg";
 import { LeadForm } from "@/components/lp/LeadForm";
 import { StickyMobileCta } from "@/components/lp/StickyMobileCta";
 
-const TITLE = "Profit Clarity Analysis for Salon Owners — 50% Off | True Profit Salons";
+const TITLE = "Profit Clarity Analysis for Salon Owners - 50% Off | True Profit Salons";
 const DESCRIPTION =
-  "A 60-minute one-on-one deep dive into your salon's numbers with a Profit First Certified salon CFO. Normally $500 — now $250 for a limited time.";
+  "A 60-minute one-on-one deep dive into your salon's numbers with a Profit First Certified salon CFO. Normally $500 - now $250 for a limited time.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 
 const PHONE = "+1 385-985-7709";
 const EMAIL = "hello@trueprofitsalons.com";
-const OFFER_EXPIRES = "December 31"; // PLACEHOLDER — set real expiry date
+const OFFER_EXPIRES = "December 31"; // PLACEHOLDER - set real expiry date
 
 // Real client averages, confirmed from the live site (trueprofitsalons.com).
 const stats = [
@@ -50,7 +50,7 @@ const included = [
 const testimonials = [
   {
     quote:
-      "I wish everyone had a CFO like Josh. He is so knowledgeable — not just with financials but with business as a whole.",
+      "I wish everyone had a CFO like Josh. He is so knowledgeable - not just with financials but with business as a whole.",
     name: "Salon Gloss",
     business: "Salon Owner",
   },
@@ -83,7 +83,7 @@ const faqs = [
   },
   {
     q: "What if I'm not on QuickBooks?",
-    a: "That's fine. Xero, spreadsheets, or nothing at all — we'll work with what you have and tell you what to fix first.",
+    a: "That's fine. Xero, spreadsheets, or nothing at all - we'll work with what you have and tell you what to fix first.",
   },
   {
     q: "Is the $250 refundable?",
@@ -91,7 +91,7 @@ const faqs = [
   },
   {
     q: "Is this a sales pitch for ongoing services?",
-    a: "No. It's a paid diagnostic with a written deliverable. If ongoing bookkeeping or CFO work is a fit, we'll say so — but the plan is yours either way.",
+    a: "No. It's a paid diagnostic with a written deliverable. If ongoing bookkeeping or CFO work is a fit, we'll say so - but the plan is yours either way.",
   },
 ];
 
@@ -130,14 +130,14 @@ function LandingPage() {
           <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-2 lg:items-center lg:py-20">
             <div>
               <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wider text-accent-foreground uppercase">
-                Limited time — 50% off
+                Limited time - 50% off
               </span>
               <h1 className="mt-5 text-4xl leading-[1.08] text-foreground sm:text-5xl lg:text-[3.4rem]">
-                Find Out Exactly Where Your Salon's Profit Is Leaking — In 60 Minutes
+                Find Out Exactly Where Your Salon's Profit Is Leaking - In 60 Minutes
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted-foreground">
                 A one-on-one deep dive into your numbers with a Profit First Certified salon CFO.
-                Normally $500 — right now 50% off at $250.
+                Normally $500 - right now 50% off at $250.
               </p>
               <a
                 href="#claim"
@@ -212,7 +212,7 @@ function LandingPage() {
               What's included in your deep dive
             </h2>
             <p className="mt-3 max-w-2xl text-ink-foreground/70">
-              Sixty focused minutes on your numbers — and a plan you can act on the same week.
+              Sixty focused minutes on your numbers - and a plan you can act on the same week.
             </p>
             <ul className="mt-9 grid gap-5 sm:grid-cols-2">
               {included.map((item) => (
@@ -254,7 +254,7 @@ function LandingPage() {
           </ul>
         </section>
 
-        {/* Why this — real numbers from real salons */}
+        {/* Why this - real numbers from real salons */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">Real Numbers From Real Salons</h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
@@ -265,15 +265,15 @@ function LandingPage() {
             <blockquote className="rounded-2xl border border-border bg-card p-6 shadow-sm text-foreground">
               "Since working with my CFO I have gotten my financials under control and
               am actively making profit and saving for taxes."
-              <footer className="mt-3 text-sm text-muted-foreground">— Bodhi Sanctuary</footer>
+              <footer className="mt-3 text-sm text-muted-foreground">- Bodhi Sanctuary</footer>
             </blockquote>
             <blockquote className="rounded-2xl border border-border bg-card p-6 shadow-sm text-foreground">
               "Our business is so much better with Erika. We finally understand our numbers."
-              <footer className="mt-3 text-sm text-muted-foreground">— Bon Bini Aesthetics</footer>
+              <footer className="mt-3 text-sm text-muted-foreground">- Bon Bini Aesthetics</footer>
             </blockquote>
           </div>
           <p className="mt-8 text-lg text-foreground">
-            This is the same process that got these results — condensed into one 60-minute
+            This is the same process that got these results - condensed into one 60-minute
             session, at half price.
           </p>
         </section>
@@ -317,7 +317,7 @@ function LandingPage() {
               <p className="mt-8 rounded-xl bg-secondary p-4 text-sm text-muted-foreground">
                 We hold a limited number of these sessions each month. This 50% offer ends{" "}
                 <strong className="text-foreground">{OFFER_EXPIRES}</strong>.{" "}
-                <span className="italic">[PLACEHOLDER date — set before launch.]</span>
+                <span className="italic">[PLACEHOLDER date - set before launch.]</span>
               </p>
 
               <a
@@ -338,7 +338,7 @@ function LandingPage() {
               <figure key={t.quote} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
                 <blockquote className="text-foreground">"{t.quote}"</blockquote>
                 <figcaption className="mt-4 text-sm text-muted-foreground">
-                  <span className="font-semibold text-foreground">{t.name}</span> — {t.business}
+                  <span className="font-semibold text-foreground">{t.name}</span> - {t.business}
                 </figcaption>
               </figure>
             ))}
@@ -374,8 +374,8 @@ function LandingPage() {
             <div>
               <h2 className="text-3xl">Meet The People Behind Your Numbers</h2>
               <p className="mt-3 text-sm font-semibold tracking-wide text-primary uppercase">
-                Backed by a team of dedicated Profit Advisors — including Nicole, Patrick,
-                Alexandra, and Erika — who work exclusively with salons.
+                Backed by a team of dedicated Profit Advisors - including Nicole, Patrick,
+                Alexandra, and Erika - who work exclusively with salons.
               </p>
               <p className="mt-3 text-muted-foreground">
                 Ross Loveland is an Advanced Certified Profit First Professional and Certified Master
@@ -470,7 +470,7 @@ function LandingPage() {
                 True Profit Salons
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Bookkeeping, CFO advisory, and tax — built for salon owners.
+                Bookkeeping, CFO advisory, and tax - built for salon owners.
               </p>
               <p className="mt-3 text-sm text-muted-foreground">
                 <a href={`tel:${PHONE.replace(/[^\d]/g, "")}`} className="hover:text-primary">
@@ -482,7 +482,7 @@ function LandingPage() {
                 </a>
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Fully remote team, based in the U.S. — Mon–Fri, 9am–5pm MST.
+                Fully remote team, based in the U.S. - Mon–Fri, 9am–5pm MST.
               </p>
             </div>
             <nav aria-label="Footer" className="text-sm">

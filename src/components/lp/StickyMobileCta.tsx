@@ -20,7 +20,7 @@ export function StickyMobileCta() {
         href="#claim"
         className="flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground"
       >
-        Claim 50% Off — $250
+        Claim 50% Off - $250
       </a>
     </div>
   );
