@@ -73,7 +73,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 // ---------------------------------------------------------------------------
-// META PIXEL — paste your Pixel ID between the quotes below to activate tracking.
+// META PIXEL - paste your Pixel ID between the quotes below to activate tracking.
 // Leave it empty and the pixel stays dormant (no requests fired).
 const META_PIXEL_ID = ""; // <-- META PIXEL ID GOES HERE, e.g. "123456789012345"
 // ---------------------------------------------------------------------------
