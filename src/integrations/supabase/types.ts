@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          bookkeeping_software: string | null
+          business_name: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          landing_page: string | null
+          monthly_revenue: string | null
+          pain_point: string | null
+          phone: string | null
+          referrer: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+        }
+        Insert: {
+          bookkeeping_software?: string | null
+          business_name?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          landing_page?: string | null
+          monthly_revenue?: string | null
+          pain_point?: string | null
+          phone?: string | null
+          referrer?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Update: {
+          bookkeeping_software?: string | null
+          business_name?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          landing_page?: string | null
+          monthly_revenue?: string | null
+          pain_point?: string | null
+          phone?: string | null
+          referrer?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
