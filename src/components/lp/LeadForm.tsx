@@ -56,7 +56,23 @@ export function LeadForm() {
 
     setErrors({});
     setSubmitting(true);
-    const { error } = await supabase.from("leads").insert({ ...parsed.data, ...utm });
+    const { error } = await supabase.from("leads").insert({
+      full_name: parsed.data.full_name,
+      business_name: parsed.data.business_name || null,
+      email: parsed.data.email,
+      phone: parsed.data.phone,
+      monthly_revenue: parsed.data.monthly_revenue,
+      bookkeeping_software: parsed.data.bookkeeping_software,
+      pain_point: parsed.data.pain_point || null,
+      utm_source: utm["utm_source"] || null,
+      utm_medium: utm["utm_medium"] || null,
+      utm_campaign: utm["utm_campaign"] || null,
+      utm_term: utm["utm_term"] || null,
+      utm_content: utm["utm_content"] || null,
+      referrer: utm["referrer"] || null,
+      landing_page: utm["landing_page"] || null,
+    });
+
     setSubmitting(false);
 
     if (error) {
