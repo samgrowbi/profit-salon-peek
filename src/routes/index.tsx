@@ -162,7 +162,7 @@ function LandingPage() {
                 width={1120}
                 height={1408}
                 className="aspect-[4/5] w-full rounded-3xl object-cover shadow-lg"
-                style={{ objectPosition: "72% 50%" }}
+                style={{ objectPosition: "64% 50%" }}
               />
               <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-border/70 bg-card/90 p-4 shadow-lg backdrop-blur sm:left-6 sm:right-auto sm:max-w-xs">
                 <p className="text-sm font-semibold text-foreground">Profit Clarity Analysis</p>
