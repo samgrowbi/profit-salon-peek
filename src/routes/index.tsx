@@ -254,17 +254,28 @@ function LandingPage() {
           </ul>
         </section>
 
-        {/* Why this */}
+        {/* Why this — real numbers from real salons */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">Why this, not a generic bookkeeper</h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {differentiators.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                <h3 className="text-xl">{item.title}</h3>
-                <p className="mt-2 text-muted-foreground">{item.body}</p>
-              </div>
-            ))}
+          <h2 className="text-3xl sm:text-4xl">Real Numbers From Real Salons</h2>
+          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+            Average client results: $164K increased revenue, $55K increased profit,
+            $114K increased cash reserves.
+          </p>
+          <div className="mt-8 space-y-4">
+            <blockquote className="rounded-2xl border border-border bg-card p-6 shadow-sm text-foreground">
+              "Since working with my CFO I have gotten my financials under control and
+              am actively making profit and saving for taxes."
+              <footer className="mt-3 text-sm text-muted-foreground">— Bodhi Sanctuary</footer>
+            </blockquote>
+            <blockquote className="rounded-2xl border border-border bg-card p-6 shadow-sm text-foreground">
+              "Our business is so much better with Erika. We finally understand our numbers."
+              <footer className="mt-3 text-sm text-muted-foreground">— Bon Bini Aesthetics</footer>
+            </blockquote>
           </div>
+          <p className="mt-8 text-lg text-foreground">
+            This is the same process that got these results — condensed into one 60-minute
+            session, at half price.
+          </p>
         </section>
 
         {/* Offer */}
