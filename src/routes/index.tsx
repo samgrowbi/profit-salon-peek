@@ -68,30 +68,16 @@ const testimonials = [
   },
 ];
 
+// Source-verified FAQs only. Leave space to add more entries (refunds,
+// session prep, software requirements) once the client confirms policy.
 const faqs = [
-  {
-    q: "How do I get started?",
-    a: "Book your session and complete payment via Stripe, fill out a short intake form, then join your 60-minute call.",
-  },
   {
     q: "Do you only work with salons?",
     a: "Yes. We work exclusively with salons and beauty businesses.",
   },
   {
-    q: "What do I need to prepare?",
-    a: "Your most recent profit and loss statement, balance sheet, and a rough sense of your owner pay. If your books are messy, bring them as they are.",
-  },
-  {
-    q: "What if I'm not on QuickBooks?",
-    a: "That's fine. Xero, spreadsheets, or nothing at all - we'll work with what you have and tell you what to fix first.",
-  },
-  {
-    q: "Is the $250 refundable?",
-    a: "The session is non-refundable once your time slot is confirmed, but it can be rescheduled with at least 24 hours' notice.",
-  },
-  {
-    q: "Is this a sales pitch for ongoing services?",
-    a: "No. It's a paid diagnostic with a written deliverable. If ongoing bookkeeping or CFO work is a fit, we'll say so - but the plan is yours either way.",
+    q: "Do you work virtually?",
+    a: "Yes. Our team is fully remote and supports salons across the U.S.",
   },
 ];
 
