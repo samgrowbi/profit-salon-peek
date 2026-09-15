@@ -34,8 +34,8 @@ export function LeadForm() {
       const value = params.get(key);
       if (value) collected[key] = value.slice(0, 200);
     }
-    collected.referrer = document.referrer.slice(0, 500);
-    collected.landing_page = window.location.href.slice(0, 500);
+    collected['referrer'] = document.referrer.slice(0, 500);
+    collected['landing_page'] = window.location.href.slice(0, 500);
     setUtm(collected);
   }, []);
 
@@ -109,7 +109,7 @@ export function LeadForm() {
             Full name
           </label>
           <input id="full_name" name="full_name" className={fieldClass} autoComplete="name" />
-          <FieldError message={errors.full_name} />
+          <FieldError message={errors["full_name"]} />
         </div>
 
         <div className="sm:col-span-1">
@@ -122,7 +122,7 @@ export function LeadForm() {
             className={fieldClass}
             autoComplete="organization"
           />
-          <FieldError message={errors.business_name} />
+          <FieldError message={errors["business_name"]} />
         </div>
 
         <div className="sm:col-span-1">
@@ -137,7 +137,7 @@ export function LeadForm() {
             className={fieldClass}
             autoComplete="email"
           />
-          <FieldError message={errors.email} />
+          <FieldError message={errors["email"]} />
         </div>
 
         <div className="sm:col-span-1">
@@ -152,7 +152,7 @@ export function LeadForm() {
             className={fieldClass}
             autoComplete="tel"
           />
-          <FieldError message={errors.phone} />
+          <FieldError message={errors["phone"]} />
         </div>
 
         <div className="sm:col-span-1">
@@ -169,7 +169,7 @@ export function LeadForm() {
             <option>$125K – $200K / month</option>
             <option>$200K+ / month</option>
           </select>
-          <FieldError message={errors.monthly_revenue} />
+          <FieldError message={errors["monthly_revenue"]} />
         </div>
 
         <div className="sm:col-span-1">
@@ -192,7 +192,7 @@ export function LeadForm() {
             <option>None / Not sure</option>
             <option>Other</option>
           </select>
-          <FieldError message={errors.bookkeeping_software} />
+          <FieldError message={errors["bookkeeping_software"]} />
         </div>
 
         <div className="sm:col-span-2">
@@ -207,7 +207,7 @@ export function LeadForm() {
             className={fieldClass}
             placeholder="e.g. I can't tell what I should be paying myself."
           />
-          <FieldError message={errors.pain_point} />
+          <FieldError message={errors["pain_point"]} />
         </div>
       </div>
 
