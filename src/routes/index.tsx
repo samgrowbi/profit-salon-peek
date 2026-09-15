@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 
 const PHONE = "+1 385-985-7709";
 const EMAIL = "hello@trueprofitsalons.com";
-const OFFER_EXPIRES = "December 31"; // PLACEHOLDER - set real expiry date
+
 
 // Real client averages, confirmed from the live site (trueprofitsalons.com).
 const stats = [
