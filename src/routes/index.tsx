@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Armchair,
-  Bath,
   Check,
   Facebook,
+  Flower2,
   HeartHandshake,
   Instagram,
   Leaf,
@@ -67,13 +67,13 @@ const included = [
 
 const whoThisIsFor = [
   {
-    icon: Bath,
+    icon: Flower2,
     text: "Own or lead a spa, hair salon, beauty salon, or multi-stylist business",
   },
   { icon: Armchair, text: "Feel like money is coming in but not staying" },
-  { icon: Lightbulb, text: "Want clarity on your numbers without the overwhelm" },
+  { icon: Users, text: "Want clarity on your numbers without the overwhelm" },
   {
-    icon: Users,
+    icon: Lightbulb,
     text: "Are serious about improving profit and paying yourself properly",
   },
   {
@@ -157,9 +157,9 @@ function LandingPage() {
     <div className="min-h-screen bg-background pb-20 md:pb-0">
       {/* Sticky top bar */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3">
+          <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 py-2.5 sm:gap-3 sm:py-3">
           <div className="min-w-0 text-sm">
-            <p className="font-display text-base font-semibold text-foreground">
+            <p className="whitespace-nowrap font-display text-sm font-semibold text-foreground sm:text-base">
               True Profit Salons
             </p>
             <p className="truncate text-muted-foreground">
@@ -174,7 +174,7 @@ function LandingPage() {
           </div>
           <a
             href="#claim"
-            className="shrink-0 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:px-6"
+            className="max-w-[16rem] shrink-0 rounded-full bg-primary px-3 py-2.5 text-center text-xs font-semibold leading-tight text-primary-foreground transition-opacity hover:opacity-90 sm:max-w-none sm:px-6 sm:text-sm"
           >
             Claim 50% Off Comprehensive Analysis
           </a>
@@ -184,7 +184,7 @@ function LandingPage() {
       <main>
         {/* Hero */}
         <section id="hero" className="border-b border-border bg-cream">
-          <div className="mx-auto grid max-w-6xl gap-7 px-4 py-8 lg:grid-cols-2 lg:items-center lg:py-10">
+          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-7 lg:grid-cols-2 lg:items-center lg:py-10">
             <div>
               <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wider text-accent-foreground uppercase">
                 Limited time - 50% off
@@ -215,7 +215,7 @@ function LandingPage() {
             <div className="relative overflow-hidden rounded-3xl bg-ink shadow-lg">
               <video
                 aria-label="Profit Clarity Analysis explainer video placeholder"
-                className="aspect-[4/5] max-h-[35rem] w-full object-cover opacity-90"
+                className="aspect-video w-full object-cover opacity-90 sm:aspect-[4/5] sm:max-h-[35rem]"
                 controls
                 muted
                 playsInline
@@ -289,14 +289,10 @@ function LandingPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-10 grid gap-8 border-t border-border pt-8 sm:grid-cols-2">
+          <div className="mt-10 max-w-2xl border-t border-border pt-8">
             <blockquote className="font-display text-xl italic text-foreground">
               “I wish everyone had a CFO like Josh. He is so knowledgeable - not just with financials but with business as a whole.”
               <footer className="mt-3 font-sans text-xs font-semibold not-italic uppercase tracking-wider text-muted-foreground">Salon Gloss</footer>
-            </blockquote>
-            <blockquote className="font-display text-xl italic text-foreground">
-              “Since working with my CFO I have gotten my financials under control and am actively making profit and saving for taxes.”
-              <footer className="mt-3 font-sans text-xs font-semibold not-italic uppercase tracking-wider text-muted-foreground">Bodhi Sanctuary</footer>
             </blockquote>
           </div>
         </section>
@@ -422,7 +418,7 @@ function LandingPage() {
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">What salon owners say</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {testimonials.map((t, index) => (
+            {testimonials.map((t) => (
               <figure key={t.quote} className="rounded-2xl bg-cream p-6 shadow-sm">
                 <span className="mb-5 block h-1 w-10 rounded-full bg-primary" aria-hidden="true" />
                 <blockquote className="text-foreground">"{t.quote}"</blockquote>
