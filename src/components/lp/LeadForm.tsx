@@ -238,7 +238,7 @@ export function LeadForm() {
         disabled={submitting}
         className="mt-6 w-full rounded-full bg-primary px-6 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
       >
-        {submitting ? "Sending…" : "Claim My 50% Off Deep Dive"}
+        {submitting ? "Sending…" : "Claim My 50% Off Comprehensive Analysis"}
       </button>
       <p className="mt-3 text-center text-sm text-muted-foreground">
         $500 value, now $250 • 60 minutes • Pay securely via Stripe

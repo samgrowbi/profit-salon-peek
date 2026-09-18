@@ -1,5 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
+import {
+  Armchair,
+  Check,
+  Facebook,
+  Flower2,
+  HeartHandshake,
+  Instagram,
+  Leaf,
+  Lightbulb,
+  Linkedin,
+  Play,
+  Quote,
+  Sparkles,
+  Users,
+  Youtube,
+} from "lucide-react";
 import heroSalon from "@/assets/hero-salon.jpg";
 import advisorHeadshot from "@/assets/advisor-headshot.jpg";
 import { LeadForm } from "@/components/lp/LeadForm";
@@ -7,7 +22,7 @@ import { StickyMobileCta } from "@/components/lp/StickyMobileCta";
 
 const TITLE = "Profit Clarity Analysis for Salon Owners - 50% Off | True Profit Salons";
 const DESCRIPTION =
-  "A 60-minute one-on-one deep dive into your salon's numbers with a Profit First Certified salon CFO. Normally $500 - now $250 for a limited time.";
+  "A 60-minute one-on-one Comprehensive Analysis of your salon's numbers with a Profit First Certified salon CFO. Normally $500 - now $250 for a limited time.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,6 +31,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: LandingPage,
@@ -27,8 +44,8 @@ const EMAIL = "hello@trueprofitsalons.com";
 
 // Real client averages, confirmed from the live site (trueprofitsalons.com).
 const stats = [
-  { label: "Increased In Revenue", value: "$164K" },
-  { label: "Increased In Profit", value: "$55K" },
+  { label: "Average Increase in Revenue Per Year", value: "$164K" },
+  { label: "Average Increase in Profit", value: "$30K–$50K" },
   { label: "Increased In Cash Reserves", value: "$114K" },
 ];
 
@@ -40,11 +57,29 @@ const pains = [
 ];
 
 const included = [
+  "A full review of your bookkeeping and financial records.",
   "A clear snapshot of current revenue, expenses, and real profit.",
   "Review of owner's pay, cash flow, and overall financial health.",
   "Quick check of pricing, service mix, and margins to spot hidden leaks.",
   "Your top 3–5 opportunities to protect and increase profit.",
   "A simple 90-day action plan you can implement with us, your current accountant, or on your own.",
+];
+
+const whoThisIsFor = [
+  {
+    icon: Flower2,
+    text: "Own or lead a spa, hair salon, beauty salon, or multi-stylist business",
+  },
+  { icon: Armchair, text: "Feel like money is coming in but not staying" },
+  { icon: Users, text: "Want clarity on your numbers without the overwhelm" },
+  {
+    icon: Lightbulb,
+    text: "Are serious about improving profit and paying yourself properly",
+  },
+  {
+    icon: HeartHandshake,
+    text: "Value honest, Profit First inspired guidance from someone who understands the spa and salon industry",
+  },
 ];
 
 
@@ -100,14 +135,31 @@ const faqs = [
   },
 ];
 
+function CompactCta() {
+  return (
+    <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 border-t border-border px-4 py-7 sm:flex-row sm:items-center">
+      <div>
+        <p className="font-display text-xl font-semibold text-foreground">Ready to see what your numbers are saying?</p>
+        <p className="mt-1 text-sm text-muted-foreground">Get clear priorities and a practical 90-day plan.</p>
+      </div>
+      <a
+        href="#claim"
+        className="inline-flex w-full shrink-0 items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+      >
+        Claim My 50% Off Comprehensive Analysis
+      </a>
+    </div>
+  );
+}
+
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-0">
       {/* Sticky top bar */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3">
+          <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 py-2.5 sm:gap-3 sm:py-3">
           <div className="min-w-0 text-sm">
-            <p className="font-display text-base font-semibold text-foreground">
+            <p className="whitespace-nowrap font-display text-sm font-semibold text-foreground sm:text-base">
               True Profit Salons
             </p>
             <p className="truncate text-muted-foreground">
@@ -122,17 +174,17 @@ function LandingPage() {
           </div>
           <a
             href="#claim"
-            className="shrink-0 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:px-6"
+            className="max-w-[16rem] shrink-0 rounded-full bg-primary px-3 py-2.5 text-center text-xs font-semibold leading-tight text-primary-foreground transition-opacity hover:opacity-90 sm:max-w-none sm:px-6 sm:text-sm"
           >
-            Claim 50% Off
+            Claim 50% Off Comprehensive Analysis
           </a>
         </div>
       </header>
 
       <main>
         {/* Hero */}
-        <section className="border-b border-border bg-cream">
-          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-2 lg:items-center lg:py-20">
+        <section id="hero" className="border-b border-border bg-cream">
+          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-7 lg:grid-cols-2 lg:items-center lg:py-10">
             <div>
               <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wider text-accent-foreground uppercase">
                 Limited time - 50% off
@@ -141,30 +193,43 @@ function LandingPage() {
                 Find Out Exactly Where Your Salon's Profit Is Leaking - In 60 Minutes
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-                A one-on-one deep dive into your numbers with a Profit First Certified salon CFO.
-                Normally $500 - right now 50% off at $250.
+                A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified salon CFO.
               </p>
               <a
                 href="#claim"
                 className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
               >
-                Claim My 50% Off Deep Dive
+                Claim My 50% Off Comprehensive Analysis
               </a>
-              <p className="mt-3 text-sm text-muted-foreground">
-                $500 value, now $250 • 60 minutes • Pay securely via Stripe
-              </p>
+              <div className="mt-4" aria-label="Normally $500, now $250 for 60 minutes">
+                <p className="flex items-baseline gap-3">
+                  <span className="font-display text-lg text-blue-700 line-through">$500</span>
+                  <span className="font-display text-4xl font-bold text-gold">$250</span>
+                </p>
+                <p className="mt-1 text-sm font-medium text-foreground">60 minutes</p>
+                <p className="mt-1 text-xs text-muted-foreground">Pay securely via Stripe</p>
+              </div>
 
             </div>
 
-            <div className="relative">
-              <img
-                src={heroSalon}
-                alt="Confident salon owner reviewing her business numbers on a tablet in her warm, upscale salon"
-                width={1086}
-                height={1448}
-                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-lg"
-                style={{ objectPosition: "50% 50%" }}
-              />
+            <div className="relative overflow-hidden rounded-3xl bg-ink shadow-lg">
+              <video
+                aria-label="Profit Clarity Analysis explainer video placeholder"
+                className="aspect-video w-full object-cover opacity-90 sm:aspect-[4/5] sm:max-h-[35rem]"
+                controls
+                muted
+                playsInline
+                preload="none"
+                poster={heroSalon}
+              >
+                Your browser does not support embedded video.
+              </video>
+              <div className="pointer-events-none absolute inset-0 grid place-items-center">
+                <span className="grid h-16 w-16 place-items-center rounded-full bg-card/90 text-primary shadow-lg backdrop-blur">
+                  <Play aria-hidden="true" className="ml-1 h-7 w-7 fill-current" />
+                </span>
+                <span className="sr-only">Explainer video coming soon</span>
+              </div>
               <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-border/70 bg-card/90 p-4 shadow-lg backdrop-blur sm:left-6 sm:right-auto sm:max-w-xs">
                 <p className="text-sm font-semibold text-foreground">Profit Clarity Analysis</p>
                 <p className="text-sm text-muted-foreground">
@@ -173,6 +238,23 @@ function LandingPage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Who we are */}
+        <section className="bg-background">
+          <div className="mx-auto grid max-w-5xl gap-5 px-4 py-10 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center lg:py-12">
+            <div className="grid h-16 w-16 place-items-center rounded-full bg-gold-soft text-primary">
+              <Leaf aria-hidden="true" className="h-8 w-8" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">Who Are We</p>
+              <h2 className="mt-2 text-2xl sm:text-3xl">Profit advisors who understand the beauty business.</h2>
+              <p className="mt-3 max-w-3xl text-muted-foreground">
+                We're a team of Profit First Certified advisors who work exclusively with salons and spas, backed by dedicated specialists who know the numbers behind your chairs, services, retail, and team.
+              </p>
+            </div>
+          </div>
+          <CompactCta />
         </section>
 
         {/* Results band */}
@@ -198,27 +280,32 @@ function LandingPage() {
 
         {/* Pain */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">Sound familiar?</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <h2 className="text-3xl sm:text-4xl">Are You Facing These Problems?</h2>
+          <ul className="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
             {pains.map((pain) => (
-              <div
-                key={pain}
-                className="rounded-2xl border border-border bg-card p-6 text-lg text-foreground shadow-sm"
-              >
-                {pain}
-              </div>
+              <li key={pain} className="flex gap-3 text-lg text-foreground">
+                <Check aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <span>{pain}</span>
+              </li>
             ))}
+          </ul>
+          <div className="mt-10 max-w-2xl border-t border-border pt-8">
+            <blockquote className="font-display text-xl italic text-foreground">
+              “I wish everyone had a CFO like Josh. He is so knowledgeable - not just with financials but with business as a whole.”
+              <footer className="mt-3 font-sans text-xs font-semibold not-italic uppercase tracking-wider text-muted-foreground">Salon Gloss</footer>
+            </blockquote>
           </div>
         </section>
+        <CompactCta />
 
         {/* What's included */}
         <section className="bg-ink text-ink-foreground">
           <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
             <h2 className="text-3xl text-ink-foreground sm:text-4xl">
-              What's included in your deep dive
+              What's Included in Your Comprehensive Analysis
             </h2>
             <p className="mt-3 max-w-2xl text-ink-foreground/70">
-              Sixty focused minutes on your numbers - and a plan you can act on the same week.
+              60 focused minutes on your numbers - and a plan you can act on the same week.
             </p>
             <ul className="mt-9 grid gap-5 sm:grid-cols-2">
               {included.map((item) => (
@@ -235,26 +322,18 @@ function LandingPage() {
             </ul>
           </div>
         </section>
+        <div className="bg-background"><CompactCta /></div>
 
         {/* Who this is for */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">Who this is for</h2>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {[
-              "Own or lead a hair salon, beauty salon, or multi-stylist business",
-              "Feel like money is coming in but not staying",
-              "Want clarity on your numbers without the overwhelm",
-              "Are serious about improving profit and paying yourself properly",
-              "Value honest, Profit First inspired guidance from someone who understands the salon industry",
-            ].map((item) => (
-              <li key={item} className="flex gap-3 rounded-2xl border border-border bg-card p-5 shadow-sm">
-                <span
-                  aria-hidden="true"
-                  className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold text-sm font-bold text-ink"
-                >
-                  ✓
+          <ul className="mt-10 grid gap-x-14 gap-y-9 sm:grid-cols-2">
+            {whoThisIsFor.map(({ icon: Icon, text }) => (
+              <li key={text} className="flex items-start gap-4">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gold-soft text-primary">
+                  <Icon aria-hidden="true" className="h-6 w-6" />
                 </span>
-                <span className="text-base text-foreground/90">{item}</span>
+                <span className="pt-2 text-base text-foreground/90">{text}</span>
               </li>
             ))}
           </ul>
@@ -264,18 +343,19 @@ function LandingPage() {
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">Real Numbers From Real Salons</h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Average client results: $164K increased revenue, $55K increased profit,
-            $114K increased cash reserves.
+            Average client results: $164K average increase in revenue per year, $30K–$50K average increase in profit,
+            and $114K increased in cash reserves.
           </p>
-          <div className="mt-8 space-y-4">
-            <blockquote className="rounded-2xl border border-border bg-card p-6 shadow-sm text-foreground">
-              "Since working with my CFO I have gotten my financials under control and
-              am actively making profit and saving for taxes."
-              <footer className="mt-3 text-sm text-muted-foreground">- Bodhi Sanctuary</footer>
+          <div className="mt-10 grid gap-10 sm:grid-cols-2">
+            <blockquote className="relative pl-10 text-foreground">
+              <Quote aria-hidden="true" className="absolute left-0 top-0 h-8 w-8 fill-gold-soft text-primary" />
+              <p className="font-display text-2xl italic leading-relaxed">Since working with my CFO I have gotten my financials under control and am actively making profit and saving for taxes.</p>
+              <footer className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Bodhi Sanctuary</footer>
             </blockquote>
-            <blockquote className="rounded-2xl border border-border bg-card p-6 shadow-sm text-foreground">
-              "Our business is so much better with Erika. We finally understand our numbers."
-              <footer className="mt-3 text-sm text-muted-foreground">- Bon Bini Aesthetics</footer>
+            <blockquote className="relative pl-10 text-foreground">
+              <Quote aria-hidden="true" className="absolute left-0 top-0 h-8 w-8 fill-gold-soft text-primary" />
+              <p className="font-display text-2xl italic leading-relaxed">Our business is so much better with Erika. We finally understand our numbers.</p>
+              <footer className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Bon Bini Aesthetics</footer>
             </blockquote>
           </div>
           <p className="mt-8 text-lg text-foreground">
@@ -328,7 +408,7 @@ function LandingPage() {
                 href="#claim"
                 className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Claim My 50% Off Deep Dive
+                Claim My 50% Off Comprehensive Analysis
               </a>
             </div>
           </div>
@@ -339,7 +419,8 @@ function LandingPage() {
           <h2 className="text-3xl sm:text-4xl">What salon owners say</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {testimonials.map((t) => (
-              <figure key={t.quote} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+              <figure key={t.quote} className="rounded-2xl bg-cream p-6 shadow-sm">
+                <span className="mb-5 block h-1 w-10 rounded-full bg-primary" aria-hidden="true" />
                 <blockquote className="text-foreground">"{t.quote}"</blockquote>
                 <figcaption className="mt-4 text-sm text-muted-foreground">
                   <span className="font-semibold text-foreground">{t.name}</span> - {t.business}
@@ -362,6 +443,28 @@ function LandingPage() {
               </li>
             ))}
           </ul>
+        </section>
+        <CompactCta />
+
+        {/* Video testimonials */}
+        <section className="bg-cream">
+          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+            <h2 className="text-3xl sm:text-4xl">Client Stories, In Their Own Words</h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {["Client video 01", "Client video 02", "Client video 03"].map((label) => (
+                <figure key={label}>
+                  <div className="relative grid aspect-video place-items-center overflow-hidden rounded-2xl bg-ink text-ink-foreground shadow-sm">
+                    <div className="absolute inset-0 bg-cream/10" />
+                    <span className="relative grid h-14 w-14 place-items-center rounded-full bg-card text-primary shadow-lg">
+                      <Play aria-hidden="true" className="ml-1 h-6 w-6 fill-current" />
+                    </span>
+                    <span className="absolute bottom-3 left-3 rounded-full bg-card/90 px-3 py-1 text-xs font-semibold text-foreground">Video coming soon</span>
+                  </div>
+                  <figcaption className="mt-3 text-sm font-semibold text-foreground">{label} <span className="font-normal text-muted-foreground">- Name / Salon</span></figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* About the advisor */}
@@ -390,23 +493,7 @@ function LandingPage() {
             </div>
           </div>
         </section>
-
-        {/* Tools we work inside */}
-        <section className="mx-auto max-w-4xl px-4 py-10 text-center">
-          <p className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">
-            We work inside the tools you already use
-          </p>
-          <ul className="mt-4 flex flex-wrap items-center justify-center gap-3">
-            {["QuickBooks Online", "ProConnect", "GoHighLevel"].map((tool) => (
-              <li
-                key={tool}
-                className="rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground"
-              >
-                {tool}
-              </li>
-            ))}
-          </ul>
-        </section>
+        <CompactCta />
 
         {/* FAQ */}
         <section className="mx-auto max-w-3xl px-4 py-14 lg:py-20">
@@ -551,6 +638,17 @@ function LandingPage() {
                 </li>
               </ul>
             </div>
+          </div>
+          <div className="mt-8 border-t border-border pt-6 text-center">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">We work inside the tools you already use</p>
+            <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+              {["QuickBooks Online", "ProConnect", "GoHighLevel"].map((tool) => (
+                <li key={tool} className="flex items-center gap-2 text-sm font-semibold text-secondary-foreground">
+                  <Sparkles aria-hidden="true" className="h-4 w-4 text-primary" />
+                  {tool}
+                </li>
+              ))}
+            </ul>
           </div>
           <p className="mt-8 border-t border-border pt-5 text-xs text-muted-foreground">
             Average client results. Individual results may vary. © {new Date().getFullYear()} True

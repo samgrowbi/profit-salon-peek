@@ -4,7 +4,10 @@ export function StickyMobileCta() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 600);
+    const onScroll = () => {
+      const hero = document.getElementById("hero");
+      setVisible(hero ? hero.getBoundingClientRect().bottom <= 0 : false);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -20,7 +23,7 @@ export function StickyMobileCta() {
         href="#claim"
         className="flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground"
       >
-        Claim 50% Off - $250
+        Claim My 50% Off Comprehensive Analysis
       </a>
     </div>
   );
