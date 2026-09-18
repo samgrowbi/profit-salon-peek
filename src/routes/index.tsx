@@ -343,9 +343,9 @@ function LandingPage() {
           </ul>
         </section>
 
-        {/* Why this - real numbers from real salons */}
+        {/* Why this - real numbers from real salons and spas */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">Real Numbers From Real Salons</h2>
+          <h2 className="text-3xl sm:text-4xl">Real Numbers From Real Salons and Spas</h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
             Average client results: $164K average increase in revenue per year, $30K–$50K average increase in profit,
             and $114K increased in cash reserves.
@@ -404,7 +404,7 @@ function LandingPage() {
                 </div>
               </div>
 
-              <p className="mt-8 rounded-xl bg-secondary p-4 text-sm text-muted-foreground">
+              <p className="mt-8 text-sm text-muted-foreground">
                 We hold a limited number of these sessions each month.
               </p>
 
