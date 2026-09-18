@@ -20,9 +20,9 @@ import advisorHeadshot from "@/assets/advisor-headshot.jpg";
 import { LeadForm } from "@/components/lp/LeadForm";
 import { StickyMobileCta } from "@/components/lp/StickyMobileCta";
 
-const TITLE = "Profit Clarity Analysis for Salon Owners - 50% Off | True Profit Salons";
+const TITLE = "Profit Clarity Analysis for Salon and Spa Owners - 50% Off | True Profit Salons";
 const DESCRIPTION =
-  "A 60-minute one-on-one Comprehensive Analysis of your salon's numbers with a Profit First Certified salon CFO. Normally $500 - now $250 for a limited time.";
+  "A 60-minute one-on-one Comprehensive Analysis of your salon or spa's numbers with a Profit First Certified salon and spa CFO. Normally $500 - now $250 for a limited time.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -86,20 +86,20 @@ const whoThisIsFor = [
 const testimonials = [
   {
     quote:
-      "I wish everyone had a CFO like Josh. He is so knowledgeable - not just with financials but with business as a whole.",
-    name: "Salon Gloss",
+      "Pamela & Alex are the best! They've allowed us to truly scale and live by Profit First.",
+    name: "Parlour in the Woods",
     business: "Salon Owner",
   },
   {
     quote:
-      "Our business is so much better with Erika. We couldn't do it without her. Her spreadsheets keep us organized and we finally understand our numbers.",
-    name: "Bon Bini Aesthetics",
+      "This has been the financial freedom I needed. It has paid for itself. My CFO is the best - easy to work with, always prepared, and goes above and beyond.",
+    name: "TLoren",
     business: "Salon Owner",
   },
   {
     quote:
-      "Since working with my CFO I have gotten my financials under control and am actively making profit and saving for taxes.",
-    name: "Bodhi Sanctuary",
+      "Working with this company has sincerely helped me understand my numbers.",
+    name: "N Natural Hair Studio",
     business: "Salon Owner",
   },
 ];
@@ -107,7 +107,7 @@ const testimonials = [
 const faqs = [
   {
     q: "What happens after I book?",
-    a: "You'll pay securely via Stripe to confirm your spot, complete a short intake form about your salon, and then join your 60-minute call at the time you picked.",
+    a: "You'll pay securely via Stripe to confirm your spot, complete a short intake form about your salon or spa, and then join your 60-minute call at the time you picked.",
   },
   {
     q: "How is this different from a free consultation?",
@@ -115,7 +115,7 @@ const faqs = [
   },
   {
     q: "Who will I be meeting with?",
-    a: "A Profit First Certified salon Profit Advisor from the True Profit Salons team.",
+    a: "A Profit First Certified salon and spa Profit Advisor from the True Profit Salons team.",
   },
   {
     q: "What if my books are messy or out of date?",
@@ -126,12 +126,16 @@ const faqs = [
     a: "No. We work with QuickBooks Online, Xero, spreadsheets, or no formal system at all - the intake form asks what you currently use so we can prepare.",
   },
   {
-    q: "Is this only for salons already doing well, or can newer salons book too?",
-    a: "This session is built for salon owners who want clarity on their numbers, whatever stage they're at - from those feeling stuck to those ready to scale.",
+    q: "Is this only for salons and spas already doing well, or can newer businesses book too?",
+    a: "This session is built for salon and spa owners who want clarity on their numbers, whatever stage they're at - from those feeling stuck to those ready to scale.",
   },
   {
     q: "Will you try to sell me on ongoing bookkeeping or CFO services afterward?",
     a: "If ongoing support looks like a fit based on what we find, we'll say so - but the 90-day plan is yours to use with us, your current accountant, or on your own either way.",
+  },
+  {
+    q: "Do you only work with salons and spas?",
+    a: "Yes. We work exclusively with salons and spas.",
   },
 ];
 
@@ -190,10 +194,10 @@ function LandingPage() {
                 Limited time - 50% off
               </span>
               <h1 className="mt-5 text-4xl leading-[1.08] text-foreground sm:text-5xl lg:text-[3.4rem]">
-                Find Out Exactly Where Your Salon's Profit Is Leaking - In 60 Minutes
+                Find Out Exactly Where Your Salon or Spa's Profit Is Leaking - In 60 Minutes
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-                A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified salon CFO.
+                A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified salon and spa CFO.
               </p>
               <a
                 href="#claim"
@@ -339,9 +343,9 @@ function LandingPage() {
           </ul>
         </section>
 
-        {/* Why this - real numbers from real salons */}
+        {/* Why this - real numbers from real salons and spas */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">Real Numbers From Real Salons</h2>
+          <h2 className="text-3xl sm:text-4xl">Real Numbers From Real Salons and Spas</h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
             Average client results: $164K average increase in revenue per year, $30K–$50K average increase in profit,
             and $114K increased in cash reserves.
@@ -400,7 +404,7 @@ function LandingPage() {
                 </div>
               </div>
 
-              <p className="mt-8 rounded-xl bg-secondary p-4 text-sm text-muted-foreground">
+              <p className="mt-8 text-sm text-muted-foreground">
                 We hold a limited number of these sessions each month.
               </p>
 
@@ -416,7 +420,7 @@ function LandingPage() {
 
         {/* Social proof */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">What salon owners say</h2>
+          <h2 className="text-3xl sm:text-4xl">What salon and spa owners say</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {testimonials.map((t) => (
               <figure key={t.quote} className="rounded-2xl bg-cream p-6 shadow-sm">
@@ -431,7 +435,7 @@ function LandingPage() {
 
           <ul className="mt-10 flex flex-wrap items-center justify-center gap-3 border-t border-border pt-8">
             {[
-              "QuickBooks Certified ProAdvisor",
+              "QuickBooks Certified",
               "Profit First Certified",
               "Advanced Certified PFP",
             ].map((badge) => (
@@ -460,7 +464,7 @@ function LandingPage() {
                     </span>
                     <span className="absolute bottom-3 left-3 rounded-full bg-card/90 px-3 py-1 text-xs font-semibold text-foreground">Video coming soon</span>
                   </div>
-                  <figcaption className="mt-3 text-sm font-semibold text-foreground">{label} <span className="font-normal text-muted-foreground">- Name / Salon</span></figcaption>
+                  <figcaption className="mt-3 text-sm font-semibold text-foreground">{label} <span className="font-normal text-muted-foreground">- Name / Salon or Spa</span></figcaption>
                 </figure>
               ))}
             </div>
@@ -482,11 +486,11 @@ function LandingPage() {
               <h2 className="text-3xl">Meet The People Behind Your Numbers</h2>
               <p className="mt-3 text-sm font-semibold tracking-wide text-primary uppercase">
                 Backed by a team of dedicated Profit Advisors - including Nicole, Patrick,
-                Alexandra, and Erika - who work exclusively with salons.
+                Alexandra, and Erika - who work exclusively with salons and spas.
               </p>
               <p className="mt-3 text-muted-foreground">
                 Ross Loveland is an Advanced Certified Profit First Professional and Certified Master
-                who has helped hundreds of salons increase profit, take home more money, and build
+                who has helped hundreds of salons and spas increase profit, take home more money, and build
                 businesses that feel calm and predictable. You're supported by a warm, knowledgeable
                 team who understands the beauty industry inside and out.
               </p>
@@ -544,7 +548,7 @@ function LandingPage() {
               Claim your 50% off Profit Clarity Analysis
             </h2>
             <p className="mt-3 text-ink-foreground/75">
-              Tell us a little about your salon. Next you'll pay securely and pick your time.
+              Tell us a little about your salon or spa. Next you'll pay securely and pick your time.
             </p>
             <div className="mt-8">
               <LeadForm />
@@ -561,7 +565,7 @@ function LandingPage() {
                 True Profit Salons
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Bookkeeping, CFO advisory, and tax - built for salon owners.
+                Bookkeeping, CFO advisory, and tax - built for salon and spa owners.
               </p>
               <p className="mt-3 text-sm text-muted-foreground">
                 <a href={`tel:${PHONE.replace(/[^\d]/g, "")}`} className="hover:text-primary">
