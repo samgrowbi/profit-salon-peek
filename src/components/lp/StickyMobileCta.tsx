@@ -21,7 +21,7 @@ export function StickyMobileCta() {
     >
       <a
         href="#claim"
-        className="flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground"
+        className="flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground"
       >
         Claim My 50% Off Comprehensive Analysis
       </a>
