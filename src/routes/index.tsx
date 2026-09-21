@@ -11,7 +11,6 @@ import {
   Linkedin,
   Quote,
   Sparkles,
-  Star,
   Users,
   Youtube,
 } from "lucide-react";
@@ -206,47 +205,20 @@ function LandingPage() {
       <main>
         {/* Hero */}
         <section id="hero" className="border-b border-border bg-cream">
-          <div className="mx-auto max-w-6xl px-4 py-7 lg:py-10">
-            <div className="relative overflow-hidden rounded-3xl bg-ink shadow-lg">
-              <HlsVideo
-                src={HERO_VIDEO_SRC}
-                ariaLabel="Profit Clarity Analysis explainer video"
-                className="aspect-video w-full object-cover"
-                poster={HERO_VIDEO_POSTER}
-              />
-
-              {/* Scrim so the overlaid headline stays legible over any frame */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/35 to-transparent" />
-
-              {/* Badge + headline, overlaid top-left */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 p-5 sm:p-8 lg:max-w-xl">
-                <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wider text-accent-foreground uppercase">
-                  Limited time - 50% off
-                </span>
-                <h1 className="mt-4 text-2xl font-bold leading-[1.15] text-white sm:text-3xl lg:text-4xl">
-                  Find Out Exactly Where Your Spa's Profit Is Leaking - In 60 Minutes
-                </h1>
-              </div>
-
-              {/* Floating trust card */}
-              <div className="absolute bottom-4 right-4 hidden items-center gap-3 rounded-2xl bg-card/95 px-4 py-3 shadow-lg backdrop-blur sm:flex">
-                <div className="flex text-gold" aria-hidden="true">
-                  {[0, 1, 2, 3, 4].map((i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <p className="text-sm font-semibold text-foreground">Trusted by 500+ spas</p>
-              </div>
-            </div>
-
-            {/* Subhead, CTA, and price sit below the video */}
-            <div className="mt-7 max-w-2xl">
-              <p className="text-lg text-muted-foreground">
+          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-7 lg:grid-cols-2 lg:items-center lg:py-10">
+            <div>
+              <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wider text-accent-foreground uppercase">
+                Limited time - 50% off
+              </span>
+              <h1 className="mt-5 text-4xl leading-[1.08] text-foreground sm:text-5xl lg:text-[3.4rem]">
+                Find Out Exactly Where Your Spa's Profit Is Leaking - In 60 Minutes
+              </h1>
+              <p className="mt-5 max-w-xl text-lg text-muted-foreground">
                 A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified spa CFO.
               </p>
               <a
                 href="#claim"
-                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+                className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
               >
                 Claim My 50% Off Comprehensive Analysis
               </a>
@@ -259,6 +231,16 @@ function LandingPage() {
                 <span aria-hidden="true">•</span>
                 <span>Pay securely via Stripe</span>
               </div>
+
+            </div>
+
+            <div className="relative overflow-hidden rounded-3xl bg-ink shadow-lg">
+              <HlsVideo
+                src={HERO_VIDEO_SRC}
+                ariaLabel="Profit Clarity Analysis explainer video"
+                className="aspect-video w-full object-cover"
+                poster={HERO_VIDEO_POSTER}
+              />
             </div>
           </div>
         </section>
