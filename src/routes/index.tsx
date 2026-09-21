@@ -14,7 +14,8 @@ import {
   Users,
   Youtube,
 } from "lucide-react";
-import heroSalon from "@/assets/hero-salon.jpg";
+import heroThumbnailAsset from "@/assets/hero-thumbnail.jpg.asset.json";
+const heroSalon = heroThumbnailAsset.url;
 import advisorHeadshot from "@/assets/advisor-headshot.jpg";
 import { LeadForm } from "@/components/lp/LeadForm";
 import { StickyMobileCta } from "@/components/lp/StickyMobileCta";
