@@ -243,16 +243,27 @@ function LandingPage() {
 
         {/* Trusted by */}
         <section className="border-b border-border bg-background">
-          <div className="mx-auto max-w-4xl px-4 py-10 text-center">
+          <div className="mx-auto max-w-4xl px-4 pt-10 text-center">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Trusted By 500+ Salons and Spas
             </p>
-            <img
-              src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
-              alt="Logos of salons and spas that trust True Profit Salons"
-              loading="lazy"
-              className="mx-auto mt-5 max-w-full"
-            />
+          </div>
+          <div className="mt-5 w-full overflow-hidden bg-[#f9d7e6] py-7 sm:py-9">
+            <div className="marquee-track flex w-max items-center">
+              <img
+                src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
+                alt="Logos of salons and spas that trust True Profit Salons"
+                loading="lazy"
+                className="h-24 w-auto shrink-0 sm:h-32"
+              />
+              <img
+                src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="h-24 w-auto shrink-0 sm:h-32"
+              />
+            </div>
           </div>
         </section>
 
