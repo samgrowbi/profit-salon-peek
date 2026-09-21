@@ -253,21 +253,12 @@ function LandingPage() {
             </p>
           </div>
           <div className="mt-5 w-full overflow-hidden bg-[#f9d7e6] py-7 sm:py-9">
-            <div className="marquee-track flex w-max items-center">
-              <img
-                src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
-                alt="Logos of spas that trust True Profit Salons"
-                loading="lazy"
-                className="h-24 w-auto shrink-0 sm:h-32"
-              />
-              <img
-                src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                className="h-24 w-auto shrink-0 sm:h-32"
-              />
-            </div>
+            <img
+              src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
+              alt="Logos of spas that trust True Profit Salons"
+              loading="lazy"
+              className="mx-auto h-24 w-auto sm:h-32"
+            />
           </div>
         </section>
 
