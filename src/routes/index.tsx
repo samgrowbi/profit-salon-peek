@@ -177,7 +177,7 @@ function LandingPage() {
     <div className="min-h-screen bg-background pb-20 md:pb-0">
       {/* Sticky top bar */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-2.5 sm:gap-3 sm:py-3">
+          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
           <div className="min-w-0 flex-1 text-sm">
             <p className="whitespace-nowrap font-display text-sm font-semibold text-foreground sm:text-base">
               True Profit Salons
@@ -194,10 +194,9 @@ function LandingPage() {
           </div>
           <a
             href="#claim"
-            className="shrink-0 whitespace-nowrap rounded-full bg-primary px-3 py-2.5 text-center text-xs font-semibold leading-tight text-primary-foreground transition-opacity hover:opacity-90 sm:px-6 sm:text-sm"
+            className="inline-flex w-full shrink-0 items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
           >
-            <span className="sm:hidden">Claim 50% Off</span>
-            <span className="hidden sm:inline">Claim 50% Off Comprehensive Analysis</span>
+            Claim My 50% Off Comprehensive Analysis
           </a>
         </div>
       </header>
