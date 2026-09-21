@@ -11,11 +11,10 @@ import {
   Linkedin,
   Quote,
   Sparkles,
+  Star,
   Users,
   Youtube,
 } from "lucide-react";
-import heroThumbnailAsset from "@/assets/hero-thumbnail.jpg.asset.json";
-const heroSalon = heroThumbnailAsset.url;
 import advisorHeadshot from "@/assets/advisor-headshot.jpg";
 import { LeadForm } from "@/components/lp/LeadForm";
 import { StickyMobileCta } from "@/components/lp/StickyMobileCta";
@@ -24,6 +23,10 @@ import { YouTubeEmbed } from "@/components/lp/YouTubeEmbed";
 
 const HERO_VIDEO_SRC =
   "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/manifest/video.m3u8";
+// Cloudflare Stream can render a poster frame directly from the video itself
+// (time=0s = first frame), so the poster always matches what's about to play.
+const HERO_VIDEO_POSTER =
+  "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/thumbnails/thumbnail.jpg?time=0s&height=900";
 
 const CLIENT_STORIES = [
   { videoId: "aH0uhrRZhXA", name: "Tabatha Barnaby", business: "Julia Grace Salon" },
@@ -33,9 +36,9 @@ const CLIENT_STORIES = [
   { videoId: "w8NDQRSSgD0", name: "Mandy", business: "Fix Salon Seattle" },
 ];
 
-const TITLE = "Profit Clarity Analysis for Salon and Spa Owners - 50% Off | True Profit Salons";
+    "Profit Clarity Analysis for Spa Owners - 50% Off | True Profit Salons";
 const DESCRIPTION =
-  "A 60-minute one-on-one Comprehensive Analysis of your salon or spa's numbers with a Profit First Certified salon and spa CFO. Normally $500 - now $250 for a limited time.";
+  "A 60-minute one-on-one Comprehensive Analysis of your spa's numbers with a Profit First Certified spa CFO. Normally $500 - now $250 for a limited time.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -81,7 +84,7 @@ const included = [
 const whoThisIsFor = [
   {
     icon: Flower2,
-    text: "Own or lead a spa, hair salon, beauty salon, or multi-stylist business",
+    text: "Own or lead a spa or a multi-location beauty business",
   },
   { icon: Armchair, text: "Feel like money is coming in but not staying" },
   { icon: Users, text: "Want clarity on your numbers without the overwhelm" },
@@ -91,7 +94,7 @@ const whoThisIsFor = [
   },
   {
     icon: HeartHandshake,
-    text: "Value honest, Profit First inspired guidance from someone who understands the spa and salon industry",
+    text: "Value honest, Profit First inspired guidance from someone who understands the spa industry",
   },
 ];
 
@@ -120,7 +123,7 @@ const testimonials = [
 const faqs = [
   {
     q: "What happens after I book?",
-    a: "You'll pay securely via Stripe to confirm your spot, complete a short intake form about your salon or spa, and then join your 60-minute call at the time you picked.",
+    a: "You'll pay securely via Stripe to confirm your spot, complete a short intake form about your spa, and then join your 60-minute call at the time you picked.",
   },
   {
     q: "How is this different from a free consultation?",
@@ -128,7 +131,7 @@ const faqs = [
   },
   {
     q: "Who will I be meeting with?",
-    a: "A Profit First Certified salon and spa Profit Advisor from the True Profit Salons team.",
+    a: "A Profit First Certified spa Profit Advisor from the True Profit Salons team.",
   },
   {
     q: "What if my books are messy or out of date?",
@@ -139,16 +142,16 @@ const faqs = [
     a: "No. We work with QuickBooks Online, Xero, spreadsheets, or no formal system at all - the intake form asks what you currently use so we can prepare.",
   },
   {
-    q: "Is this only for salons and spas already doing well, or can newer businesses book too?",
-    a: "This session is built for salon and spa owners who want clarity on their numbers, whatever stage they're at - from those feeling stuck to those ready to scale.",
+    q: "Is this only for spas already doing well, or can newer businesses book too?",
+    a: "This session is built for spa owners who want clarity on their numbers, whatever stage they're at - from those feeling stuck to those ready to scale.",
   },
   {
     q: "Will you try to sell me on ongoing bookkeeping or CFO services afterward?",
     a: "If ongoing support looks like a fit based on what we find, we'll say so - but the 90-day plan is yours to use with us, your current accountant, or on your own either way.",
   },
   {
-    q: "Do you only work with salons and spas?",
-    a: "Yes. We work exclusively with salons and spas.",
+    q: "Do you only work with spas?",
+    a: "Yes. We work exclusively with spas.",
   },
 ];
 
@@ -202,20 +205,47 @@ function LandingPage() {
       <main>
         {/* Hero */}
         <section id="hero" className="border-b border-border bg-cream">
-          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-7 lg:grid-cols-2 lg:items-center lg:py-10">
-            <div>
-              <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wider text-accent-foreground uppercase">
-                Limited time - 50% off
-              </span>
-              <h1 className="mt-5 text-4xl leading-[1.08] text-foreground sm:text-5xl lg:text-[3.4rem]">
-                Find Out Exactly Where Your Salon or Spa's Profit Is Leaking - In 60 Minutes
-              </h1>
-              <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-                A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified salon and spa CFO.
+          <div className="mx-auto max-w-6xl px-4 py-7 lg:py-10">
+            <div className="relative overflow-hidden rounded-3xl bg-ink shadow-lg">
+              <HlsVideo
+                src={HERO_VIDEO_SRC}
+                ariaLabel="Profit Clarity Analysis explainer video"
+                className="aspect-video w-full object-cover"
+                poster={HERO_VIDEO_POSTER}
+              />
+
+              {/* Scrim so the overlaid headline stays legible over any frame */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/35 to-transparent" />
+
+              {/* Badge + headline, overlaid top-left */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 p-5 sm:p-8 lg:max-w-xl">
+                <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wider text-accent-foreground uppercase">
+                  Limited time - 50% off
+                </span>
+                <h1 className="mt-4 text-2xl font-bold leading-[1.15] text-white sm:text-3xl lg:text-4xl">
+                  Find Out Exactly Where Your Spa's Profit Is Leaking - In 60 Minutes
+                </h1>
+              </div>
+
+              {/* Floating trust card */}
+              <div className="absolute bottom-4 right-4 hidden items-center gap-3 rounded-2xl bg-card/95 px-4 py-3 shadow-lg backdrop-blur sm:flex">
+                <div className="flex text-gold" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+                <p className="text-sm font-semibold text-foreground">Trusted by 500+ spas</p>
+              </div>
+            </div>
+
+            {/* Subhead, CTA, and price sit below the video */}
+            <div className="mt-7 max-w-2xl">
+              <p className="text-lg text-muted-foreground">
+                A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified spa CFO.
               </p>
               <a
                 href="#claim"
-                className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
               >
                 Claim My 50% Off Comprehensive Analysis
               </a>
@@ -228,16 +258,6 @@ function LandingPage() {
                 <span aria-hidden="true">•</span>
                 <span>Pay securely via Stripe</span>
               </div>
-
-            </div>
-
-            <div className="relative overflow-hidden rounded-3xl bg-ink shadow-lg">
-              <HlsVideo
-                src={HERO_VIDEO_SRC}
-                ariaLabel="Profit Clarity Analysis explainer video"
-                className="aspect-video w-full object-cover"
-                poster={heroSalon}
-              />
             </div>
           </div>
         </section>
@@ -246,14 +266,14 @@ function LandingPage() {
         <section className="border-b border-border bg-background">
           <div className="mx-auto max-w-4xl px-4 pt-10 text-center">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Trusted By 500+ Salons and Spas
+              Trusted By 500+ Spas
             </p>
           </div>
           <div className="mt-5 w-full overflow-hidden bg-[#f9d7e6] py-7 sm:py-9">
             <div className="marquee-track flex w-max items-center">
               <img
                 src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
-                alt="Logos of salons and spas that trust True Profit Salons"
+                alt="Logos of spas that trust True Profit Salons"
                 loading="lazy"
                 className="h-24 w-auto shrink-0 sm:h-32"
               />
@@ -278,7 +298,7 @@ function LandingPage() {
               <p className="text-sm font-semibold uppercase tracking-wider text-primary">Who Are We</p>
               <h2 className="mt-2 text-2xl sm:text-3xl">Profit advisors who understand the beauty business.</h2>
               <p className="mt-3 max-w-3xl text-muted-foreground">
-                We're a team of Profit First Certified advisors who work exclusively with salons and spas, backed by dedicated specialists who know the numbers behind your chairs, services, retail, and team.
+                We're a team of Profit First Certified advisors who work exclusively with spas, backed by dedicated specialists who know the numbers behind your chairs, services, retail, and team.
               </p>
             </div>
           </div>
@@ -321,12 +341,6 @@ function LandingPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-10 max-w-2xl border-t border-border pt-8">
-            <blockquote className="font-display text-xl italic text-foreground">
-              “I wish everyone had a CFO like Josh. He is so knowledgeable - not just with financials but with business as a whole.”
-              <footer className="mt-3 font-sans text-xs font-semibold not-italic uppercase tracking-wider text-muted-foreground">Salon Gloss</footer>
-            </blockquote>
-          </div>
         </section>
         <CompactCta />
 
@@ -372,29 +386,31 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Why this - real numbers from real salons and spas */}
-        <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">Real Numbers From Real Salons and Spas</h2>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Average client results: $164K average increase in revenue per year, $30K–$50K average increase in profit,
-            and $114K increased in cash reserves.
-          </p>
-          <div className="mt-10 grid gap-10 sm:grid-cols-2">
-            <blockquote className="relative pl-10 text-foreground">
-              <Quote aria-hidden="true" className="absolute left-0 top-0 h-8 w-8 fill-gold-soft text-primary" />
-              <p className="font-display text-2xl italic leading-relaxed">Since working with my CFO I have gotten my financials under control and am actively making profit and saving for taxes.</p>
-              <footer className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Bodhi Sanctuary</footer>
-            </blockquote>
-            <blockquote className="relative pl-10 text-foreground">
-              <Quote aria-hidden="true" className="absolute left-0 top-0 h-8 w-8 fill-gold-soft text-primary" />
-              <p className="font-display text-2xl italic leading-relaxed">Our business is so much better with Erika. We finally understand our numbers.</p>
-              <footer className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Bon Bini Aesthetics</footer>
-            </blockquote>
+        {/* Why this - real numbers from real spas */}
+        <section className="bg-ink text-ink-foreground">
+          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+            <h2 className="text-3xl text-ink-foreground sm:text-4xl">Real Numbers From Real Spas</h2>
+            <p className="mt-4 max-w-2xl text-lg text-gold">
+              Average client results: $164K average increase in revenue per year, $30K–$50K average increase in profit,
+              and $114K increased in cash reserves.
+            </p>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              <blockquote className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <Quote aria-hidden="true" className="h-7 w-7 fill-gold text-gold" />
+                <p className="mt-3 font-display text-xl italic leading-relaxed text-ink-foreground">Since working with my CFO I have gotten my financials under control and am actively making profit and saving for taxes.</p>
+                <footer className="mt-4 text-xs font-semibold uppercase tracking-wider text-ink-foreground/60">Bodhi Sanctuary</footer>
+              </blockquote>
+              <blockquote className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <Quote aria-hidden="true" className="h-7 w-7 fill-gold text-gold" />
+                <p className="mt-3 font-display text-xl italic leading-relaxed text-ink-foreground">Our business is so much better with Erika. We finally understand our numbers.</p>
+                <footer className="mt-4 text-xs font-semibold uppercase tracking-wider text-ink-foreground/60">Bon Bini Aesthetics</footer>
+              </blockquote>
+            </div>
+            <p className="mt-8 text-lg text-ink-foreground/90">
+              This is the same process that got these results - condensed into one 60-minute
+              session, at half price.
+            </p>
           </div>
-          <p className="mt-8 text-lg text-foreground">
-            This is the same process that got these results - condensed into one 60-minute
-            session, at half price.
-          </p>
         </section>
 
         {/* Offer */}
@@ -449,7 +465,7 @@ function LandingPage() {
 
         {/* Social proof */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">What salon and spa owners say</h2>
+          <h2 className="text-3xl sm:text-4xl">What spa owners say</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {testimonials.map((t) => (
               <figure key={t.quote} className="rounded-2xl bg-cream p-6 shadow-sm">
@@ -483,7 +499,7 @@ function LandingPage() {
         <section className="bg-cream">
           <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
             <h2 className="text-3xl sm:text-4xl">Client Stories, In Their Own Words</h2>
-            <div className="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border">
               {CLIENT_STORIES.map(({ videoId, name, business }) => (
                 <figure key={videoId} className="w-[78%] shrink-0 snap-start sm:w-[46%] lg:w-[30%]">
                   <YouTubeEmbed videoId={videoId} title={`${name}, ${business}`} />
@@ -512,11 +528,11 @@ function LandingPage() {
                 <h2 className="text-3xl">Meet The People Behind Your Numbers</h2>
                 <p className="text-sm font-semibold tracking-wide text-primary uppercase">
                   Backed by a team of dedicated Profit Advisors - including Nicole, Patrick,
-                  Alexandra, and Erika - who work exclusively with salons and spas.
+                  Alexandra, and Erika - who work exclusively with spas.
                 </p>
                 <p className="text-muted-foreground">
                   Ross Loveland is an Advanced Certified Profit First Professional and Certified Master
-                  who has helped hundreds of salons and spas increase profit, take home more money, and build
+                  who has helped hundreds of spas increase profit, take home more money, and build
                   businesses that feel calm and predictable. You're supported by a warm, knowledgeable
                   team who understands the beauty industry inside and out.
                 </p>
@@ -531,7 +547,7 @@ function LandingPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl">Tools We Use</h2>
               <p className="mt-3 max-w-md text-muted-foreground">
-                Your salon or spa is supported with proven, reliable tools like QuickBooks Online,
+                Your spa is supported with proven, reliable tools like QuickBooks Online,
                 ProConnect, and GoHighLevel.
               </p>
               <a
@@ -585,7 +601,7 @@ function LandingPage() {
               Claim your 50% off Profit Clarity Analysis
             </h2>
             <p className="mt-3 text-ink-foreground/75">
-              Tell us a little about your salon or spa. Next you'll pay securely and pick your time.
+              Tell us a little about your spa. Next you'll pay securely and pick your time.
             </p>
             <div className="mt-8">
               <LeadForm />
@@ -602,7 +618,7 @@ function LandingPage() {
                 True Profit Salons
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Bookkeeping, CFO advisory, and tax - built for salon and spa owners.
+                Bookkeeping, CFO advisory, and tax - built for spa owners.
               </p>
               <p className="mt-3 text-sm text-muted-foreground">
                 <a href={`tel:${PHONE.replace(/[^\d]/g, "")}`} className="hover:text-primary">
@@ -626,7 +642,7 @@ function LandingPage() {
                     </a>
                   </li>
                   <li>
-                    <a href="https://trueprofitsalons.com/privacy" className="hover:text-primary">
+                    <a href="https://trueprofitsalons.com/privacy-policy/" className="hover:text-primary">
                       Privacy policy
                     </a>
                   </li>
