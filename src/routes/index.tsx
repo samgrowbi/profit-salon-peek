@@ -36,7 +36,8 @@ const CLIENT_STORIES = [
   { videoId: "w8NDQRSSgD0", name: "Mandy", business: "Fix Salon Seattle" },
 ];
 
-    "Profit Clarity Analysis for Spa Owners - 50% Off | True Profit Salons";
+const TITLE =
+  "Profit Clarity Analysis for Spa Owners - 50% Off | True Profit Salons";
 const DESCRIPTION =
   "A 60-minute one-on-one Comprehensive Analysis of your spa's numbers with a Profit First Certified spa CFO. Normally $500 - now $250 for a limited time.";
 
