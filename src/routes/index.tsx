@@ -218,7 +218,7 @@ function LandingPage() {
               </p>
               <a
                 href="#claim"
-                className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+                className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
               >
                 Claim My 50% Off Comprehensive Analysis
               </a>
@@ -429,7 +429,7 @@ function LandingPage() {
 
               <a
                 href="#claim"
-                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
               >
                 Claim My 50% Off Comprehensive Analysis
               </a>
@@ -526,7 +526,7 @@ function LandingPage() {
               </p>
               <a
                 href="#claim"
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
               >
                 Claim My 50% Off Comprehensive Analysis
               </a>
