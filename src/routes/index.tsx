@@ -252,12 +252,12 @@ function LandingPage() {
               Trusted By 500+ Spas
             </p>
           </div>
-          <div className="mt-5 w-full overflow-hidden bg-[#f9d7e6] py-7 sm:py-9">
+          <div className="mt-5 w-full overflow-hidden bg-[#f9d7e6] px-4 py-5 sm:py-9">
             <img
               src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
               alt="Logos of spas that trust True Profit Salons"
               loading="lazy"
-              className="mx-auto h-24 w-auto sm:h-32"
+              className="mx-auto h-auto max-h-16 w-auto max-w-full sm:max-h-32"
             />
           </div>
         </section>
@@ -440,9 +440,12 @@ function LandingPage() {
         {/* Social proof */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">What spa owners say</h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border">
             {testimonials.map((t) => (
-              <figure key={t.quote} className="rounded-2xl bg-cream p-6 shadow-sm">
+              <figure
+                key={t.quote}
+                className="w-[82%] shrink-0 snap-start rounded-2xl bg-cream p-6 shadow-sm sm:w-[60%] md:w-auto"
+              >
                 <span className="mb-5 block h-1 w-10 rounded-full bg-primary" aria-hidden="true" />
                 <blockquote className="text-foreground">"{t.quote}"</blockquote>
                 <figcaption className="mt-4 text-sm text-muted-foreground">
@@ -452,15 +455,17 @@ function LandingPage() {
             ))}
           </div>
 
-          <ul className="mt-10 flex flex-wrap items-center justify-center gap-3 border-t border-border pt-8">
+          <ul className="mt-10 grid grid-cols-2 place-items-center gap-3 border-t border-border pt-8 sm:flex sm:flex-wrap sm:justify-center">
             {[
               "QuickBooks Certified",
               "Profit First Certified",
               "Advanced Certified PFP",
-            ].map((badge) => (
+            ].map((badge, i, arr) => (
               <li
                 key={badge}
-                className="rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground"
+                className={`rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground ${
+                  i === arr.length - 1 ? "col-span-2" : ""
+                }`}
               >
                 {badge}
               </li>
@@ -496,7 +501,7 @@ function LandingPage() {
                 loading="lazy"
                 width={683}
                 height={1024}
-                className="h-64 w-full object-cover sm:h-full"
+                className="h-80 w-full object-cover object-top sm:h-full"
               />
               <div className="flex flex-col justify-center gap-3 p-8 sm:p-10">
                 <h2 className="text-3xl">Meet The People Behind Your Numbers</h2>
