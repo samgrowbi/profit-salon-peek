@@ -130,7 +130,7 @@ export function LeadForm() {
 
         <div className="sm:col-span-1">
           <label className={labelClass} htmlFor="business_name">
-            Salon / spa / business name
+            Spa / business name
           </label>
           <input
             id="business_name"
