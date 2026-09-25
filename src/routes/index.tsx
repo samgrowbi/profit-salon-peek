@@ -73,6 +73,7 @@ const pains = [
   "\u201cI don\u2019t actually know which services are making me money.\u201d",
   "\u201cTax season scares me because I never know what I\u2019m going to owe.\u201d",
   "\u201cI\u2019m making big decisions based on my bank balance instead of my numbers.\u201d",
+  "\u201cI don\u2019t know if I can afford to hire, raise my prices, or open a second location.\u201d",
 ];
 
 const included = [
@@ -178,7 +179,7 @@ const testimonials = [
 const faqs = [
   {
     q: "What happens after I book?",
-    a: "You'll pay securely via Stripe to confirm your spot, complete a short intake form about your spa, and then join your 60-minute call at the time you picked.",
+    a: "You'll complete a short intake form about your spa, and our team will reach out to schedule your 60-minute call. We'll take care of the details, including payment, when we connect.",
   },
   {
     q: "How is this different from a free consultation?",
@@ -270,7 +271,7 @@ function LandingPage() {
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <Check aria-hidden="true" className="h-3.5 w-3.5 text-primary" />
-                  Pay Securely
+                  No Payment Required Today
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <Check aria-hidden="true" className="h-3.5 w-3.5 text-primary" />
@@ -294,7 +295,7 @@ function LandingPage() {
                 <span className="text-lg text-muted-foreground line-through">$500</span>
                 <span className="font-display text-5xl font-bold leading-none text-gold">$250</span>
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">Pay securely via Stripe</p>
+              <p className="mt-2 text-sm text-muted-foreground">We'll follow up to schedule your call</p>
 
             </div>
 
@@ -369,10 +370,14 @@ function LandingPage() {
           <p className="mt-3 max-w-2xl text-muted-foreground">
             Real things salon and spa owners tell us before they book a Profit Clarity Analysis.
           </p>
-          <ul className="mt-8 grid gap-x-12 gap-y-7 sm:grid-cols-2">
+          <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {pains.map((pain) => (
-              <li key={pain} className="border-l-2 border-gold/60 pl-5">
-                <p className="font-display text-xl italic leading-snug text-foreground">{pain}</p>
+              <li
+                key={pain}
+                className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+              >
+                <span className="mb-4 block h-1 w-8 rounded-full bg-gold" aria-hidden="true" />
+                <p className="font-display text-lg italic leading-snug text-foreground">{pain}</p>
               </li>
             ))}
           </ul>
@@ -463,15 +468,15 @@ function LandingPage() {
                     </span>
                     <span className="font-display text-5xl font-bold text-foreground">$250</span>
                   </p>
-                  <p className="mt-1 text-sm text-muted-foreground">One-time, paid upfront</p>
+                  <p className="mt-1 text-sm text-muted-foreground">One-time session</p>
                 </div>
                 <div>
                   <h2 className="text-2xl sm:text-3xl">The Profit Clarity Analysis</h2>
                   <ol className="mt-4 space-y-3">
                     {[
-                      "Book & pay securely online.",
-                      "Complete a short intake form.",
-                      "Join your 60-minute one-on-one call.",
+                      "Submit your info below.",
+                      "We'll reach out to schedule your call.",
+                      "Join your 60-minute one-on-one session.",
                     ].map((step, i) => (
                       <li key={step} className="flex gap-3 text-foreground">
                         <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-sm font-semibold text-accent-foreground">
@@ -616,7 +621,7 @@ function LandingPage() {
               Claim your 50% off Profit Clarity Analysis
             </h2>
             <p className="mt-3 text-ink-foreground/75">
-              Tell us a little about your spa. Next you'll pay securely and pick your time.
+              Tell us a little about your spa. Our team will reach out to schedule your call.
             </p>
             <div className="mt-8">
               <LeadForm />
