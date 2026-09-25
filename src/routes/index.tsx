@@ -319,7 +319,7 @@ function LandingPage() {
                 <span className="text-lg text-muted-foreground line-through">$500</span>
                 <span className="font-display text-5xl font-bold leading-none text-gold">$250</span>
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">We'll follow up to schedule your call</p>
+
 
             </div>
 
