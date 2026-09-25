@@ -13,7 +13,6 @@ import {
   Users,
   Youtube,
 } from "lucide-react";
-import advisorHeadshot from "@/assets/advisor-headshot.jpg";
 import { LeadForm } from "@/components/lp/LeadForm";
 import { StickyMobileCta } from "@/components/lp/StickyMobileCta";
 import { HlsVideo } from "@/components/lp/HlsVideo";
@@ -66,10 +65,11 @@ const stats = [
 ];
 
 const pains = [
-  "Money's coming in, but it never seems to stay.",
-  "You don't actually know what you pay yourself vs. what the business owes.",
-  "Your bookkeeper (or spreadsheet) tells you the past, not what to do next.",
-  "You've never gotten a straight answer on pricing, service mix, or margins.",
+  "\u201cMy salon is busy and making money\u2026 so why is there never any money left?\u201d",
+  "\u201cI pay everyone else before I pay myself.\u201d",
+  "\u201cI don\u2019t actually know which services are making me money.\u201d",
+  "\u201cTax season scares me because I never know what I\u2019m going to owe.\u201d",
+  "\u201cI\u2019m making big decisions based on my bank balance instead of my numbers.\u201d",
 ];
 
 const included = [
@@ -98,6 +98,58 @@ const whoThisIsFor = [
   },
 ];
 
+
+// Real team bios, condensed from trueprofitsalons.com/about-us/meet-the-team/
+const team = [
+  {
+    name: "Ross Loveland",
+    role: "Founder & CEO",
+    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/09/Ross-loveland-6129.jpg",
+    bio: "Ross is a dynamic speaker, author, and trainer who helps salon and spa owners achieve financial clarity. He holds the Advanced Certified Profit First Professional and Profit First Certified Master credentials. As founder of True Profit Salons and True Profit Tax, and co-founder of True Profit Spas, he blends industry expertise with proven financial strategy. Outside of work, Ross is a devoted father to five daughters, an avid reader, and a pickleball player.",
+  },
+  {
+    name: "Cari Loveland",
+    role: "VP Marketing & Strategic Growth",
+    photo: null,
+    bio: "Cari leads brand growth and strategic partnerships across the beauty space. After over a decade in bedside, travel, and hospice nursing, she transitioned into business and now works remotely as a marketing and strategic growth specialist. She brings strong sales experience and leadership to her work and is passionate about building meaningful relationships within the industry.",
+  },
+  {
+    name: "Nicole",
+    role: "Profit Advisor",
+    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Nicole.webp",
+    bio: "Nicole grew up on the East Coast and moved to California after college. With a background in math education, she's spent years helping people make sense of complex ideas and reach their goals. Fun fact: Nicole loves to hike and explore different National Parks.",
+  },
+  {
+    name: "Patrick",
+    role: "Profit Advisor",
+    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Patrick.webp",
+    bio: "Patrick is a seasoned financial executive with over 15 years of experience, including a decade as a CFO. He specializes in corporate finance, strategic planning, and risk management. He holds Series 7 and 66 licenses, plus CRPC\u00ae, APMA\u00ae, AWMA\u00ae, and SE-AWMA\u2122 certifications. Fun fact: he lives in Charlotte, NC, with his wife and their King Cavalier, Tucker.",
+  },
+  {
+    name: "Alexandra",
+    role: "Profit Advisor",
+    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Alexandra.webp",
+    bio: "Alexandra grew up in New York, graduated with a Bachelor's Degree in Accounting from the University of Delaware, and now lives on Nantucket Island, MA. Her attention to detail and love for building customer relationships help clients reach their full potential. Fun fact: Alexandra loves to crochet.",
+  },
+  {
+    name: "Erika",
+    role: "Profit Advisor",
+    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Erika.webp",
+    bio: "Erika loves the beauty industry. She has a background in cosmetology and uses her knowledge and customer service experience to help clients exceed their financial goals. Fun fact: in her leisure hours, she immerses herself in reading and writing poetry.",
+  },
+  {
+    name: "Mariana",
+    role: "QuickBooks Specialist",
+    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Mariana.webp",
+    bio: "Mariana grew up in Mexico and holds a Bachelor's degree in Accounting from Universidad Panamericana. She specializes in QuickBooks support, accounting, and administrative assistance, bringing a detail-oriented and organized approach to her work. Fun fact: Mariana loves interior design.",
+  },
+  {
+    name: "Mary",
+    role: "Administrative Director",
+    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Mary.webp",
+    bio: "Mary has a robust engineering background and is a goal-driven Administrative Director with a strong emphasis on fostering company prosperity and streamlining business operations. Fun fact: in her leisure hours, she immerses herself in reading and writing poetry.",
+  },
+];
 
 const testimonials = [
   {
@@ -206,6 +258,7 @@ function LandingPage() {
           <ul className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-2 text-sm font-medium text-muted-foreground">
             <li><a href="#who-we-are" className="hover:text-primary">About Us</a></li>
             <li><a href="#who-this-is-for" className="hover:text-primary">Who It's For</a></li>
+            <li><a href="#meet-the-team" className="hover:text-primary">Our Team</a></li>
             <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
             <li><a href="#claim" className="hover:text-primary">Book the Analysis</a></li>
           </ul>
@@ -319,16 +372,13 @@ function LandingPage() {
         {/* Pain */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">Are You Facing These Problems?</h2>
-          <ul className="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
+          <p className="mt-3 max-w-2xl text-muted-foreground">
+            Real things salon and spa owners tell us before they book a Profit Clarity Analysis.
+          </p>
+          <ul className="mt-8 grid gap-x-12 gap-y-7 sm:grid-cols-2">
             {pains.map((pain) => (
-              <li key={pain} className="flex gap-3 text-lg text-foreground">
-                <span
-                  aria-hidden="true"
-                  className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold text-white shadow-sm"
-                >
-                  <Check className="h-3.5 w-3.5" />
-                </span>
-                <span>{pain}</span>
+              <li key={pain} className="border-l-2 border-gold/60 pl-5">
+                <p className="font-display text-xl italic leading-snug text-foreground">{pain}</p>
               </li>
             ))}
           </ul>
@@ -514,32 +564,49 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* About the advisor */}
-        <section>
-          <div className="mx-auto max-w-5xl px-4 py-14 lg:py-20">
-            <div className="grid overflow-hidden rounded-3xl border border-border bg-card shadow-md sm:grid-cols-2">
-              <img
-                src={advisorHeadshot}
-                alt="Ross Loveland, Advanced Certified Profit First Professional"
-                loading="lazy"
-                width={683}
-                height={1024}
-                className="h-80 w-full object-cover object-top sm:h-full"
-              />
-              <div className="flex flex-col justify-center gap-3 p-8 sm:p-10">
-                <h2 className="text-3xl">Meet The People Behind Your Numbers</h2>
-                <p className="text-sm font-semibold tracking-wide text-primary uppercase">
-                  Backed by a team of dedicated Profit Advisors - including Nicole, Patrick,
-                  Alexandra, and Erika - who work exclusively with spas.
-                </p>
-                <p className="text-muted-foreground">
-                  Ross Loveland is an Advanced Certified Profit First Professional and Certified Master
-                  who has helped hundreds of spas increase profit, take home more money, and build
-                  businesses that feel calm and predictable. You're supported by a warm, knowledgeable
-                  team who understands the beauty industry inside and out.
-                </p>
-              </div>
-            </div>
+        {/* Meet the team */}
+        <section id="meet-the-team" className="scroll-mt-24 bg-cream">
+          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+            <h2 className="text-3xl sm:text-4xl">Meet The People Behind Your Numbers</h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">
+              A salon-exclusive financial team working remotely across the U.S. - real advisors,
+              real credentials, real support.
+            </p>
+            <ScrollCarousel
+              ariaLabel="Meet the True Profit Salons team"
+              trackClassName="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border"
+            >
+              {team.map((member) => (
+                <figure
+                  key={member.name}
+                  className="w-[80%] shrink-0 snap-start overflow-hidden rounded-3xl border border-border bg-card shadow-sm sm:w-[45%] lg:w-[28%]"
+                >
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      loading="lazy"
+                      className="h-56 w-full object-cover object-top"
+                    />
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className="grid h-56 w-full place-items-center bg-plum/10 font-display text-4xl font-bold text-plum"
+                    >
+                      {member.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </div>
+                  )}
+                  <figcaption className="p-5">
+                    <p className="font-display text-lg font-semibold text-foreground">{member.name}</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary">{member.role}</p>
+                    <p className="mt-3 text-sm text-muted-foreground">{member.bio}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </ScrollCarousel>
           </div>
         </section>
 
@@ -643,6 +710,7 @@ function LandingPage() {
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 <li><a href="#who-we-are" className="hover:text-primary">About Us</a></li>
                 <li><a href="#who-this-is-for" className="hover:text-primary">Who It's For</a></li>
+                <li><a href="#meet-the-team" className="hover:text-primary">Our Team</a></li>
                 <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
                 <li><a href="#claim" className="hover:text-primary">Book the Analysis</a></li>
                 <li>
