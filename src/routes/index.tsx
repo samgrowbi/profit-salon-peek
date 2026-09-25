@@ -232,35 +232,31 @@ function LandingPage() {
     <div className="min-h-screen bg-background pb-20 md:pb-0">
       {/* Sticky top bar */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center px-4 py-3">
-          <a href="#hero" aria-label="True Profit Salons - back to top">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3">
+          <a href="#hero" aria-label="True Profit Salons - back to top" className="shrink-0">
             <img
               src={trueProfitLogoAsset.url}
               alt="True Profit Salons"
               className="h-11 w-auto sm:h-12"
             />
           </a>
+          <nav
+            aria-label="Primary"
+            className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex"
+          >
+            <a href="#who-we-are" className="hover:text-primary">About Us</a>
+            <a href="#who-this-is-for" className="hover:text-primary">Who It's For</a>
+            <a href="#meet-the-team" className="hover:text-primary">Our Team</a>
+            <a href="#faq" className="hover:text-primary">FAQ</a>
+            <a href="#claim" className="hover:text-primary">Book the Analysis</a>
+          </nav>
+          <a
+            href="#claim"
+            className="hidden shrink-0 items-center justify-center rounded-full bg-primary px-5 py-2 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 md:inline-flex"
+          >
+            Claim My 50% Off Comprehensive Analysis
+          </a>
         </div>
-        <nav
-          aria-label="Primary"
-          className="hidden border-t border-border bg-background md:block"
-        >
-          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2">
-            <ul className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
-              <li><a href="#who-we-are" className="hover:text-primary">About Us</a></li>
-              <li><a href="#who-this-is-for" className="hover:text-primary">Who It's For</a></li>
-              <li><a href="#meet-the-team" className="hover:text-primary">Our Team</a></li>
-              <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
-              <li><a href="#claim" className="hover:text-primary">Book the Analysis</a></li>
-            </ul>
-            <a
-              href="#claim"
-              className="inline-flex shrink-0 items-center justify-center rounded-full bg-primary px-5 py-2 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              Claim My 50% Off Comprehensive Analysis
-            </a>
-          </div>
-        </nav>
       </header>
 
       <main>
