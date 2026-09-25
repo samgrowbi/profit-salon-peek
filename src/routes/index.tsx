@@ -18,6 +18,8 @@ import { StickyMobileCta } from "@/components/lp/StickyMobileCta";
 import { HlsVideo } from "@/components/lp/HlsVideo";
 import { YouTubeEmbed } from "@/components/lp/YouTubeEmbed";
 import { ScrollCarousel } from "@/components/lp/ScrollCarousel";
+import cariLovelandAsset from "@/assets/cari-loveland.png.asset.json";
+import trustedSpasLogosAsset from "@/assets/trusted-spas-logos.webp.asset.json";
 
 const HERO_VIDEO_SRC =
   "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/manifest/video.m3u8";
@@ -110,7 +112,7 @@ const team = [
   {
     name: "Cari Loveland",
     role: "VP Marketing & Strategic Growth",
-    photo: null,
+    photo: cariLovelandAsset.url,
     bio: "Cari leads brand growth and strategic partnerships across the beauty space. After over a decade in bedside, travel, and hospice nursing, she transitioned into business and now works remotely as a marketing and strategic growth specialist. She brings strong sales experience and leadership to her work and is passionate about building meaningful relationships within the industry.",
   },
   {
@@ -322,9 +324,9 @@ function LandingPage() {
               We've Helped Over 500 Spas
             </p>
           </div>
-          <div className="mt-5 w-full overflow-hidden bg-plum/10 px-4 py-5 sm:py-9">
+          <div className="mt-5 w-full overflow-hidden px-4 py-5 sm:py-9">
             <img
-              src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
+              src={trustedSpasLogosAsset.url}
               alt="Logos of spas that trust True Profit Salons"
               loading="lazy"
               className="mx-auto h-auto max-h-16 w-auto max-w-full sm:max-h-32"
@@ -525,22 +527,6 @@ function LandingPage() {
             ))}
           </ScrollCarousel>
 
-          <ul className="mt-10 grid grid-cols-2 place-items-center gap-3 border-t border-border pt-8 sm:flex sm:flex-wrap sm:justify-center">
-            {[
-              "QuickBooks Certified",
-              "Profit First Certified",
-              "Advanced Certified PFP",
-            ].map((badge, i, arr) => (
-              <li
-                key={badge}
-                className={`rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground ${
-                  i === arr.length - 1 ? "col-span-2" : ""
-                }`}
-              >
-                {badge}
-              </li>
-            ))}
-          </ul>
         </section>
         <CompactCta />
 
