@@ -148,30 +148,17 @@ export function LeadForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8 text-center">
         <span className="inline-flex rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wide text-accent-foreground uppercase">
-          Step 1 complete
+          You're on the list
         </span>
-        <h3 className="mt-4 text-2xl">You're almost booked.</h3>
+        <h3 className="mt-4 text-2xl">Thanks! We've got your details.</h3>
         <p className="mt-2 text-muted-foreground">
-          Last step: pay securely and pick your 60-minute time slot. Your Profit Clarity Analysis is
-          confirmed once payment is complete.
+          A member of our team will reach out shortly to schedule your 60-minute Profit Clarity
+          Analysis and confirm the details.
         </p>
-
-        {/* PLACEHOLDER: replace this container with the real Stripe payment link / booking widget embed. */}
-        <div className="mt-6 grid min-h-56 place-items-center rounded-xl border-2 border-dashed border-border bg-secondary p-6 text-center">
-          <div>
-            <p className="text-sm font-semibold text-foreground">
-              [PLACEHOLDER] Stripe payment &amp; booking widget embed
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Real checkout/booking URL to be added before launch.
-            </p>
-          </div>
-        </div>
-
         <p className="mt-4 text-sm text-muted-foreground">
-          $250 today (normally $500) • 60 minutes • Secure payment via Stripe
+          $250 for your session (normally $500) &bull; 60 minutes &bull; No payment needed today
         </p>
       </div>
     );
@@ -341,7 +328,7 @@ export function LeadForm() {
               )}
             </button>
             <p className="mt-3 text-center text-sm text-muted-foreground">
-              $500 value, now $250 • 60 minutes • Pay securely via Stripe
+              $500 value, now $250 &bull; 60 minutes &bull; No payment needed today
             </p>
           </div>
         )}
