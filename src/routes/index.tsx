@@ -10,7 +10,6 @@ import {
   Lightbulb,
   Linkedin,
   Quote,
-  Sparkles,
   Users,
   Youtube,
 } from "lucide-react";
@@ -19,6 +18,7 @@ import { LeadForm } from "@/components/lp/LeadForm";
 import { StickyMobileCta } from "@/components/lp/StickyMobileCta";
 import { HlsVideo } from "@/components/lp/HlsVideo";
 import { YouTubeEmbed } from "@/components/lp/YouTubeEmbed";
+import { ScrollCarousel } from "@/components/lp/ScrollCarousel";
 
 const HERO_VIDEO_SRC =
   "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/manifest/video.m3u8";
@@ -199,6 +199,17 @@ function LandingPage() {
             Claim My 50% Off Comprehensive Analysis
           </a>
         </div>
+        <nav
+          aria-label="Primary"
+          className="hidden border-t border-border bg-background md:block"
+        >
+          <ul className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-2 text-sm font-medium text-muted-foreground">
+            <li><a href="#who-we-are" className="hover:text-primary">About Us</a></li>
+            <li><a href="#who-this-is-for" className="hover:text-primary">Who It's For</a></li>
+            <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
+            <li><a href="#claim" className="hover:text-primary">Book the Analysis</a></li>
+          </ul>
+        </nav>
       </header>
 
       <main>
@@ -206,11 +217,22 @@ function LandingPage() {
         <section id="hero" className="border-b border-border bg-cream">
           <div className="mx-auto grid max-w-6xl gap-6 px-4 py-7 lg:grid-cols-2 lg:items-center lg:py-10">
             <div>
-              <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wider text-accent-foreground uppercase">
-                Limited time - 50% off
-              </span>
-              <h1 className="mt-5 text-4xl leading-[1.08] text-foreground sm:text-5xl lg:text-[3.4rem]">
-                Find Out Exactly Where Your Spa's Profit Is Leaking - In 60 Minutes
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-accent-foreground">
+                  Limited Time Offer
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Check aria-hidden="true" className="h-3.5 w-3.5 text-primary" />
+                  Pay Securely
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Check aria-hidden="true" className="h-3.5 w-3.5 text-primary" />
+                  Trusted By 500+ Spas
+                </span>
+              </div>
+              <h1 className="mt-5 text-4xl leading-[1.1] text-foreground sm:text-5xl lg:text-[3.2rem]">
+                Find Out Where Your Spa's Profit Is Leaking
+                <span className="block text-gold">In 60 Minutes</span>
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted-foreground">
                 A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified spa CFO.
@@ -221,15 +243,11 @@ function LandingPage() {
               >
                 Claim My 50% Off Comprehensive Analysis
               </a>
-              <div className="mt-5 flex items-end gap-3" aria-label="Normally $500, now $250 for 60 minutes">
+              <div className="mt-5 flex items-end gap-3" aria-label="Normally $500, now $250">
                 <span className="text-lg text-muted-foreground line-through">$500</span>
                 <span className="font-display text-5xl font-bold leading-none text-gold">$250</span>
               </div>
-              <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">60 minutes</span>
-                <span aria-hidden="true">•</span>
-                <span>Pay securely via Stripe</span>
-              </div>
+              <p className="mt-2 text-sm text-muted-foreground">Pay securely via Stripe</p>
 
             </div>
 
@@ -248,10 +266,10 @@ function LandingPage() {
         <section className="border-b border-border bg-background">
           <div className="mx-auto max-w-4xl px-4 pt-10 text-center">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Trusted By 500+ Spas
+              We've Helped Over 500 Spas
             </p>
           </div>
-          <div className="mt-5 w-full overflow-hidden bg-[#f9d7e6] px-4 py-5 sm:py-9">
+          <div className="mt-5 w-full overflow-hidden bg-plum/10 px-4 py-5 sm:py-9">
             <img
               src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
               alt="Logos of spas that trust True Profit Salons"
@@ -262,7 +280,7 @@ function LandingPage() {
         </section>
 
         {/* Who we are */}
-        <section className="bg-cream">
+        <section id="who-we-are" className="scroll-mt-24 bg-cream">
           <div className="mx-auto grid max-w-5xl gap-6 px-4 py-14 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center lg:py-16">
             <div className="grid h-20 w-20 shrink-0 place-items-center rounded-full bg-gold text-white shadow-md">
               <Leaf aria-hidden="true" className="h-9 w-9" />
@@ -343,7 +361,7 @@ function LandingPage() {
         </section>
 
         {/* Who this is for */}
-        <section className="bg-cream">
+        <section id="who-this-is-for" className="scroll-mt-24 bg-cream">
           <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
             <h2 className="text-3xl sm:text-4xl">Who this is for</h2>
             <ul className="mt-10 grid gap-x-14 gap-y-9 sm:grid-cols-2">
@@ -439,7 +457,10 @@ function LandingPage() {
         {/* Social proof */}
         <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">What spa owners say</h2>
-          <div className="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border">
+          <ScrollCarousel
+            ariaLabel="What spa owners say testimonials"
+            trackClassName="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border"
+          >
             {testimonials.map((t) => (
               <figure
                 key={t.quote}
@@ -452,7 +473,7 @@ function LandingPage() {
                 </figcaption>
               </figure>
             ))}
-          </div>
+          </ScrollCarousel>
 
           <ul className="mt-10 grid grid-cols-2 place-items-center gap-3 border-t border-border pt-8 sm:flex sm:flex-wrap sm:justify-center">
             {[
@@ -477,7 +498,10 @@ function LandingPage() {
         <section className="bg-cream">
           <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
             <h2 className="text-3xl sm:text-4xl">Client Stories, In Their Own Words</h2>
-            <div className="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border">
+            <ScrollCarousel
+              ariaLabel="Client story videos"
+              trackClassName="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border"
+            >
               {CLIENT_STORIES.map(({ videoId, name, business }) => (
                 <figure key={videoId} className="w-[78%] shrink-0 snap-start sm:w-[46%] lg:w-[30%]">
                   <YouTubeEmbed videoId={videoId} title={`${name}, ${business}`} />
@@ -486,7 +510,7 @@ function LandingPage() {
                   </figcaption>
                 </figure>
               ))}
-            </div>
+            </ScrollCarousel>
           </div>
         </section>
 
@@ -519,40 +543,8 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Tools we use */}
-        <section className="bg-gold-soft">
-          <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-14 sm:grid-cols-[minmax(0,1fr)_auto] lg:py-16">
-            <div>
-              <h2 className="text-2xl sm:text-3xl">Tools We Use</h2>
-              <p className="mt-3 max-w-md text-muted-foreground">
-                Your spa is supported with proven, reliable tools like QuickBooks Online,
-                ProConnect, and GoHighLevel.
-              </p>
-              <a
-                href="#claim"
-                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
-              >
-                Claim My 50% Off Comprehensive Analysis
-              </a>
-            </div>
-            <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {["QuickBooks Online", "ProConnect", "GoHighLevel"].map((tool) => (
-                <li
-                  key={tool}
-                  className="flex items-center gap-3 rounded-2xl border border-border bg-card px-5 py-4 shadow-sm"
-                >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gold text-white">
-                    <Sparkles aria-hidden="true" className="h-5 w-5" />
-                  </span>
-                  <span className="font-semibold text-foreground">{tool}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         {/* FAQ */}
-        <section className="mx-auto max-w-3xl px-4 py-14 lg:py-20">
+        <section id="faq" className="scroll-mt-24 mx-auto max-w-3xl px-4 py-14 lg:py-20">
           <h2 className="text-3xl sm:text-4xl">Questions, answered</h2>
           <div className="mt-8 divide-y divide-border rounded-2xl border border-border bg-card">
             {faqs.map((faq) => (
@@ -589,43 +581,15 @@ function LandingPage() {
       </main>
 
       <footer className="border-t border-border bg-background">
-        <div className="mx-auto max-w-6xl px-4 py-10">
-          <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto]">
-            <div className="min-w-0">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <div className="grid gap-10 sm:grid-cols-3">
+            <div>
               <p className="font-display text-lg font-semibold text-foreground">
                 True Profit Salons
               </p>
-              <p className="mt-1 text-sm text-muted-foreground">
+              <p className="mt-2 text-sm text-muted-foreground">
                 Bookkeeping, CFO advisory, and tax - built for spa owners.
               </p>
-              <p className="mt-3 text-sm text-muted-foreground">
-                <a href={`tel:${PHONE.replace(/[^\d]/g, "")}`} className="hover:text-primary">
-                  {PHONE}
-                </a>
-                <span className="mx-2">•</span>
-                <a href={`mailto:${EMAIL}`} className="break-all hover:text-primary">
-                  {EMAIL}
-                </a>
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Fully remote team, based in the U.S. - Mon–Fri, 9am–5pm MST.
-              </p>
-            </div>
-            <div className="text-sm">
-              <nav aria-label="Footer" className="text-muted-foreground">
-                <ul className="flex flex-wrap gap-x-5 gap-y-2">
-                  <li>
-                    <a href="#claim" className="hover:text-primary">
-                      Book the analysis
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://trueprofitsalons.com/privacy-policy/" className="hover:text-primary">
-                      Privacy policy
-                    </a>
-                  </li>
-                </ul>
-              </nav>
               <ul className="mt-4 flex items-center gap-4 text-muted-foreground">
                 <li>
                   <a
@@ -673,8 +637,46 @@ function LandingPage() {
                 </li>
               </ul>
             </div>
+
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-foreground">Navigate</p>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li><a href="#who-we-are" className="hover:text-primary">About Us</a></li>
+                <li><a href="#who-this-is-for" className="hover:text-primary">Who It's For</a></li>
+                <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
+                <li><a href="#claim" className="hover:text-primary">Book the Analysis</a></li>
+                <li>
+                  <a
+                    href="https://trueprofitsalons.com/privacy-policy/"
+                    className="hover:text-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Privacy policy
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-foreground">Contact</p>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href={`tel:${PHONE.replace(/[^\d]/g, "")}`} className="hover:text-primary">
+                    {PHONE}
+                  </a>
+                </li>
+                <li>
+                  <a href={`mailto:${EMAIL}`} className="break-all hover:text-primary">
+                    {EMAIL}
+                  </a>
+                </li>
+                <li>Fully remote team, based in the U.S. - Mon–Fri, 9am–5pm MST.</li>
+              </ul>
+            </div>
           </div>
-          <p className="mt-8 border-t border-border pt-5 text-xs text-muted-foreground">
+
+          <p className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
             Average client results. Individual results may vary. © {new Date().getFullYear()} True
             Profit Salons. True Profit Salons is a DBA of Grow Green Financial, LLC.
           </p>
