@@ -20,6 +20,7 @@ import { YouTubeEmbed } from "@/components/lp/YouTubeEmbed";
 import { ScrollCarousel } from "@/components/lp/ScrollCarousel";
 import cariLovelandAsset from "@/assets/cari-loveland.png.asset.json";
 import trustedSpasLogosAsset from "@/assets/trusted-spas-logos.webp.asset.json";
+import trueProfitLogoAsset from "@/assets/true-profit-salons-logo.png.asset.json";
 
 const HERO_VIDEO_SRC =
   "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/manifest/video.m3u8";
@@ -232,9 +233,13 @@ function LandingPage() {
       {/* Sticky top bar */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center px-4 py-3">
-          <p className="whitespace-nowrap font-display text-sm font-semibold text-foreground sm:text-base">
-            True Profit Salons
-          </p>
+          <a href="#hero" aria-label="True Profit Salons - back to top">
+            <img
+              src={trueProfitLogoAsset.url}
+              alt="True Profit Salons"
+              className="h-9 w-auto sm:h-10"
+            />
+          </a>
         </div>
         <nav
           aria-label="Primary"
