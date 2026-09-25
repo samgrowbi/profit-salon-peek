@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   Armchair,
   Check,
+  Compass,
   Facebook,
   Flower2,
   HeartHandshake,
@@ -9,8 +10,13 @@ import {
   Leaf,
   Lightbulb,
   Linkedin,
+  PieChart,
   Quote,
+  Receipt,
+  Rocket,
+  TrendingDown,
   Users,
+  Wallet,
   Youtube,
 } from "lucide-react";
 import { LeadForm } from "@/components/lp/LeadForm";
@@ -68,12 +74,30 @@ const stats = [
 ];
 
 const pains = [
-  "\u201cMy salon is busy and making money\u2026 so why is there never any money left?\u201d",
-  "\u201cI pay everyone else before I pay myself.\u201d",
-  "\u201cI don\u2019t actually know which services are making me money.\u201d",
-  "\u201cTax season scares me because I never know what I\u2019m going to owe.\u201d",
-  "\u201cI\u2019m making big decisions based on my bank balance instead of my numbers.\u201d",
-  "\u201cI don\u2019t know if I can afford to hire, raise my prices, or open a second location.\u201d",
+  {
+    quote: "\u201cMy salon is busy and making money\u2026 so why is there never any money left?\u201d",
+    icon: TrendingDown,
+  },
+  {
+    quote: "\u201cI pay everyone else before I pay myself.\u201d",
+    icon: Wallet,
+  },
+  {
+    quote: "\u201cI don\u2019t actually know which services are making me money.\u201d",
+    icon: PieChart,
+  },
+  {
+    quote: "\u201cTax season scares me because I never know what I\u2019m going to owe.\u201d",
+    icon: Receipt,
+  },
+  {
+    quote: "\u201cI\u2019m making big decisions based on my bank balance instead of my numbers.\u201d",
+    icon: Compass,
+  },
+  {
+    quote: "\u201cI don\u2019t know if I can afford to hire, raise my prices, or open a second location.\u201d",
+    icon: Rocket,
+  },
 ];
 
 const included = [
@@ -371,15 +395,28 @@ function LandingPage() {
             Real things salon and spa owners tell us before they book a Profit Clarity Analysis.
           </p>
           <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {pains.map((pain) => (
-              <li
-                key={pain}
-                className="rounded-2xl border border-border bg-card p-6 shadow-sm"
-              >
-                <span className="mb-4 block h-1 w-8 rounded-full bg-gold" aria-hidden="true" />
-                <p className="font-display text-lg italic leading-snug text-foreground">{pain}</p>
-              </li>
-            ))}
+            {pains.map(({ quote, icon: Icon }, i) => {
+              const accent = i % 2 === 0 ? "bg-gold" : "bg-plum";
+              return (
+                <li
+                  key={quote}
+                  className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                >
+                  <Quote
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-2 -top-2 h-20 w-20 text-foreground/[0.04]"
+                  />
+                  <span
+                    className={`relative grid h-11 w-11 place-items-center rounded-full text-white shadow-sm ${accent}`}
+                  >
+                    <Icon aria-hidden="true" className="h-5 w-5" />
+                  </span>
+                  <p className="relative mt-5 font-display text-lg italic leading-snug text-foreground">
+                    {quote}
+                  </p>
+                </li>
+              );
+            })}
           </ul>
         </section>
         <CompactCta />
