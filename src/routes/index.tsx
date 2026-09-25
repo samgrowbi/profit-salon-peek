@@ -19,6 +19,7 @@ import { HlsVideo } from "@/components/lp/HlsVideo";
 import { YouTubeEmbed } from "@/components/lp/YouTubeEmbed";
 import { ScrollCarousel } from "@/components/lp/ScrollCarousel";
 import cariLovelandAsset from "@/assets/cari-loveland.png.asset.json";
+import trustedSpasLogosAsset from "@/assets/trusted-spas-logos.webp.asset.json";
 
 const HERO_VIDEO_SRC =
   "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/manifest/video.m3u8";
@@ -325,7 +326,7 @@ function LandingPage() {
           </div>
           <div className="mt-5 w-full overflow-hidden px-4 py-5 sm:py-9">
             <img
-              src="https://trueprofitsalons.com/wp-content/uploads/2026/01/True-profit-Logos-v3.gif"
+              src={trustedSpasLogosAsset.url}
               alt="Logos of spas that trust True Profit Salons"
               loading="lazy"
               className="mx-auto h-auto max-h-16 w-auto max-w-full sm:max-h-32"
