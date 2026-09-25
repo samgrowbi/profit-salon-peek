@@ -152,7 +152,7 @@ export function LeadForm() {
         <span className="inline-flex rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wide text-accent-foreground uppercase">
           You're on the list
         </span>
-        <h3 className="mt-4 text-2xl">Thanks! We've got your details.</h3>
+        <h3 className="mt-4 text-2xl text-foreground">Thanks! We've got your details.</h3>
         <p className="mt-2 text-muted-foreground">
           A member of our team will reach out shortly to schedule your 60-minute Profit Clarity
           Analysis and confirm the details.
