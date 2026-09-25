@@ -237,7 +237,7 @@ function LandingPage() {
             <img
               src={trueProfitLogoAsset.url}
               alt="True Profit Salons"
-              className="h-9 w-auto sm:h-10"
+              className="h-11 w-auto sm:h-12"
             />
           </a>
         </div>
