@@ -221,7 +221,7 @@ function LandingPage() {
                   </li>
                   <li className="inline-flex items-center whitespace-nowrap">
                     <Check aria-hidden="true" className="mr-1 h-3 w-3 shrink-0 text-primary sm:mr-1.5 sm:h-4 sm:w-4" />
-                    <span className="hidden sm:inline">No</span> Payment Required Today
+                    No Payment Required Today
                   </li>
                   <li className="inline-flex items-center whitespace-nowrap">
                     <Check aria-hidden="true" className="mr-1 h-3 w-3 shrink-0 text-primary sm:mr-1.5 sm:h-4 sm:w-4" />
