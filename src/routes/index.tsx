@@ -215,8 +215,7 @@ function HeroCover({ photo }: { photo: string }) {
   );
 }
 
-// Photos from industry events. Each slot shows a placeholder until `src` is set.
-// To fill one, add the image file (e.g. under src/assets or via Lovable's upload) and set its src.
+// Photos from industry events (in the order the client attached them).
 const EVENTS_HEADING = "Our Experts at Leading Industry Events";
 const eventPhotos: { src: string; alt: string }[] = [
   { src: eventPhoto1.url, alt: "Ross at an industry event" },
