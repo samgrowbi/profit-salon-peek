@@ -297,7 +297,7 @@ function LandingPage() {
                 </div>
                 <a
                   href="#claim"
-                  className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full bg-primary px-5 py-3 text-center text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto sm:px-6 sm:py-3.5 sm:text-base"
+                  className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full bg-primary px-4 py-3 text-center text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto sm:px-5 sm:py-3.5 xl:px-6 xl:text-base"
                 >
                   Claim My 50% Off Comprehensive Analysis
                 </a>
