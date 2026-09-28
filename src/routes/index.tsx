@@ -195,11 +195,11 @@ function HeroCover({ photo }: { photo: string }) {
         aria-hidden="true"
         className="absolute inset-y-0 right-0 h-full w-[52%] object-cover object-top [-webkit-mask-image:linear-gradient(to_right,transparent,black_40%)] [mask-image:linear-gradient(to_right,transparent,black_40%)]"
       />
-      <div className="absolute inset-y-0 left-0 flex w-[58%] flex-col justify-center gap-2 p-4 sm:p-7">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold sm:text-xs">
+      <div className="absolute inset-y-0 left-0 flex w-[58%] min-w-0 flex-col justify-center gap-2 overflow-hidden p-4 sm:p-7">
+        <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-gold sm:text-xs">
           Profit Clarity Analysis
         </p>
-        <p className="font-display text-xl font-bold uppercase leading-[1.05] text-white sm:text-3xl">
+        <p className="min-w-0 break-words font-display text-base font-bold uppercase leading-[1.15] text-white sm:text-xl lg:text-2xl">
           Where is your spa's <span className="text-gold">profit leaking?</span>
         </p>
       </div>
