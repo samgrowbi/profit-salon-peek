@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Animate the trusted spa logos using a duplicated static strip and CSS translation, rather than animated WebP, for smooth, seamless motion and reduced-motion support.

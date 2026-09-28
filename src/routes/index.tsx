@@ -16,7 +16,7 @@ import { HlsVideo } from "@/components/lp/HlsVideo";
 import { YouTubeEmbed } from "@/components/lp/YouTubeEmbed";
 import { ScrollCarousel } from "@/components/lp/ScrollCarousel";
 import cariLovelandAsset from "@/assets/cari-loveland.png.asset.json";
-import trustedSpasLogosAsset from "@/assets/trusted-spas-logos.webp.asset.json";
+import trustedSpasLogosAsset from "@/assets/trusted-spas-smooth.webp.asset.json";
 import trueProfitLogoAsset from "@/assets/true-profit-salons-logo.png.asset.json";
 
 const HERO_VIDEO_SRC =
@@ -248,13 +248,22 @@ function LandingPage() {
 
         {/* Trusted by: logo slider, full width, no label */}
         <section className="border-b border-border bg-background">
-          <div className="w-full overflow-hidden py-4 sm:py-6">
-            <img
-              src={trustedSpasLogosAsset.url}
-              alt="Logos of spas that trust True Profit Salons"
-              loading="lazy"
-              className="block h-auto max-h-40 w-full object-contain"
-            />
+          <div className="overflow-hidden py-4 sm:py-6">
+            <div className="trusted-logos-track flex w-max">
+              <img
+                src={trustedSpasLogosAsset.url}
+                alt="Logos of spas that trust True Profit Salons"
+                loading="lazy"
+                className="block h-[clamp(56px,8.83vw,113px)] w-auto max-w-none shrink-0"
+              />
+              <img
+                src={trustedSpasLogosAsset.url}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="block h-[clamp(56px,8.83vw,113px)] w-auto max-w-none shrink-0"
+              />
+            </div>
           </div>
         </section>
 
