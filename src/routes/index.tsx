@@ -26,12 +26,43 @@ const HERO_VIDEO_SRC =
 const HERO_VIDEO_POSTER =
   "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/thumbnails/thumbnail.jpg?time=0s&height=900";
 
+// Quotes are taken word for word from each client's video (filler words like 'um' removed).
 const CLIENT_STORIES = [
-  { videoId: "aH0uhrRZhXA", name: "Tabatha Barnaby", business: "Julia Grace Salon" },
-  { videoId: "j7xJvcIT044", name: "Natalie Crosser", business: "Salon Prism" },
-  { videoId: "bgauiEA1gfI", name: "Rosie", business: "The Vault Salon" },
-  { videoId: "c94vXqYjj5Y", name: "Kara Archer", business: "Salon Gloss" },
-  { videoId: "w8NDQRSSgD0", name: "Mandy", business: "Fix Salon Seattle" },
+  {
+    videoId: "aH0uhrRZhXA",
+    name: "Tabatha Barnaby",
+    business: "Julia Grace Salon",
+    quote:
+      "My profit has gone up, my owner's pay has gone up. I've had more savings and more money, more working capital than I've ever had, and I owe that to True Profit Salons.",
+  },
+  {
+    videoId: "j7xJvcIT044",
+    name: "Natalie Crosser",
+    business: "Salon Prism",
+    quote:
+      "It's definitely empowered [me] to pay myself more, which makes the business more rewarding.",
+  },
+  {
+    videoId: "bgauiEA1gfI",
+    name: "Rosie",
+    business: "The Vault Salon",
+    quote:
+      "I've actually taken my first profit check ever since doing it with the True Profit Salons method, and that has been a huge win for me.",
+  },
+  {
+    videoId: "c94vXqYjj5Y",
+    name: "Kara Archer",
+    business: "Salon Gloss",
+    quote:
+      "My profit grows and grows and grows... it's great to see it on paper, but when the money is actually in my bank account, it's a whole lot better.",
+  },
+  {
+    videoId: "w8NDQRSSgD0",
+    name: "Mandy",
+    business: "Fix Salon Seattle",
+    quote:
+      "I am an expert at doing hair. I am not an expert at numbers, and so I came to True Profit Salons to have somebody else help guide me to the success I needed in finances.",
+  },
 ];
 
 const TITLE =
