@@ -6,6 +6,7 @@ import {
   Linkedin,
   PieChart,
   Receipt,
+  Star,
   TrendingDown,
   Wallet,
   Youtube,
@@ -21,10 +22,6 @@ import trueProfitLogoAsset from "@/assets/true-profit-salons-logo.png.asset.json
 
 const HERO_VIDEO_SRC =
   "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/manifest/video.m3u8";
-// Cloudflare Stream can render a poster frame directly from the video itself
-// (time=0s = first frame), so the poster always matches what's about to play.
-const HERO_VIDEO_POSTER =
-  "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/thumbnails/thumbnail.jpg?time=0s&height=900";
 
 // Quotes are taken word for word from each client's video (filler words like 'um' removed).
 const CLIENT_STORIES = [
@@ -179,6 +176,36 @@ const faqs = [
   },
 ];
 
+// Designed cover for the hero video (shown until play is pressed).
+function HeroCover({ photo }: { photo: string }) {
+  return (
+    <div className="relative h-full w-full bg-gradient-to-br from-plum via-plum to-ink">
+      <img
+        src={photo}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-y-0 right-0 h-full w-[52%] object-cover object-top [-webkit-mask-image:linear-gradient(to_right,transparent,black_40%)] [mask-image:linear-gradient(to_right,transparent,black_40%)]"
+      />
+      <div className="absolute inset-y-0 left-0 flex w-[58%] flex-col justify-center gap-2 p-4 sm:p-7">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold sm:text-xs">
+          Profit Clarity Analysis
+        </p>
+        <p className="font-display text-xl font-bold uppercase leading-[1.05] text-white sm:text-3xl">
+          Where is your spa's <span className="text-gold">profit leaking?</span>
+        </p>
+      </div>
+      <div className="absolute bottom-3 right-3 hidden items-center gap-2 rounded-xl bg-card/95 px-3 py-2 shadow-lg sm:flex">
+        <span className="flex text-gold" aria-hidden="true">
+          {[0, 1, 2, 3, 4].map((i) => (
+            <Star key={i} className="h-3.5 w-3.5 fill-current" />
+          ))}
+        </span>
+        <span className="text-xs font-semibold text-foreground">Trusted by 500+ spas</span>
+      </div>
+    </div>
+  );
+}
+
 const ctaClass =
   "inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto";
 
@@ -271,7 +298,7 @@ function LandingPage() {
                 src={HERO_VIDEO_SRC}
                 ariaLabel="Profit Clarity Analysis explainer video"
                 className="aspect-video w-full object-cover"
-                poster={HERO_VIDEO_POSTER}
+                cover={<HeroCover photo={founders[0].photo} />}
               />
             </div>
           </div>
