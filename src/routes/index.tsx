@@ -216,7 +216,7 @@ function HeroCover({ photo }: { photo: string }) {
 }
 
 // Photos from industry events (in the order the client attached them).
-const EVENTS_HEADING = "Our Experts at Leading Industry Events";
+const EVENTS_HEADING = "Our Experts at the World’s Leading Med Spa Events";
 const eventPhotos: { src: string; alt: string }[] = [
   { src: eventPhoto1.url, alt: "Ross at an industry event" },
   { src: eventPhoto2.url, alt: "Ross at an industry event" },
