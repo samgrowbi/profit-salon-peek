@@ -306,14 +306,16 @@ function LandingPage() {
                 key={title}
                 className="rounded-2xl border border-border bg-card p-5 shadow-sm"
               >
-                <span
-                  className={`grid h-10 w-10 place-items-center rounded-full text-white ${
-                    i % 2 === 0 ? "bg-gold" : "bg-plum"
-                  }`}
-                >
-                  <Icon aria-hidden="true" className="h-5 w-5" />
-                </span>
-                <h3 className="mt-4 text-lg font-semibold text-foreground">{title}</h3>
+                <div className="flex items-center gap-3">
+                  <span
+                    className={`grid h-10 w-10 shrink-0 place-items-center rounded-full text-white ${
+                      i % 2 === 0 ? "bg-gold" : "bg-plum"
+                    }`}
+                  >
+                    <Icon aria-hidden="true" className="h-5 w-5" />
+                  </span>
+                  <h3 className="text-lg font-semibold leading-snug text-foreground">{title}</h3>
+                </div>
                 <p className="mt-1.5 text-sm text-muted-foreground">{text}</p>
               </li>
             ))}
