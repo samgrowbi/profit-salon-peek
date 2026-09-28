@@ -320,7 +320,7 @@ function LandingPage() {
                 src={HERO_VIDEO_SRC}
                 ariaLabel="Profit Clarity Analysis explainer video"
                 className="aspect-video w-full object-cover"
-                cover={<HeroCover photo={founders[0].photo} />}
+                cover={<HeroCover photo={founders[0]!.photo} />}
               />
             </div>
           </div>
