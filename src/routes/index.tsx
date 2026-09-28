@@ -206,24 +206,29 @@ function LandingPage() {
                 A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified spa CFO.
               </p>
 
-              {/* Offer: price and its supporting points sit together, above the CTA */}
-              <div className="mt-6 flex items-end gap-3" aria-label="Normally $500, now $250">
-                <span className="text-lg text-muted-foreground line-through">$500</span>
-                <span className="font-display text-5xl font-bold leading-none text-gold">$250</span>
+              {/* Offer: price and its supporting points sit together on one line, above the CTA */}
+              <div
+                className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2"
+                aria-label="Normally $500, now $250"
+              >
+                <div className="flex items-end gap-3">
+                  <span className="text-lg text-muted-foreground line-through">$500</span>
+                  <span className="font-display text-5xl font-bold leading-none text-gold">$250</span>
+                </div>
+                <ul className="flex flex-nowrap items-center gap-x-3 text-xs font-medium text-foreground/80 sm:text-sm">
+                  <li className="inline-flex items-center whitespace-nowrap rounded-full bg-accent px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent-foreground sm:text-xs">
+                    Limited Time Offer
+                  </li>
+                  <li className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <Check aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
+                    No Payment Required Today
+                  </li>
+                  <li className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <Check aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
+                    Trusted By 500+ Spas
+                  </li>
+                </ul>
               </div>
-              <ul className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-foreground/80">
-                <li className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
-                  Limited Time Offer
-                </li>
-                <li className="inline-flex items-center gap-1.5">
-                  <Check aria-hidden="true" className="h-4 w-4 text-primary" />
-                  No Payment Required Today
-                </li>
-                <li className="inline-flex items-center gap-1.5">
-                  <Check aria-hidden="true" className="h-4 w-4 text-primary" />
-                  Trusted By 500+ Spas
-                </li>
-              </ul>
 
               <a href="#claim" className={`mt-6 ${ctaClass}`}>
                 Claim My 50% Off Comprehensive Analysis
