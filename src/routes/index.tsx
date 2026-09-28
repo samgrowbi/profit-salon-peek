@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   Check,
   Facebook,
+  ImageIcon,
   Instagram,
   Linkedin,
   PieChart,
@@ -206,6 +207,14 @@ function HeroCover({ photo }: { photo: string }) {
   );
 }
 
+// Photos from industry events. Each slot shows a placeholder until `src` is set.
+// To fill one, add the image file (e.g. under src/assets or via Lovable's upload) and set its src.
+const EVENTS_HEADING = "Our Experts at Leading Industry Events";
+const eventPhotos: { src: string | null; alt: string }[] = Array.from({ length: 8 }, (_, i) => ({
+  src: null,
+  alt: `Our team at an industry event, photo ${i + 1}`,
+}));
+
 const ctaClass =
   "inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto";
 
@@ -358,6 +367,41 @@ function LandingPage() {
                 QuickBooks Specialist Mariana, and Administrative Director Mary.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Events: our experts at industry events (photos to be added) */}
+        <section id="events" className="scroll-mt-24 bg-plum/5">
+          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
+            <h2 className="text-3xl sm:text-4xl">{EVENTS_HEADING}</h2>
+            <ScrollCarousel
+              ariaLabel="Photos from industry events"
+              trackClassName="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border"
+            >
+              {eventPhotos.map((photo, i) => (
+                <figure key={i} className="w-[62%] shrink-0 snap-start sm:w-[34%] lg:w-[23%]">
+                  {photo.src ? (
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      className="aspect-[3/4] w-full rounded-2xl object-cover object-top shadow-md"
+                    />
+                  ) : (
+                    <div
+                      role="img"
+                      aria-label={`Placeholder for event photo ${i + 1}`}
+                      className="grid aspect-[3/4] w-full place-items-center rounded-2xl border-2 border-dashed border-border bg-card text-center"
+                    >
+                      <div className="text-muted-foreground">
+                        <ImageIcon aria-hidden="true" className="mx-auto h-8 w-8" />
+                        <p className="mt-2 text-sm font-medium">Event photo {i + 1}</p>
+                      </div>
+                    </div>
+                  )}
+                </figure>
+              ))}
+            </ScrollCarousel>
           </div>
         </section>
 
