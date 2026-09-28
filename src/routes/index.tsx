@@ -215,16 +215,16 @@ function LandingPage() {
                   <span className="text-lg text-muted-foreground line-through">$500</span>
                   <span className="font-display text-5xl font-bold leading-none text-gold">$250</span>
                 </div>
-                <ul className="flex flex-nowrap items-center gap-x-2 text-[11px] font-medium text-foreground/80 sm:gap-x-3 sm:text-sm">
-                  <li className="inline-flex items-center whitespace-nowrap rounded-full bg-accent px-2 py-1 text-[9px] font-semibold uppercase tracking-wider text-accent-foreground sm:px-3 sm:text-xs">
+                <ul className="flex flex-nowrap items-center gap-x-1.5 text-[10px] font-medium text-foreground/80 sm:gap-x-3 sm:text-sm">
+                  <li className="inline-flex items-center whitespace-nowrap rounded-full bg-accent px-1.5 py-1 text-[8.5px] font-semibold uppercase text-accent-foreground sm:px-3 sm:text-xs sm:tracking-wider">
                     Limited Time Offer
                   </li>
                   <li className="inline-flex items-center gap-1 whitespace-nowrap sm:gap-1.5">
-                    <Check aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-primary sm:h-4 sm:w-4" />
+                    <Check aria-hidden="true" className="h-3 w-3 shrink-0 text-primary sm:h-4 sm:w-4" />
                     No Payment Required Today
                   </li>
                   <li className="inline-flex items-center gap-1 whitespace-nowrap sm:gap-1.5">
-                    <Check aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-primary sm:h-4 sm:w-4" />
+                    <Check aria-hidden="true" className="h-3 w-3 shrink-0 text-primary sm:h-4 sm:w-4" />
                     Trusted By 500+ Spas
                   </li>
                 </ul>
