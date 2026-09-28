@@ -276,7 +276,7 @@ function LandingPage() {
       <main>
         {/* Hero */}
         <section id="hero" className="border-b border-border bg-cream">
-          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-7 lg:grid-cols-2 lg:items-center lg:py-10">
+          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-7 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:py-10">
             <div>
               <h1 className="text-4xl leading-[1.1] text-foreground sm:text-5xl lg:text-[3.2rem]">
                 Find Out Where Your Spa's Profit Is Leaking
@@ -288,7 +288,7 @@ function LandingPage() {
 
               {/* Offer: price + CTA together on one line; trust points sit below */}
               <div
-                className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4"
+                className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3"
                 aria-label="Normally $500, now $250"
               >
                 <div className="flex items-end gap-3">
@@ -297,7 +297,7 @@ function LandingPage() {
                 </div>
                 <a
                   href="#claim"
-                  className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full bg-primary px-8 py-4 text-center text-xl font-bold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full bg-primary px-4 py-3 text-center text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto sm:px-5 sm:py-3.5 xl:px-6 xl:text-base"
                 >
                   Claim My 50% Off Comprehensive Analysis
                 </a>
