@@ -288,18 +288,18 @@ function LandingPage() {
 
               {/* Offer: price + CTA together on one line; trust points sit below */}
               <div
-                className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4"
+                className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4 lg:flex-nowrap"
                 aria-label="Normally $500, now $250"
               >
-                <div className="flex items-end gap-3">
+                <div className="flex shrink-0 items-end gap-3">
                   <span className="text-lg text-muted-foreground line-through">$500</span>
                   <span className="font-display text-5xl font-bold leading-none text-gold">$250</span>
                 </div>
                 <a
                   href="#claim"
-                  className="inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-center text-xl font-bold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+                  className="inline-flex w-full shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-primary px-8 py-4 text-center text-xl font-bold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
                 >
-                  Claim My 50% Off Comprehensive Analysis
+                  Claim My 50% Off
                 </a>
               </div>
 
