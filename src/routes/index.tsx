@@ -370,9 +370,12 @@ function LandingPage() {
               ariaLabel="Client story videos"
               trackClassName="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border"
             >
-              {CLIENT_STORIES.map(({ videoId, name, business }) => (
+              {CLIENT_STORIES.map(({ videoId, name, business, quote }) => (
                 <figure key={videoId} className="w-[78%] shrink-0 snap-start sm:w-[46%] lg:w-[30%]">
                   <YouTubeEmbed videoId={videoId} title={`${name}, ${business}`} />
+                  <blockquote className="mt-4 font-display text-base italic leading-tight text-foreground">
+                    &ldquo;{quote}&rdquo;
+                  </blockquote>
                   <figcaption className="mt-3 text-sm font-semibold text-foreground">
                     {name} <span className="font-normal text-muted-foreground">- {business}</span>
                   </figcaption>
