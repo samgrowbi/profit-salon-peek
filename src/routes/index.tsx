@@ -20,6 +20,14 @@ import { ScrollCarousel } from "@/components/lp/ScrollCarousel";
 import cariLovelandAsset from "@/assets/cari-loveland.png.asset.json";
 import trustedSpasLogosAsset from "@/assets/trusted-spas-smooth.webp.asset.json";
 import trueProfitLogoAsset from "@/assets/true-profit-salons-logo.png.asset.json";
+import eventPhoto1 from "@/assets/event-photo-1.jpg.asset.json";
+import eventPhoto2 from "@/assets/event-photo-2.jpg.asset.json";
+import eventPhoto3 from "@/assets/event-photo-3.jpg.asset.json";
+import eventPhoto4 from "@/assets/event-photo-4.jpg.asset.json";
+import eventPhoto5 from "@/assets/event-photo-5.jpg.asset.json";
+import eventPhoto6 from "@/assets/event-photo-6.jpg.asset.json";
+import eventPhoto7 from "@/assets/event-photo-7.jpg.asset.json";
+import eventPhoto8 from "@/assets/event-photo-8.jpg.asset.json";
 
 const HERO_VIDEO_SRC =
   "https://customer-vgdtdepv6dn1f10z.cloudflarestream.com/8543d084481d80b5128520b61b1d9383/manifest/video.m3u8";
@@ -207,13 +215,18 @@ function HeroCover({ photo }: { photo: string }) {
   );
 }
 
-// Photos from industry events. Each slot shows a placeholder until `src` is set.
-// To fill one, add the image file (e.g. under src/assets or via Lovable's upload) and set its src.
+// Photos from industry events (in the order the client attached them).
 const EVENTS_HEADING = "Our Experts at Leading Industry Events";
-const eventPhotos: { src: string | null; alt: string }[] = Array.from({ length: 8 }, (_, i) => ({
-  src: null,
-  alt: `Our team at an industry event, photo ${i + 1}`,
-}));
+const eventPhotos: { src: string; alt: string }[] = [
+  { src: eventPhoto1.url, alt: "Ross at an industry event" },
+  { src: eventPhoto2.url, alt: "Ross at an industry event" },
+  { src: eventPhoto3.url, alt: "Ross at an industry event" },
+  { src: eventPhoto4.url, alt: "Ross at an industry event" },
+  { src: eventPhoto5.url, alt: "Ross at an industry event" },
+  { src: eventPhoto6.url, alt: "Ross at an industry event" },
+  { src: eventPhoto7.url, alt: "Ross at an industry event" },
+  { src: eventPhoto8.url, alt: "Ross at an industry event" },
+];
 
 const ctaClass =
   "inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto";
@@ -307,7 +320,7 @@ function LandingPage() {
                 src={HERO_VIDEO_SRC}
                 ariaLabel="Profit Clarity Analysis explainer video"
                 className="aspect-video w-full object-cover"
-                cover={<HeroCover photo={founders[0].photo} />}
+                cover={<HeroCover photo={founders[0]!.photo} />}
               />
             </div>
           </div>
