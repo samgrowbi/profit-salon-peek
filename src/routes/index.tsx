@@ -1,21 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Armchair,
   Check,
-  Compass,
   Facebook,
-  Flower2,
-  HeartHandshake,
   Instagram,
-  Leaf,
-  Lightbulb,
   Linkedin,
   PieChart,
-  Quote,
   Receipt,
-  Rocket,
   TrendingDown,
-  Users,
   Wallet,
   Youtube,
 } from "lucide-react";
@@ -65,187 +56,105 @@ export const Route = createFileRoute("/")({
 const PHONE = "+1 385-985-7709";
 const EMAIL = "hello@trueprofitsalons.com";
 
-
-// Real client averages, confirmed from the live site (trueprofitsalons.com).
-const stats = [
-  { label: "Average Increase in Revenue Per Year", value: "$164K" },
-  { label: "Average Increase in Profit", value: "$30K–$50K" },
-  { label: "Increased In Cash Reserves", value: "$114K" },
-];
-
-const pains = [
-  {
-    quote: "\u201cMy salon is busy and making money\u2026 so why is there never any money left?\u201d",
-    icon: TrendingDown,
-  },
-  {
-    quote: "\u201cI pay everyone else before I pay myself.\u201d",
-    icon: Wallet,
-  },
-  {
-    quote: "\u201cI don\u2019t actually know which services are making me money.\u201d",
-    icon: PieChart,
-  },
-  {
-    quote: "\u201cTax season scares me because I never know what I\u2019m going to owe.\u201d",
-    icon: Receipt,
-  },
-  {
-    quote: "\u201cI\u2019m making big decisions based on my bank balance instead of my numbers.\u201d",
-    icon: Compass,
-  },
-  {
-    quote: "\u201cI don\u2019t know if I can afford to hire, raise my prices, or open a second location.\u201d",
-    icon: Rocket,
-  },
-];
-
-const included = [
-  "A full review of your bookkeeping and financial records.",
-  "A clear snapshot of current revenue, expenses, and real profit.",
-  "Review of owner's pay, cash flow, and overall financial health.",
-  "Quick check of pricing, service mix, and margins to spot hidden leaks.",
-  "Your top 3–5 opportunities to protect and increase profit.",
-  "A simple 90-day action plan you can implement with us, your current accountant, or on your own.",
-];
-
-const whoThisIsFor = [
-  {
-    icon: Flower2,
-    text: "Own or lead a spa or a multi-location beauty business",
-  },
-  { icon: Armchair, text: "Feel like money is coming in but not staying" },
-  { icon: Users, text: "Want clarity on your numbers without the overwhelm" },
-  {
-    icon: Lightbulb,
-    text: "Are serious about improving profit and paying yourself properly",
-  },
-  {
-    icon: HeartHandshake,
-    text: "Value honest, Profit First inspired guidance from someone who understands the spa industry",
-  },
-];
-
-
-// Real team bios, condensed from trueprofitsalons.com/about-us/meet-the-team/
-const team = [
+// Founders only: real photos (Ross from the client's site, Cari supplied by the client).
+const founders = [
   {
     name: "Ross Loveland",
     role: "Founder & CEO",
     photo: "https://trueprofitsalons.com/wp-content/uploads/2026/09/Ross-loveland-6129.jpg",
-    bio: "Ross is a dynamic speaker, author, and trainer who helps salon and spa owners achieve financial clarity. He holds the Advanced Certified Profit First Professional and Profit First Certified Master credentials. As founder of True Profit Salons and True Profit Tax, and co-founder of True Profit Spas, he blends industry expertise with proven financial strategy. Outside of work, Ross is a devoted father to five daughters, an avid reader, and a pickleball player.",
   },
   {
     name: "Cari Loveland",
     role: "VP Marketing & Strategic Growth",
     photo: cariLovelandAsset.url,
-    bio: "Cari leads brand growth and strategic partnerships across the beauty space. After over a decade in bedside, travel, and hospice nursing, she transitioned into business and now works remotely as a marketing and strategic growth specialist. She brings strong sales experience and leadership to her work and is passionate about building meaningful relationships within the industry.",
-  },
-  {
-    name: "Nicole",
-    role: "Profit Advisor",
-    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Nicole.webp",
-    bio: "Nicole grew up on the East Coast and moved to California after college. With a background in math education, she's spent years helping people make sense of complex ideas and reach their goals. Fun fact: Nicole loves to hike and explore different National Parks.",
-  },
-  {
-    name: "Patrick",
-    role: "Profit Advisor",
-    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Patrick.webp",
-    bio: "Patrick is a seasoned financial executive with over 15 years of experience, including a decade as a CFO. He specializes in corporate finance, strategic planning, and risk management. He holds Series 7 and 66 licenses, plus CRPC\u00ae, APMA\u00ae, AWMA\u00ae, and SE-AWMA\u2122 certifications. Fun fact: he lives in Charlotte, NC, with his wife and their King Cavalier, Tucker.",
-  },
-  {
-    name: "Alexandra",
-    role: "Profit Advisor",
-    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Alexandra.webp",
-    bio: "Alexandra grew up in New York, graduated with a Bachelor's Degree in Accounting from the University of Delaware, and now lives on Nantucket Island, MA. Her attention to detail and love for building customer relationships help clients reach their full potential. Fun fact: Alexandra loves to crochet.",
-  },
-  {
-    name: "Erika",
-    role: "Profit Advisor",
-    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Erika.webp",
-    bio: "Erika loves the beauty industry. She has a background in cosmetology and uses her knowledge and customer service experience to help clients exceed their financial goals. Fun fact: in her leisure hours, she immerses herself in reading and writing poetry.",
-  },
-  {
-    name: "Mariana",
-    role: "QuickBooks Specialist",
-    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Mariana.webp",
-    bio: "Mariana grew up in Mexico and holds a Bachelor's degree in Accounting from Universidad Panamericana. She specializes in QuickBooks support, accounting, and administrative assistance, bringing a detail-oriented and organized approach to her work. Fun fact: Mariana loves interior design.",
-  },
-  {
-    name: "Mary",
-    role: "Administrative Director",
-    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/02/Mary.webp",
-    bio: "Mary has a robust engineering background and is a goal-driven Administrative Director with a strong emphasis on fostering company prosperity and streamlining business operations. Fun fact: in her leisure hours, she immerses herself in reading and writing poetry.",
   },
 ];
 
-const testimonials = [
+// Four main problems, taken from the client's own pain points.
+const problems = [
   {
-    quote:
-      "Pamela & Alex are the best! They've allowed us to truly scale and live by Profit First.",
-    name: "Parlour in the Woods",
-    business: "Salon Owner",
+    icon: TrendingDown,
+    title: "Money Doesn't Stay",
+    text: "You're busy and bringing in revenue, but there's never much left at the end of the month.",
   },
   {
-    quote:
-      "This has been the financial freedom I needed. It has paid for itself. My CFO is the best - easy to work with, always prepared, and goes above and beyond.",
-    name: "TLoren",
-    business: "Salon Owner",
+    icon: Wallet,
+    title: "Owner Pay",
+    text: "Your team gets paid on schedule. Your own paycheck is whatever is left over.",
   },
   {
-    quote:
-      "Working with this company has sincerely helped me understand my numbers.",
-    name: "N Natural Hair Studio",
-    business: "Salon Owner",
+    icon: PieChart,
+    title: "Service Profitability",
+    text: "You don't know which services actually make you money and which ones cost you.",
+  },
+  {
+    icon: Receipt,
+    title: "Tax Surprises",
+    text: "Tax season arrives and you never know what you'll owe or whether the cash is there.",
+  },
+];
+
+const included = [
+  {
+    title: "Full Books Review",
+    text: "We go through your bookkeeping and financial records to check that your numbers are accurate and up to date.",
+  },
+  {
+    title: "P&L Analysis",
+    text: "We take your profit and loss statement and turn it into clear conclusions about where your money is going.",
+  },
+  {
+    title: "Owner Pay & Cash Flow",
+    text: "We look at what you pay yourself, how cash moves through the business, and how healthy it is overall.",
+  },
+  {
+    title: "Pricing & Margins",
+    text: "We check your pricing, service mix, and margins to find the services quietly costing you money.",
+  },
+  {
+    title: "Where to Improve",
+    text: "We point out the 3 to 5 changes that would do the most for your profit.",
+  },
+  {
+    title: "90-Day Action Plan",
+    text: "A simple written plan you can follow with us, with your current accountant, or on your own.",
   },
 ];
 
 const faqs = [
   {
-    q: "What happens after I book?",
-    a: "You'll complete a short intake form about your spa, and our team will reach out to schedule your 60-minute call. We'll take care of the details, including payment, when we connect.",
+    q: "What is the Comprehensive Analysis?",
+    a: "A one-on-one, 60-minute call with a Profit First Certified advisor. We go through your books and numbers with you and give you a written 90-day plan.",
   },
   {
-    q: "How is this different from a free consultation?",
-    a: "This isn't a sales call. It's a paid, structured 60-minute session built around your actual numbers, and you leave with a written 90-day action plan - not a pitch for more services.",
-  },
-  {
-    q: "Who will I be meeting with?",
-    a: "A Profit First Certified spa Profit Advisor from the True Profit Salons team.",
-  },
-  {
-    q: "What if my books are messy or out of date?",
-    a: "That's fine. Bring what you have. Part of the session is identifying what needs to be cleaned up and what to prioritize first.",
-  },
-  {
-    q: "Do I need to be on QuickBooks?",
-    a: "No. We work with QuickBooks Online, Xero, spreadsheets, or no formal system at all - the intake form asks what you currently use so we can prepare.",
-  },
-  {
-    q: "Is this only for spas already doing well, or can newer businesses book too?",
-    a: "This session is built for spa owners who want clarity on their numbers, whatever stage they're at - from those feeling stuck to those ready to scale.",
-  },
-  {
-    q: "Will you try to sell me on ongoing bookkeeping or CFO services afterward?",
-    a: "If ongoing support looks like a fit based on what we find, we'll say so - but the 90-day plan is yours to use with us, your current accountant, or on your own either way.",
+    q: "What happens after I submit the form?",
+    a: "Someone from our team will contact you to set up a call. Payment details are shared after that. There is nothing to pay on this page.",
   },
   {
     q: "Do you only work with spas?",
-    a: "Yes. We work exclusively with spas.",
+    a: "Yes. We work exclusively with spas and beauty businesses.",
+  },
+  {
+    q: "Do you help with owner pay?",
+    a: "Yes. Owner pay strategy is a core part of what we do.",
+  },
+  {
+    q: "Can you help with pricing or my service menu?",
+    a: "Yes. We help you price your services so they support healthy margins.",
+  },
+  {
+    q: "Do you work virtually?",
+    a: "Yes. Our team is fully remote and supports spas across the U.S.",
   },
 ];
 
-function CompactCta() {
+const ctaClass =
+  "inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto";
+
+function CtaButton() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 border-t border-border px-4 py-7 sm:flex-row sm:items-center">
-      <div>
-        <p className="font-display text-xl font-semibold text-foreground">Ready to see what your numbers are saying?</p>
-        <p className="mt-1 text-sm text-muted-foreground">Get clear priorities and a practical 90-day plan.</p>
-      </div>
-      <a
-        href="#claim"
-        className="inline-flex w-full shrink-0 items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
-      >
+    <div className="mx-auto max-w-6xl px-4 py-8 text-center">
+      <a href="#claim" className={ctaClass}>
         Claim My 50% Off Comprehensive Analysis
       </a>
     </div>
@@ -269,11 +178,11 @@ function LandingPage() {
             aria-label="Primary"
             className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex"
           >
-            <a href="#who-we-are" className="hover:text-primary">About Us</a>
-            <a href="#who-this-is-for" className="hover:text-primary">Who It's For</a>
-            <a href="#meet-the-team" className="hover:text-primary">Our Team</a>
+            <a href="#problems" className="hover:text-primary">Problems We Solve</a>
+            <a href="#included" className="hover:text-primary">What's Included</a>
+            <a href="#stories" className="hover:text-primary">Client Stories</a>
+            <a href="#who-we-are" className="hover:text-primary">Our Team</a>
             <a href="#faq" className="hover:text-primary">FAQ</a>
-            <a href="#claim" className="hover:text-primary">Book the Analysis</a>
           </nav>
           <a
             href="#claim"
@@ -289,38 +198,36 @@ function LandingPage() {
         <section id="hero" className="border-b border-border bg-cream">
           <div className="mx-auto grid max-w-6xl gap-6 px-4 py-7 lg:grid-cols-2 lg:items-center lg:py-10">
             <div>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-accent-foreground">
-                  Limited Time Offer
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Check aria-hidden="true" className="h-3.5 w-3.5 text-primary" />
-                  No Payment Required Today
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Check aria-hidden="true" className="h-3.5 w-3.5 text-primary" />
-                  Trusted By 500+ Spas
-                </span>
-              </div>
-              <h1 className="mt-5 text-4xl leading-[1.1] text-foreground sm:text-5xl lg:text-[3.2rem]">
+              <h1 className="text-4xl leading-[1.1] text-foreground sm:text-5xl lg:text-[3.2rem]">
                 Find Out Where Your Spa's Profit Is Leaking
                 <span className="block text-gold">In 60 Minutes</span>
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted-foreground">
                 A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified spa CFO.
               </p>
-              <a
-                href="#claim"
-                className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
-              >
-                Claim My 50% Off Comprehensive Analysis
-              </a>
-              <div className="mt-5 flex items-end gap-3" aria-label="Normally $500, now $250">
+
+              {/* Offer: price and its supporting points sit together, above the CTA */}
+              <div className="mt-6 flex items-end gap-3" aria-label="Normally $500, now $250">
                 <span className="text-lg text-muted-foreground line-through">$500</span>
                 <span className="font-display text-5xl font-bold leading-none text-gold">$250</span>
               </div>
+              <ul className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-foreground/80">
+                <li className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
+                  Limited Time Offer
+                </li>
+                <li className="inline-flex items-center gap-1.5">
+                  <Check aria-hidden="true" className="h-4 w-4 text-primary" />
+                  No Payment Required Today
+                </li>
+                <li className="inline-flex items-center gap-1.5">
+                  <Check aria-hidden="true" className="h-4 w-4 text-primary" />
+                  Trusted By 500+ Spas
+                </li>
+              </ul>
 
-
+              <a href="#claim" className={`mt-6 ${ctaClass}`}>
+                Claim My 50% Off Comprehensive Analysis
+              </a>
             </div>
 
             <div className="relative overflow-hidden rounded-3xl bg-ink shadow-lg">
@@ -334,238 +241,82 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Trusted by */}
+        {/* Trusted by: logo slider, full width, no label */}
         <section className="border-b border-border bg-background">
-          <div className="mx-auto max-w-4xl px-4 pt-10 text-center">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              We've Helped Over 500 Spas
-            </p>
-          </div>
-          <div className="mt-5 w-full overflow-hidden px-4 py-5 sm:py-9">
+          <div className="w-full overflow-hidden py-4 sm:py-6">
             <img
               src={trustedSpasLogosAsset.url}
               alt="Logos of spas that trust True Profit Salons"
               loading="lazy"
-              className="mx-auto h-auto max-h-16 w-auto max-w-full sm:max-h-32"
+              className="block h-auto max-h-40 w-full object-contain"
             />
           </div>
         </section>
 
-        {/* Who we are */}
+        {/* Who we are + team (single section) */}
         <section id="who-we-are" className="scroll-mt-24 bg-cream">
-          <div className="mx-auto grid max-w-5xl gap-6 px-4 py-14 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center lg:py-16">
-            <div className="grid h-20 w-20 shrink-0 place-items-center rounded-full bg-gold text-white shadow-md">
-              <Leaf aria-hidden="true" className="h-9 w-9" />
+          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:py-20">
+            <div className="mx-auto grid w-full max-w-md grid-cols-2 gap-4 lg:max-w-none">
+              {founders.map((f) => (
+                <figure key={f.name}>
+                  <img
+                    src={f.photo}
+                    alt={f.name}
+                    loading="lazy"
+                    className="aspect-[4/5] w-full rounded-2xl object-cover object-top shadow-md"
+                  />
+                  <figcaption className="mt-3">
+                    <p className="font-display text-lg font-semibold text-foreground">{f.name}</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary">{f.role}</p>
+                  </figcaption>
+                </figure>
+              ))}
             </div>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary">Who Are We</p>
-              <h2 className="mt-2 text-2xl sm:text-3xl">Profit advisors who understand the beauty business.</h2>
-              <p className="mt-3 max-w-3xl text-muted-foreground">
-                We're a team of Profit First Certified advisors who work exclusively with spas, backed by dedicated specialists who know the numbers behind your chairs, services, retail, and team.
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">Who We Are</p>
+              <h2 className="mt-2 text-3xl sm:text-4xl">The Team Behind Your Numbers</h2>
+              <p className="mt-4 text-muted-foreground">
+                Ross Loveland is an Advanced Certified Profit First Professional and Certified Master
+                who has helped hundreds of spas increase profit, take home more money, and build
+                businesses that feel calm and predictable.
+              </p>
+              <p className="mt-4 text-muted-foreground">
+                We're a team of Profit First Certified advisors who work exclusively with spas.
+                You're supported by Profit Advisors Nicole, Patrick, Alexandra, and Erika,
+                QuickBooks Specialist Mariana, and Administrative Director Mary.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Results band */}
-        <section className="bg-plum text-plum-foreground">
-          <div className="mx-auto max-w-6xl px-4 py-6 lg:py-8">
-            <div className="grid gap-6 text-center sm:grid-cols-3">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="font-display text-3xl font-bold text-white sm:text-4xl">
-                    {stat.value}
-                  </p>
-                  <p className="mt-1 text-sm uppercase tracking-wider text-plum-foreground/80">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-3 text-center text-sm text-plum-foreground/70">
-              Average client results. Individual results may vary.
-            </p>
-          </div>
-        </section>
-
-        {/* Pain */}
-        <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">Are You Facing These Problems?</h2>
+        {/* Problems */}
+        <section id="problems" className="scroll-mt-24 mx-auto max-w-6xl px-4 py-14 lg:py-20">
+          <h2 className="text-3xl sm:text-4xl">We Find the Problem. Then We Fix It.</h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Real things salon and spa owners tell us before they book a Profit Clarity Analysis.
+            Built for spa owners who are busy but can't see where the profit goes.
           </p>
-          <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {pains.map(({ quote, icon: Icon }, i) => {
-              const accent = i % 2 === 0 ? "bg-gold" : "bg-plum";
-              return (
-                <li
-                  key={quote}
-                  className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {problems.map(({ icon: Icon, title, text }, i) => (
+              <li
+                key={title}
+                className="rounded-2xl border border-border bg-card p-5 shadow-sm"
+              >
+                <span
+                  className={`grid h-10 w-10 place-items-center rounded-full text-white ${
+                    i % 2 === 0 ? "bg-gold" : "bg-plum"
+                  }`}
                 >
-                  <Quote
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -right-2 -top-2 h-20 w-20 text-foreground/[0.04]"
-                  />
-                  <span
-                    className={`relative grid h-11 w-11 place-items-center rounded-full text-white shadow-sm ${accent}`}
-                  >
-                    <Icon aria-hidden="true" className="h-5 w-5" />
-                  </span>
-                  <p className="relative mt-5 font-display text-lg italic leading-snug text-foreground">
-                    {quote}
-                  </p>
-                </li>
-              );
-            })}
+                  <Icon aria-hidden="true" className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 text-lg font-semibold text-foreground">{title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{text}</p>
+              </li>
+            ))}
           </ul>
         </section>
-        <CompactCta />
 
-        {/* What's included */}
-        <section className="bg-ink text-ink-foreground">
-          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-            <h2 className="text-3xl text-ink-foreground sm:text-4xl">
-              What's Included in Your Comprehensive Analysis
-            </h2>
-            <p className="mt-3 max-w-2xl text-ink-foreground/70">
-              60 focused minutes on your numbers - and a plan you can act on the same week.
-            </p>
-            <ul className="mt-9 grid gap-5 sm:grid-cols-2">
-              {included.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold text-sm font-bold text-ink"
-                  >
-                    ✓
-                  </span>
-                  <span className="text-base text-ink-foreground/90">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* Who this is for */}
-        <section id="who-this-is-for" className="scroll-mt-24 bg-cream">
-          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-            <h2 className="text-3xl sm:text-4xl">Who this is for</h2>
-            <ul className="mt-10 grid gap-x-14 gap-y-9 sm:grid-cols-2">
-              {whoThisIsFor.map(({ icon: Icon, text }) => (
-                <li key={text} className="flex items-start gap-4">
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gold text-white shadow-sm">
-                    <Icon aria-hidden="true" className="h-6 w-6" />
-                  </span>
-                  <span className="pt-2 text-base text-foreground/90">{text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* Why this - real numbers from real spas */}
-        <section className="bg-ink text-ink-foreground">
-          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-            <h2 className="text-3xl text-ink-foreground sm:text-4xl">Real Numbers From Real Spas</h2>
-            <p className="mt-4 max-w-2xl text-lg text-gold">
-              Average client results: $164K average increase in revenue per year, $30K–$50K average increase in profit,
-              and $114K increased in cash reserves.
-            </p>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              <blockquote className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <Quote aria-hidden="true" className="h-7 w-7 fill-gold text-gold" />
-                <p className="mt-3 font-display text-xl italic leading-relaxed text-ink-foreground">Since working with my CFO I have gotten my financials under control and am actively making profit and saving for taxes.</p>
-                <footer className="mt-4 text-xs font-semibold uppercase tracking-wider text-ink-foreground/60">Bodhi Sanctuary</footer>
-              </blockquote>
-              <blockquote className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <Quote aria-hidden="true" className="h-7 w-7 fill-gold text-gold" />
-                <p className="mt-3 font-display text-xl italic leading-relaxed text-ink-foreground">Our business is so much better with Erika. We finally understand our numbers.</p>
-                <footer className="mt-4 text-xs font-semibold uppercase tracking-wider text-ink-foreground/60">Bon Bini Aesthetics</footer>
-              </blockquote>
-            </div>
-            <p className="mt-8 text-lg text-ink-foreground/90">
-              This is the same process that got these results - condensed into one 60-minute
-              session, at half price.
-            </p>
-          </div>
-        </section>
-
-        {/* Offer */}
-        <section className="bg-cream">
-          <div className="mx-auto max-w-4xl px-4 py-14 lg:py-20">
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-md sm:p-10">
-              <div className="grid gap-8 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center">
-                <div className="text-center sm:text-left">
-                  <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold tracking-wider text-primary-foreground uppercase">
-                    50% off
-                  </span>
-                  <p className="mt-4 flex items-baseline justify-center gap-3 sm:justify-start">
-                    <span className="font-display text-2xl text-muted-foreground line-through">
-                      $500
-                    </span>
-                    <span className="font-display text-5xl font-bold text-foreground">$250</span>
-                  </p>
-                  <p className="mt-1 text-sm text-muted-foreground">One-time session</p>
-                </div>
-                <div>
-                  <h2 className="text-2xl sm:text-3xl">The Profit Clarity Analysis</h2>
-                  <ol className="mt-4 space-y-3">
-                    {[
-                      "Submit your info below.",
-                      "We'll reach out to schedule your call.",
-                      "Join your 60-minute one-on-one session.",
-                    ].map((step, i) => (
-                      <li key={step} className="flex gap-3 text-foreground">
-                        <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-sm font-semibold text-accent-foreground">
-                          {i + 1}
-                        </span>
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              </div>
-
-              <p className="mt-8 text-sm text-muted-foreground">
-                We hold a limited number of these sessions each month.
-              </p>
-
-              <a
-                href="#claim"
-                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
-              >
-                Claim My 50% Off Comprehensive Analysis
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Social proof */}
-        <section className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">What spa owners say</h2>
-          <ScrollCarousel
-            ariaLabel="What spa owners say testimonials"
-            trackClassName="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border"
-          >
-            {testimonials.map((t) => (
-              <figure
-                key={t.quote}
-                className="w-[82%] shrink-0 snap-start rounded-2xl bg-cream p-6 shadow-sm sm:w-[60%] md:w-auto"
-              >
-                <span className="mb-5 block h-1 w-10 rounded-full bg-primary" aria-hidden="true" />
-                <blockquote className="text-foreground">"{t.quote}"</blockquote>
-                <figcaption className="mt-4 text-sm text-muted-foreground">
-                  <span className="font-semibold text-foreground">{t.name}</span> - {t.business}
-                </figcaption>
-              </figure>
-            ))}
-          </ScrollCarousel>
-
-        </section>
-        <CompactCta />
-
-        {/* Video testimonials */}
-        <section className="bg-cream">
+        {/* Client stories (video testimonials) */}
+        <section id="stories" className="scroll-mt-24 bg-cream">
           <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
             <h2 className="text-3xl sm:text-4xl">Client Stories, In Their Own Words</h2>
             <ScrollCarousel
@@ -583,56 +334,40 @@ function LandingPage() {
             </ScrollCarousel>
           </div>
         </section>
+        <CtaButton />
 
-        {/* Meet the team */}
-        <section id="meet-the-team" className="scroll-mt-24 bg-cream">
+        {/* What's included */}
+        <section id="included" className="scroll-mt-24 bg-ink text-ink-foreground">
           <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-            <h2 className="text-3xl sm:text-4xl">Meet The People Behind Your Numbers</h2>
-            <p className="mt-3 max-w-2xl text-muted-foreground">
-              A salon-exclusive financial team working remotely across the U.S. - real advisors,
-              real credentials, real support.
+            <h2 className="text-3xl text-ink-foreground sm:text-4xl">
+              What's Included in Your Comprehensive Analysis
+            </h2>
+            <p className="mt-3 max-w-2xl text-ink-foreground/70">
+              One 60-minute call. A written plan at the end.
             </p>
-            <ScrollCarousel
-              ariaLabel="Meet the True Profit Salons team"
-              trackClassName="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border"
-            >
-              {team.map((member) => (
-                <figure
-                  key={member.name}
-                  className="w-[80%] shrink-0 snap-start overflow-hidden rounded-3xl border border-border bg-card shadow-sm sm:w-[45%] lg:w-[28%]"
-                >
-                  {member.photo ? (
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      loading="lazy"
-                      className="h-56 w-full object-cover object-top"
-                    />
-                  ) : (
-                    <div
-                      aria-hidden="true"
-                      className="grid h-56 w-full place-items-center bg-plum/10 font-display text-4xl font-bold text-plum"
-                    >
-                      {member.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </div>
-                  )}
-                  <figcaption className="p-5">
-                    <p className="font-display text-lg font-semibold text-foreground">{member.name}</p>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-primary">{member.role}</p>
-                    <p className="mt-3 text-sm text-muted-foreground">{member.bio}</p>
-                  </figcaption>
-                </figure>
+            <ol className="mt-9 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+              {included.map((item, i) => (
+                <li key={item.title} className="flex gap-4">
+                  <span
+                    aria-hidden="true"
+                    className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold text-sm font-bold text-ink"
+                  >
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-semibold text-ink-foreground">{item.title}</h3>
+                    <p className="mt-1 text-sm text-ink-foreground/75">{item.text}</p>
+                  </div>
+                </li>
               ))}
-            </ScrollCarousel>
+            </ol>
           </div>
         </section>
+        <CtaButton />
 
         {/* FAQ */}
         <section id="faq" className="scroll-mt-24 mx-auto max-w-3xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">Questions, answered</h2>
+          <h2 className="text-3xl sm:text-4xl">Frequently Asked Questions</h2>
           <div className="mt-8 divide-y divide-border rounded-2xl border border-border bg-card">
             {faqs.map((faq) => (
               <details key={faq.q} className="group p-5">
@@ -655,7 +390,7 @@ function LandingPage() {
         <section id="claim" className="scroll-mt-24 bg-ink text-ink-foreground">
           <div className="mx-auto max-w-3xl px-4 py-14 lg:py-20">
             <h2 className="text-3xl text-ink-foreground sm:text-4xl">
-              Claim your 50% off Profit Clarity Analysis
+              Ready to Keep More of What You Earn?
             </h2>
             <p className="mt-3 text-ink-foreground/75">
               Tell us a little about your spa. Our team will reach out to schedule your call.
@@ -728,11 +463,11 @@ function LandingPage() {
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-foreground">Navigate</p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li><a href="#who-we-are" className="hover:text-primary">About Us</a></li>
-                <li><a href="#who-this-is-for" className="hover:text-primary">Who It's For</a></li>
-                <li><a href="#meet-the-team" className="hover:text-primary">Our Team</a></li>
+                <li><a href="#problems" className="hover:text-primary">Problems We Solve</a></li>
+                <li><a href="#included" className="hover:text-primary">What's Included</a></li>
+                <li><a href="#stories" className="hover:text-primary">Client Stories</a></li>
+                <li><a href="#who-we-are" className="hover:text-primary">Our Team</a></li>
                 <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
-                <li><a href="#claim" className="hover:text-primary">Book the Analysis</a></li>
                 <li>
                   <a
                     href="https://trueprofitsalons.com/privacy-policy/"
@@ -765,8 +500,7 @@ function LandingPage() {
           </div>
 
           <p className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
-            Average client results. Individual results may vary. © {new Date().getFullYear()} True
-            Profit Salons. True Profit Salons is a DBA of Grow Green Financial, LLC.
+            © {new Date().getFullYear()} True Profit Salons. True Profit Salons is a DBA of Grow Green Financial, LLC.
           </p>
         </div>
       </footer>
