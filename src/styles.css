@@ -187,8 +187,17 @@
   animation: tps-step-in 240ms ease-out both;
 }
 
+@keyframes trusted-logos-scroll {
+  to { transform: translateX(-50%); }
+}
+
+.trusted-logos-track {
+  animation: trusted-logos-scroll 32s linear infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .tps-step {
+  .tps-step, .trusted-logos-track {
     animation: none;
   }
 }
