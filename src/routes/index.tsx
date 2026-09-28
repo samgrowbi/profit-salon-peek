@@ -299,7 +299,7 @@ function LandingPage() {
                   href="#claim"
                   className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full bg-primary px-8 py-4 text-center text-xl font-bold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
                 >
-                  Claim My 50% Off
+                  Claim My 50% Off Comprehensive Analysis
                 </a>
               </div>
 
