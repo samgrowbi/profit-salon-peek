@@ -1,7 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
+  BookOpenCheck,
+  CalendarCheck,
+  ChartColumn,
   Check,
   Facebook,
+  FileText,
   Instagram,
   Linkedin,
   Mail,
@@ -9,6 +13,8 @@ import {
   PieChart,
   Receipt,
   Star,
+  Tags,
+  Target,
   TrendingDown,
   Wallet,
   Youtube,
@@ -175,26 +181,32 @@ const problems = [
 
 const included = [
   {
+    icon: BookOpenCheck,
     title: "Full Books Review",
     text: "We go through your bookkeeping and financial records to check that your numbers are accurate and up to date.",
   },
   {
+    icon: ChartColumn,
     title: "P&L Analysis",
     text: "We take your profit and loss statement and turn it into clear conclusions about where your money is going.",
   },
   {
+    icon: Wallet,
     title: "Owner Pay & Cash Flow",
     text: "We look at what you pay yourself, how cash moves through the business, and how healthy it is overall.",
   },
   {
+    icon: Tags,
     title: "Pricing & Margins",
     text: "We check your pricing, service mix, and margins to find the services quietly costing you money.",
   },
   {
+    icon: Target,
     title: "Where to Improve",
     text: "We point out the 3 to 5 changes that would do the most for your profit.",
   },
   {
+    icon: CalendarCheck,
     title: "90-Day Action Plan",
     text: "A simple written plan you can follow with us, with your current accountant, or on your own.",
   },
@@ -300,6 +312,93 @@ function Stars({ className = "h-4 w-4" }: { className?: string }) {
         <Star key={i} className={`${className} fill-current`} />
       ))}
     </span>
+  );
+}
+
+// Illustration of the written plan the client receives (clearly marked as a sample).
+const PLAN_BARS = [
+  { label: "Revenue", width: "100%", color: "bg-navy" },
+  { label: "Expenses", width: "82%", color: "bg-mauve/50" },
+  { label: "Owner pay", width: "11%", color: "bg-pink" },
+  { label: "Profit", width: "7%", color: "bg-pink-deep" },
+];
+const PLAN_STEPS = [
+  "Reprice low-margin services",
+  "Set a fixed owner pay percentage",
+  "Open a tax savings account",
+];
+
+function PlanPreview() {
+  return (
+    <figure className="relative mx-auto w-full max-w-md lg:mr-0">
+      <figcaption className="sr-only">Sample of the written 90-day profit plan</figcaption>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 translate-x-4 translate-y-4 rotate-3 rounded-2xl bg-blush"
+      />
+      <div
+        aria-hidden="true"
+        className="relative -rotate-1 rounded-2xl bg-white p-6 shadow-[0_30px_60px_-30px_oklch(0.297_0.065_237/0.45)] ring-1 ring-navy/5 sm:p-7"
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="eyebrow !text-[10px]">Profit Clarity Analysis</p>
+            <p className="mt-1 font-display text-xl text-navy">Your 90-Day Profit Plan</p>
+          </div>
+          <span className="rounded-md bg-blush px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-navy">
+            Sample
+          </span>
+        </div>
+
+        <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          P&amp;L snapshot
+        </p>
+        <ul className="mt-3 space-y-2.5">
+          {PLAN_BARS.map((b) => (
+            <li key={b.label} className="grid grid-cols-[5.5rem_1fr] items-center gap-3 text-xs">
+              <span className="text-foreground">{b.label}</span>
+              <span className="h-2 rounded-full bg-navy/5">
+                <span className={`block h-2 rounded-full ${b.color}`} style={{ width: b.width }} />
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Top opportunities
+        </p>
+        <ul className="mt-3 space-y-2">
+          {PLAN_STEPS.map((step) => (
+            <li key={step} className="flex items-center gap-2.5 text-sm text-foreground">
+              <span className="grid h-4 w-4 shrink-0 place-items-center rounded-full bg-blush text-pink-deep">
+                <Check className="h-3 w-3" strokeWidth={3} />
+              </span>
+              {step}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6 grid grid-cols-3 gap-2 text-center text-[11px] font-medium">
+          {["Days 1-30", "Days 31-60", "Days 61-90"].map((d, i) => (
+            <span
+              key={d}
+              className={`rounded-lg py-2 ${i === 0 ? "bg-navy text-white" : "bg-navy/5 text-navy"}`}
+            >
+              {d}
+            </span>
+          ))}
+        </div>
+      </div>
+      <p
+        aria-hidden="true"
+        className="absolute -bottom-6 left-4 hidden items-center gap-2 rounded-full bg-white py-2 pl-2.5 pr-4 text-sm font-medium text-navy shadow-lg ring-1 ring-navy/5 sm:inline-flex"
+      >
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-pink-deep text-white">
+          <FileText className="h-4 w-4" />
+        </span>
+        Yours to keep
+      </p>
+    </figure>
   );
 }
 
@@ -561,52 +660,57 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* What's included + who it's for */}
+        {/* What's included: fit + sample plan, then the six deliverables */}
         <section id="included" className="scroll-mt-24 bg-blush-soft">
-          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 lg:grid-cols-[1fr_1.3fr] lg:gap-16 lg:py-24">
-            <div>
-              <SectionHeading
-                eyebrow="Your 60-minute session"
-                title="What's Included in Your Comprehensive Analysis"
-                intro="One 60-minute call. A written plan at the end."
-              />
-              <div className="mt-10 rounded-2xl bg-white p-6 shadow-[0_16px_40px_-24px_oklch(0.297_0.065_237/0.3)] sm:p-7">
-                <h3 className="text-xl">This is a great fit if:</h3>
-                <ul className="mt-4 space-y-3">
-                  {goodFit.map((item) => (
-                    <li key={item} className="flex gap-3 text-foreground">
-                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blush text-pink-deep">
-                        <Check aria-hidden="true" className="h-3.5 w-3.5" strokeWidth={2.5} />
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+          <div className="mx-auto max-w-6xl px-4 py-16 lg:py-24">
+            <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+              <div>
+                <SectionHeading
+                  eyebrow="Your 60-minute session"
+                  title="What's Included in Your Comprehensive Analysis"
+                  intro="One 60-minute call. A written plan at the end."
+                />
+                <div className="mt-8 rounded-2xl bg-white p-6 shadow-[0_16px_40px_-24px_oklch(0.297_0.065_237/0.3)] sm:p-7">
+                  <h3 className="text-xl">This is a great fit if:</h3>
+                  <ul className="mt-4 space-y-3">
+                    {goodFit.map((item) => (
+                      <li key={item} className="flex gap-3 text-foreground">
+                        <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blush text-pink-deep">
+                          <Check aria-hidden="true" className="h-3.5 w-3.5" strokeWidth={2.5} />
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
+              <PlanPreview />
             </div>
-            <div>
-              <ol className="divide-y divide-navy/10">
-                {included.map((item, i) => (
-                  <li key={item.title} className="reveal flex gap-5 py-5 first:pt-0">
+
+            <ol className="mt-16 grid gap-4 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
+              {included.map(({ icon: Icon, title, text }, i) => (
+                <li
+                  key={title}
+                  className="reveal group rounded-2xl bg-white p-6 ring-1 ring-navy/5 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_oklch(0.297_0.065_237/0.35)]"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-blush text-pink-deep">
+                      <Icon aria-hidden="true" className="h-5 w-5" strokeWidth={1.75} />
+                    </span>
                     <span
                       aria-hidden="true"
-                      className="w-10 shrink-0 font-display text-3xl leading-none tabular-nums text-pink-deep"
+                      className="font-display text-2xl tabular-nums text-navy/15 transition-colors group-hover:text-pink"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div>
-                      <h3 className="text-xl">{item.title}</h3>
-                      <p className="mt-1.5 text-muted-foreground">{item.text}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-              <CtaButton
-                align="start"
-                lead="All six, in one 60-minute call."
-                className="mt-8 border-t border-navy/10 pt-8"
-              />
-            </div>
+                  </div>
+                  <h3 className="mt-5 text-xl">{title}</h3>
+                  <p className="mt-2 text-muted-foreground">{text}</p>
+                </li>
+              ))}
+            </ol>
+
+            <CtaButton lead="All six, in one 60-minute call." className="mt-12" />
           </div>
         </section>
 
@@ -807,7 +911,7 @@ function LandingPage() {
                 <span className="pb-1 text-sm text-white/70">· 60 minutes · No payment today</span>
               </div>
             </div>
-            <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1">
+            <div className="lg:sticky lg:top-28 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
               <LeadForm />
               <p className="mt-4 text-center text-sm text-white/70">
                 Takes about a minute · No payment today ·{" "}
@@ -820,6 +924,14 @@ function LandingPage() {
                   Privacy policy
                 </a>
               </p>
+              <img
+                src="/brand/badges.webp"
+                alt="Certified QuickBooks Online ProAdvisor, Profit First Certified Professional, Profit First Certified Master"
+                width={900}
+                height={313}
+                loading="lazy"
+                className="mx-auto mt-8 h-auto w-full max-w-[15rem] opacity-95"
+              />
             </div>
             <div className="lg:col-start-1">
               <ol className="space-y-6 lg:mt-10">
@@ -852,15 +964,6 @@ function LandingPage() {
                   {SPA_REVIEWS[1]!.business}
                 </figcaption>
               </figure>
-              <img
-                src="/brand/badges.webp"
-                alt=""
-                aria-hidden="true"
-                width={900}
-                height={313}
-                loading="lazy"
-                className="mt-10 h-auto w-full max-w-[17rem] opacity-95"
-              />
             </div>
           </div>
         </section>
