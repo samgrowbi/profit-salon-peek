@@ -226,6 +226,10 @@ const faqs = [
     a: "A one-on-one, 60-minute call with a Profit First Certified advisor. We go through your books and numbers with you and give you a written 90-day plan.",
   },
   {
+    q: "Why is this a paid session when others offer free calls?",
+    a: "Because it's a working session, not a sales pitch. An advisor reviews your actual numbers with you, and you leave with a written 90-day plan you can follow with us, with your current accountant, or on your own.",
+  },
+  {
     q: "What happens after I submit the form?",
     a: "Someone from our team will contact you to set up a call. Payment details are shared after that. There is nothing to pay on this page.",
   },
@@ -299,9 +303,20 @@ function Stars({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
-function CtaButton() {
+// CTA repeated at each decision point; `lead` ties it to the section it follows.
+function CtaButton({
+  lead,
+  align = "center",
+  className = "mx-auto max-w-6xl px-4 pb-16 sm:pb-20",
+}: {
+  lead?: string;
+  align?: "center" | "start";
+  className?: string;
+}) {
+  const alignClass = align === "center" ? "items-center text-center" : "items-start text-left";
   return (
-    <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 pb-16 text-center sm:pb-20">
+    <div className={`flex flex-col gap-3 ${alignClass} ${className}`}>
+      {lead && <p className="font-display text-xl text-navy">{lead}</p>}
       <a href="#claim" className="btn-cta w-full px-7 py-4 text-base sm:w-auto">
         {CTA_LABEL}
       </a>
@@ -531,6 +546,7 @@ function LandingPage() {
                 title="We Find the Problem. Then We Fix It."
                 intro="Built for spa owners who are busy but can't see where the profit goes."
               />
+              <CtaButton align="start" className="mt-8 hidden lg:flex" />
             </div>
             <ul className="grid gap-x-10 gap-y-2 sm:grid-cols-2">
               {problems.map(({ icon: Icon, title, text }) => (
@@ -541,6 +557,7 @@ function LandingPage() {
                 </li>
               ))}
             </ul>
+            <CtaButton lead="Find out which of these is costing you." className="lg:hidden" />
           </div>
         </section>
 
@@ -567,22 +584,29 @@ function LandingPage() {
                 </ul>
               </div>
             </div>
-            <ol className="divide-y divide-navy/10">
-              {included.map((item, i) => (
-                <li key={item.title} className="reveal flex gap-5 py-5 first:pt-0">
-                  <span
-                    aria-hidden="true"
-                    className="w-10 shrink-0 font-display text-3xl leading-none tabular-nums text-pink-deep"
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="text-xl">{item.title}</h3>
-                    <p className="mt-1.5 text-muted-foreground">{item.text}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+            <div>
+              <ol className="divide-y divide-navy/10">
+                {included.map((item, i) => (
+                  <li key={item.title} className="reveal flex gap-5 py-5 first:pt-0">
+                    <span
+                      aria-hidden="true"
+                      className="w-10 shrink-0 font-display text-3xl leading-none tabular-nums text-pink-deep"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-xl">{item.title}</h3>
+                      <p className="mt-1.5 text-muted-foreground">{item.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <CtaButton
+                align="start"
+                lead="All six, in one 60-minute call."
+                className="mt-8 border-t border-navy/10 pt-8"
+              />
+            </div>
           </div>
         </section>
 
@@ -629,7 +653,7 @@ function LandingPage() {
             </div>
           </div>
         </section>
-        <CtaButton />
+        <CtaButton lead="Ready to see your own numbers this clearly?" />
 
         {/* Who we are + team */}
         <section id="who-we-are" className="scroll-mt-24 bg-blush-soft">
@@ -695,6 +719,7 @@ function LandingPage() {
                 ))}
               </ul>
             </div>
+            <CtaButton lead="Work 1:1 with a Profit First Certified advisor." className="mt-14" />
           </div>
         </section>
 
@@ -745,6 +770,7 @@ function LandingPage() {
                   </a>
                 </li>
               </ul>
+              <CtaButton align="start" className="mt-8 hidden lg:flex" />
             </div>
             <div className="divide-y divide-border border-y border-border">
               {faqs.map((faq) => (
@@ -767,8 +793,8 @@ function LandingPage() {
 
         {/* Final CTA + form */}
         <section id="claim" className="navy-glow scroll-mt-20 text-white">
-          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 lg:grid-cols-[1fr_1.15fr] lg:gap-16 lg:py-24">
-            <div>
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_1.15fr] lg:gap-x-16 lg:gap-y-0 lg:py-24">
+            <div className="lg:col-start-1">
               <SectionHeading
                 light
                 eyebrow="Limited time offer"
@@ -780,7 +806,23 @@ function LandingPage() {
                 <span className="font-display text-5xl leading-none tabular-nums">$250</span>
                 <span className="pb-1 text-sm text-white/70">· 60 minutes · No payment today</span>
               </div>
-              <ol className="mt-10 space-y-6">
+            </div>
+            <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1">
+              <LeadForm />
+              <p className="mt-4 text-center text-sm text-white/70">
+                Takes about a minute · No payment today ·{" "}
+                <a
+                  href="https://trueprofitsalons.com/privacy-policy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-white"
+                >
+                  Privacy policy
+                </a>
+              </p>
+            </div>
+            <div className="lg:col-start-1">
+              <ol className="space-y-6 lg:mt-10">
                 {steps.map((s, i) => (
                   <li key={s.title} className="flex gap-4">
                     <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 font-display text-pink ring-1 ring-white/15">
@@ -793,6 +835,23 @@ function LandingPage() {
                   </li>
                 ))}
               </ol>
+              <figure className="mt-10 rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/10">
+                <Stars className="h-3.5 w-3.5" />
+                <blockquote className="mt-3 font-display text-lg leading-snug text-white">
+                  &ldquo;{SPA_REVIEWS[1]!.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-4 flex items-center gap-3 text-sm text-white/80">
+                  <img
+                    src={SPA_REVIEWS[1]!.logo}
+                    alt=""
+                    width={36}
+                    height={36}
+                    loading="lazy"
+                    className="h-9 w-9 rounded-full bg-white object-contain p-0.5"
+                  />
+                  {SPA_REVIEWS[1]!.business}
+                </figcaption>
+              </figure>
               <img
                 src="/brand/badges.webp"
                 alt=""
@@ -802,9 +861,6 @@ function LandingPage() {
                 loading="lazy"
                 className="mt-10 h-auto w-full max-w-[17rem] opacity-95"
               />
-            </div>
-            <div>
-              <LeadForm />
             </div>
           </div>
         </section>
