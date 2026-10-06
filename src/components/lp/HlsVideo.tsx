@@ -78,7 +78,7 @@ export function HlsVideo({ src, poster, className, ariaLabel, cover }: HlsVideoP
         >
           {cover}
           <span className="absolute inset-0 grid place-items-center">
-            <span className="grid h-16 w-16 place-items-center rounded-full bg-white text-primary shadow-xl transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
+            <span className="grid h-16 w-16 place-items-center rounded-full bg-navy text-white shadow-xl ring-4 ring-white/60 transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
               <Play aria-hidden="true" className="ml-1 h-7 w-7 fill-current sm:h-8 sm:w-8" />
             </span>
           </span>

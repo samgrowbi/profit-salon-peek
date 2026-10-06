@@ -250,19 +250,21 @@ const faqs = [
 // Designed cover for the hero video (shown until play is pressed).
 function HeroCover({ photo }: { photo: string }) {
   return (
-    <div className="relative h-full w-full bg-gradient-to-br from-navy via-navy to-navy-deep">
+    // Light blush cover so the video stands out against the navy hero.
+    <div className="relative h-full w-full bg-gradient-to-br from-blush-soft via-blush to-blush">
       <img
         src={photo}
         alt=""
         aria-hidden="true"
         className="absolute inset-y-0 right-0 h-full w-[52%] object-cover object-top [-webkit-mask-image:linear-gradient(to_right,transparent,black_40%)] [mask-image:linear-gradient(to_right,transparent,black_40%)]"
       />
-      <div className="absolute inset-y-0 left-0 flex w-[58%] min-w-0 flex-col justify-center gap-2 overflow-hidden p-4 sm:p-7">
-        <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-pink sm:text-xs">
+      {/* Text stays left of the centered play button */}
+      <div className="absolute inset-y-0 left-0 flex w-[42%] min-w-0 flex-col justify-center gap-1.5 overflow-hidden py-4 pl-4 sm:gap-2 sm:pl-7">
+        <p className="text-[8px] font-semibold uppercase tracking-[0.15em] text-mauve sm:text-[11px]">
           Profit Clarity Analysis
         </p>
-        <p className="min-w-0 break-words font-display text-base leading-[1.15] text-white sm:text-xl lg:text-2xl">
-          Where is your spa's <em className="text-pink">profit leaking?</em>
+        <p className="min-w-0 font-display text-sm leading-[1.15] text-navy sm:text-xl lg:text-[1.4rem]">
+          Where is your spa's <em className="text-pink-deep">profit leaking?</em>
         </p>
       </div>
     </div>
