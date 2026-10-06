@@ -28,13 +28,14 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  --color-ink: var(--ink);
-  --color-ink-foreground: var(--ink-foreground);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
-  --color-cream: var(--cream);
-  --color-plum: var(--plum);
-  --color-plum-foreground: var(--plum-foreground);
+  /* Brand palette, sampled from trueprofitsalons.com */
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-pink: var(--pink);
+  --color-pink-deep: var(--pink-deep);
+  --color-mauve: var(--mauve);
+  --color-blush: var(--blush);
+  --color-blush-soft: var(--blush-soft);
   --color-background: var(--background);
 
   --color-foreground: var(--foreground);
@@ -72,48 +73,48 @@
 }
 
 :root {
-  --radius: 0.875rem;
-  --cream: oklch(0.975 0.012 86);
-  --background: oklch(0.988 0.008 86);
-  --foreground: oklch(0.26 0.018 62);
+  --radius: 0.75rem;
+  /* Brand: navy #003149, pink #DD78A0, mauve #A25F86, blush #FFE3EB */
+  --navy: oklch(0.297 0.065 237);
+  --navy-deep: oklch(0.243 0.06 244);
+  --pink: oklch(0.697 0.133 356);
+  --pink-deep: oklch(0.585 0.151 356.3); /* #BE4F7E: AA contrast with white text */
+  --mauve: oklch(0.573 0.1 344.9);
+  --blush: oklch(0.941 0.032 358.5);
+  --blush-soft: oklch(0.981 0.01 354.9);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.29 0.028 242.5);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.26 0.018 62);
+  --card-foreground: oklch(0.29 0.028 242.5);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.26 0.018 62);
-  --primary: oklch(0.63 0.098 72);
-  --primary-foreground: oklch(0.99 0.006 86);
-  --secondary: oklch(0.955 0.018 86);
-  --secondary-foreground: oklch(0.32 0.02 62);
-  --muted: oklch(0.953 0.014 86);
-  --muted-foreground: oklch(0.52 0.02 66);
-  --accent: oklch(0.925 0.04 86);
-  --accent-foreground: oklch(0.3 0.025 62);
+  --popover-foreground: oklch(0.29 0.028 242.5);
+  --primary: var(--pink-deep);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--blush-soft);
+  --secondary-foreground: var(--navy);
+  --muted: oklch(0.972 0.004 260);
+  --muted-foreground: oklch(0.519 0.029 241.1);
+  --accent: var(--blush);
+  --accent-foreground: var(--navy);
   --destructive: oklch(0.55 0.19 27);
   --destructive-foreground: oklch(0.985 0.005 86);
-  --border: oklch(0.9 0.016 82);
-  --input: oklch(0.9 0.016 82);
-  --ring: oklch(0.63 0.098 72);
-  --ink: oklch(0.255 0.021 62);
-  --ink-foreground: oklch(0.965 0.01 86);
-  --gold: oklch(0.73 0.1 78);
-  --gold-soft: oklch(0.93 0.04 86);
-  --plum: oklch(0.42 0.058 340);
-  --plum-foreground: oklch(0.99 0.006 86);
+  --border: oklch(0.933 0.007 260.7);
+  --input: oklch(0.88 0.012 255);
+  --ring: var(--pink);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.975 0.012 86);
-  --sidebar-foreground: oklch(0.26 0.018 62);
-  --sidebar-primary: oklch(0.63 0.098 72);
-  --sidebar-primary-foreground: oklch(0.99 0.006 86);
-  --sidebar-accent: oklch(0.925 0.04 86);
-  --sidebar-accent-foreground: oklch(0.3 0.025 62);
-  --sidebar-border: oklch(0.9 0.016 82);
-  --sidebar-ring: oklch(0.63 0.098 72);
+  --sidebar: var(--blush-soft);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
 }
-
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
@@ -155,6 +156,10 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -166,8 +171,81 @@
   h2,
   h3 {
     font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    color: var(--color-navy);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-pink);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Small uppercase label above section headings */
+  .eyebrow {
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: -0.015em;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-mauve);
+  }
+
+  /* Primary CTA (brand pink) with hover lift and press feedback */
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 10px 24px -12px oklch(0.585 0.151 356.3 / 0.7);
+    transition:
+      background-color 200ms ease,
+      transform 200ms ease,
+      box-shadow 200ms ease;
+  }
+  .btn-cta:hover {
+    background: oklch(0.53 0.145 356.3);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px -12px oklch(0.585 0.151 356.3 / 0.8);
+  }
+  .btn-cta:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Soft brand glow for navy sections */
+  .navy-glow {
+    background:
+      radial-gradient(60% 70% at 85% 10%, oklch(0.697 0.133 356 / 0.22), transparent 70%),
+      radial-gradient(50% 60% at 0% 100%, oklch(0.573 0.1 344.9 / 0.18), transparent 70%),
+      var(--color-navy);
+  }
+}
+
+/* Fade-up on scroll, CSS only; browsers without scroll timelines show content as-is */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
   }
 }
 
@@ -188,7 +266,9 @@
 }
 
 @keyframes trusted-logos-scroll {
-  to { transform: translateX(-50%); }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .trusted-logos-track {
@@ -197,7 +277,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tps-step, .trusted-logos-track {
+  .tps-step,
+  .trusted-logos-track {
     animation: none;
   }
 }

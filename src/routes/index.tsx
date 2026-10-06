@@ -2,9 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   Check,
   Facebook,
-  ImageIcon,
   Instagram,
   Linkedin,
+  Mail,
+  Phone,
   PieChart,
   Receipt,
   Star,
@@ -19,7 +20,6 @@ import { YouTubeEmbed } from "@/components/lp/YouTubeEmbed";
 import { ScrollCarousel } from "@/components/lp/ScrollCarousel";
 import cariLovelandAsset from "@/assets/cari-loveland.png.asset.json";
 import trustedSpasLogosAsset from "@/assets/trusted-spas-smooth.webp.asset.json";
-import trueProfitLogoAsset from "@/assets/true-profit-salons-logo.png.asset.json";
 import eventPhoto1 from "@/assets/event-photo-1.jpg.asset.json";
 import eventPhoto2 from "@/assets/event-photo-2.jpg.asset.json";
 import eventPhoto3 from "@/assets/event-photo-3.jpg.asset.json";
@@ -71,8 +71,47 @@ const CLIENT_STORIES = [
   },
 ];
 
-const TITLE =
-  "Profit Clarity Analysis for Spa Owners - 50% Off | True Profit Salons";
+// Written reviews from spa & wellness clients, word for word from trueprofitsalons.com/testimonials.
+const SPA_REVIEWS = [
+  {
+    business: "Ivy Med Spa",
+    logo: "/brand/client-ivy.webp",
+    quote:
+      "Erika is nothing short of phenomenal - accurate, proactive, clear, detail-oriented, and incredibly supportive.",
+  },
+  {
+    business: "Bodhi Sanctuary",
+    logo: "/brand/client-bodhi.webp",
+    quote:
+      "Since working with my CFO I have gotten my financials under control and am actively making profit and saving for taxes. I even received a refund thanks to her help.",
+  },
+  {
+    business: "Bon Bini Aesthetics",
+    logo: "/brand/client-bonbini.webp",
+    quote:
+      "Our business is so much better with Erika. We couldn't do it without her. Her spreadsheets keep us organized and we finally understand our numbers.",
+  },
+  {
+    business: "Nature's Touch Healing Center",
+    logo: "/brand/client-natures-touch.webp",
+    quote:
+      "Erika truly understands and cares about our business. She answers questions thoroughly and follows up quickly. We feel supported and confident.",
+  },
+  {
+    business: "Sanctus Spa & Salon",
+    logo: "/brand/client-sanctus.webp",
+    quote: "I love working with Erika! She has been great and gets my chaos!",
+  },
+];
+
+// Average client results, as published on trueprofitsalons.com.
+const RESULTS = [
+  { value: "$164K", label: "Increase in revenue" },
+  { value: "$55K", label: "Increase in profit" },
+  { value: "$114K", label: "Increase in cash reserves" },
+];
+
+const TITLE = "Profit Clarity Analysis for Spa Owners - 50% Off | True Profit Spas";
 const DESCRIPTION =
   "A 60-minute one-on-one Comprehensive Analysis of your spa's numbers with a Profit First Certified spa CFO. Normally $500 - now $250 for a limited time.";
 
@@ -85,6 +124,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#003149" },
     ],
   }),
   component: LandingPage,
@@ -95,16 +135,18 @@ const EMAIL = "hello@trueprofitsalons.com";
 
 // Founders only: real photos (Ross from the client's site, Cari supplied by the client).
 const founders = [
-  {
-    name: "Ross Loveland",
-    role: "Founder & CEO",
-    photo: "https://trueprofitsalons.com/wp-content/uploads/2026/09/Ross-loveland-6129.jpg",
-  },
-  {
-    name: "Cari Loveland",
-    role: "VP Marketing & Strategic Growth",
-    photo: cariLovelandAsset.url,
-  },
+  { name: "Ross Loveland", role: "Founder & CEO", photo: "/brand/ross.webp" },
+  { name: "Cari Loveland", role: "VP Marketing & Strategic Growth", photo: cariLovelandAsset.url },
+];
+
+// Advisors, photos and roles from trueprofitsalons.com/about-us/meet-the-team.
+const advisors = [
+  { name: "Nicole", role: "Profit Advisor", photo: "/brand/team-nicole.webp" },
+  { name: "Patrick", role: "Profit Advisor", photo: "/brand/team-patrick.webp" },
+  { name: "Alexandra", role: "Profit Advisor", photo: "/brand/team-alexandra.webp" },
+  { name: "Erika", role: "Profit Advisor", photo: "/brand/team-erika.webp" },
+  { name: "Mariana", role: "QuickBooks Specialist", photo: "/brand/team-mariana.webp" },
+  { name: "Mary", role: "Administrative Director", photo: "/brand/team-mary.webp" },
 ];
 
 // Four main problems, taken from the client's own pain points.
@@ -158,6 +200,26 @@ const included = [
   },
 ];
 
+// Adapted from the "Who This Is For" list on trueprofitsalons.com/profitclarityanalysis.
+const goodFit = [
+  "You own or lead a spa or med spa",
+  "Money is coming in, but it isn't staying",
+  "You want clarity on your numbers without the overwhelm",
+  "You're serious about improving profit and paying yourself properly",
+];
+
+const steps = [
+  {
+    title: "Tell us about your spa",
+    text: "A few quick questions so we can prepare for your numbers.",
+  },
+  { title: "We schedule your call", text: "Our team reaches out to book your 60-minute session." },
+  {
+    title: "Get your 90-day plan",
+    text: "We review your numbers together and you leave with a written plan.",
+  },
+];
+
 const faqs = [
   {
     q: "What is the Comprehensive Analysis?",
@@ -188,7 +250,7 @@ const faqs = [
 // Designed cover for the hero video (shown until play is pressed).
 function HeroCover({ photo }: { photo: string }) {
   return (
-    <div className="relative h-full w-full bg-gradient-to-br from-plum via-plum to-ink">
+    <div className="relative h-full w-full bg-gradient-to-br from-navy via-navy to-navy-deep">
       <img
         src={photo}
         alt=""
@@ -196,20 +258,12 @@ function HeroCover({ photo }: { photo: string }) {
         className="absolute inset-y-0 right-0 h-full w-[52%] object-cover object-top [-webkit-mask-image:linear-gradient(to_right,transparent,black_40%)] [mask-image:linear-gradient(to_right,transparent,black_40%)]"
       />
       <div className="absolute inset-y-0 left-0 flex w-[58%] min-w-0 flex-col justify-center gap-2 overflow-hidden p-4 sm:p-7">
-        <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-gold sm:text-xs">
+        <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-pink sm:text-xs">
           Profit Clarity Analysis
         </p>
-        <p className="min-w-0 break-words font-display text-base font-bold uppercase leading-[1.15] text-white sm:text-xl lg:text-2xl">
-          Where is your spa's <span className="text-gold">profit leaking?</span>
+        <p className="min-w-0 break-words font-display text-base leading-[1.15] text-white sm:text-xl lg:text-2xl">
+          Where is your spa's <em className="text-pink">profit leaking?</em>
         </p>
-      </div>
-      <div className="absolute bottom-3 right-3 hidden items-center gap-2 rounded-xl bg-card/95 px-3 py-2 shadow-lg sm:flex">
-        <span className="flex text-gold" aria-hidden="true">
-          {[0, 1, 2, 3, 4].map((i) => (
-            <Star key={i} className="h-3.5 w-3.5 fill-current" />
-          ))}
-        </span>
-        <span className="text-xs font-semibold text-foreground">Trusted by 500+ spas</span>
       </div>
     </div>
   );
@@ -217,26 +271,68 @@ function HeroCover({ photo }: { photo: string }) {
 
 // Photos from industry events (in the order the client attached them).
 const EVENTS_HEADING = "Our Experts at the World’s Leading Med Spa Events";
-const eventPhotos: { src: string; alt: string }[] = [
-  { src: eventPhoto1.url, alt: "Ross at an industry event" },
-  { src: eventPhoto2.url, alt: "Ross at an industry event" },
-  { src: eventPhoto3.url, alt: "Ross at an industry event" },
-  { src: eventPhoto4.url, alt: "Ross at an industry event" },
-  { src: eventPhoto5.url, alt: "Ross at an industry event" },
-  { src: eventPhoto6.url, alt: "Ross at an industry event" },
-  { src: eventPhoto7.url, alt: "Ross at an industry event" },
-  { src: eventPhoto8.url, alt: "Ross at an industry event" },
-];
+const eventPhotos = [
+  eventPhoto1,
+  eventPhoto2,
+  eventPhoto3,
+  eventPhoto4,
+  eventPhoto5,
+  eventPhoto6,
+  eventPhoto7,
+  eventPhoto8,
+].map((p) => ({ src: p.url, alt: "Ross at an industry event" }));
 
-const ctaClass =
-  "inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto";
+const carouselTrack =
+  "-mx-4 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-pink)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-pink [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border";
+
+const CTA_LABEL = "Claim My 50% Off Comprehensive Analysis";
+
+function Stars({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <span className="flex text-pink" aria-hidden="true">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <Star key={i} className={`${className} fill-current`} />
+      ))}
+    </span>
+  );
+}
 
 function CtaButton() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 text-center">
-      <a href="#claim" className={ctaClass}>
-        Claim My 50% Off Comprehensive Analysis
+    <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 pb-16 text-center sm:pb-20">
+      <a href="#claim" className="btn-cta w-full px-7 py-4 text-base sm:w-auto">
+        {CTA_LABEL}
       </a>
+      <p className="text-sm text-muted-foreground">
+        <span className="line-through">$500</span>{" "}
+        <span className="font-semibold text-navy">$250</span> · No payment required today
+      </p>
+    </div>
+  );
+}
+
+function SectionHeading({
+  eyebrow,
+  title,
+  intro,
+  light = false,
+}: {
+  eyebrow: string;
+  title: string;
+  intro?: string;
+  light?: boolean;
+}) {
+  return (
+    <div className="max-w-2xl">
+      <p className={light ? "eyebrow !text-pink" : "eyebrow"}>{eyebrow}</p>
+      <h2 className={`mt-3 text-3xl leading-[1.1] sm:text-[2.75rem] ${light ? "!text-white" : ""}`}>
+        {title}
+      </h2>
+      {intro && (
+        <p className={`mt-4 text-lg ${light ? "text-white/75" : "text-muted-foreground"}`}>
+          {intro}
+        </p>
+      )}
     </div>
   );
 }
@@ -244,98 +340,172 @@ function CtaButton() {
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-0">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-navy focus:px-4 focus:py-2 focus:text-white"
+      >
+        Skip to content
+      </a>
+
       {/* Sticky top bar */}
-      <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3">
-          <a href="#hero" aria-label="True Profit Salons - back to top" className="shrink-0">
+      <header className="sticky top-0 z-40 border-b border-border/80 bg-white/90 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-2.5">
+          <a href="#hero" aria-label="True Profit Spas - back to top" className="shrink-0">
             <img
-              src={trueProfitLogoAsset.url}
-              alt="True Profit Salons"
+              src="/brand/true-profit-spas-logo.webp"
+              alt="True Profit Spas"
+              width={126}
+              height={48}
               className="h-11 w-auto sm:h-12"
             />
           </a>
           <nav
             aria-label="Primary"
-            className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex"
+            className="hidden items-center gap-7 text-sm font-medium text-navy/80 lg:flex"
           >
-            <a href="#problems" className="hover:text-primary">Problems We Solve</a>
-            <a href="#included" className="hover:text-primary">What's Included</a>
-            <a href="#stories" className="hover:text-primary">Client Stories</a>
-            <a href="#who-we-are" className="hover:text-primary">Our Team</a>
-            <a href="#faq" className="hover:text-primary">FAQ</a>
+            <a href="#problems" className="transition-colors hover:text-pink-deep">
+              Problems We Solve
+            </a>
+            <a href="#included" className="transition-colors hover:text-pink-deep">
+              What's Included
+            </a>
+            <a href="#stories" className="transition-colors hover:text-pink-deep">
+              Client Stories
+            </a>
+            <a href="#who-we-are" className="transition-colors hover:text-pink-deep">
+              Our Team
+            </a>
+            <a href="#faq" className="transition-colors hover:text-pink-deep">
+              FAQ
+            </a>
           </nav>
-          <a
-            href="#claim"
-            className="hidden shrink-0 items-center justify-center rounded-full bg-primary px-5 py-2 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 md:inline-flex"
-          >
-            Claim My 50% Off Comprehensive Analysis
+          <a href="#claim" className="btn-cta hidden shrink-0 px-5 py-2.5 text-sm md:inline-flex">
+            Claim 50% Off
           </a>
         </div>
       </header>
 
-      <main>
+      <main id="main">
         {/* Hero */}
-        <section id="hero" className="border-b border-border bg-cream">
-          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-7 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:py-10">
+        <section id="hero" className="navy-glow relative overflow-hidden text-white">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-24 pt-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12 lg:pb-32 lg:pt-16">
             <div>
-              <h1 className="text-4xl leading-[1.1] text-foreground sm:text-5xl lg:text-[3.2rem]">
-                Find Out Where Your Spa's Profit Is Leaking
-                <span className="block text-gold">In 60 Minutes</span>
+              <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white/90 ring-1 ring-white/15 sm:text-sm">
+                <span className="h-2 w-2 rounded-full bg-pink" aria-hidden="true" />
+                Profit Clarity Analysis for spa owners
+              </p>
+              <h1 className="mt-5 text-[2.5rem] leading-[1.05] !text-white sm:text-6xl lg:text-[4rem]">
+                Find out where your spa's profit is leaking{" "}
+                <em className="text-pink">in 60 minutes</em>
               </h1>
-              <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-                A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified spa CFO.
+              <p className="mt-5 max-w-xl text-lg text-white/75">
+                A one-on-one Comprehensive Analysis of your numbers with a Profit First Certified
+                spa CFO.
               </p>
 
-              {/* Offer: price + CTA together on one line; trust points sit below */}
               <div
-                className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3"
+                className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4"
                 aria-label="Normally $500, now $250"
               >
                 <div className="flex items-end gap-3">
-                  <span className="text-lg text-muted-foreground line-through">$500</span>
-                  <span className="font-display text-5xl font-bold leading-none text-gold">$250</span>
+                  <span className="pb-1 text-lg text-white/50 line-through">$500</span>
+                  <span className="font-display text-5xl leading-none tabular-nums text-white">
+                    $250
+                  </span>
+                  <span className="mb-1 rounded-full bg-pink px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-navy">
+                    50% off
+                  </span>
                 </div>
-                <a
-                  href="#claim"
-                  className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full bg-primary px-4 py-3 text-center text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto sm:px-5 sm:py-3.5 xl:px-6 xl:text-base"
-                >
-                  Claim My 50% Off Comprehensive Analysis
+                <a href="#claim" className="btn-cta w-full px-6 py-4 text-base sm:w-auto">
+                  {CTA_LABEL}
                 </a>
               </div>
 
-              <ul className="mt-4 flex flex-nowrap items-center gap-x-1 text-[9.5px] font-medium text-foreground/80 sm:gap-x-3 sm:text-sm">
-                <li className="inline-flex items-center whitespace-nowrap rounded-full bg-accent px-1.5 py-1 text-[8px] font-semibold uppercase text-accent-foreground sm:px-3 sm:text-xs sm:tracking-wider">
-                  Limited Time Offer
-                </li>
-                <li className="inline-flex items-center whitespace-nowrap">
-                  <Check aria-hidden="true" className="mr-1 hidden h-3 w-3 shrink-0 text-primary sm:mr-1.5 sm:inline sm:h-4 sm:w-4" />
-                  No Payment Required Today
-                </li>
-                <li className="inline-flex items-center whitespace-nowrap">
-                  <Check aria-hidden="true" className="mr-1 hidden h-3 w-3 shrink-0 text-primary sm:mr-1.5 sm:inline sm:h-4 sm:w-4" />
-                  Trusted By 500+ Spas
-                </li>
+              <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/80">
+                {["Limited time offer", "No payment required today", "Written 90-day plan"].map(
+                  (t) => (
+                    <li key={t} className="inline-flex items-center gap-1.5">
+                      <Check aria-hidden="true" className="h-4 w-4 text-pink" />
+                      {t}
+                    </li>
+                  ),
+                )}
               </ul>
+
+              {/* Social proof: real spa client logos + rating */}
+              <div className="mt-8 flex items-center gap-4 border-t border-white/10 pt-6">
+                <div className="flex shrink-0 -space-x-3">
+                  {SPA_REVIEWS.slice(0, 4).map((r) => (
+                    <img
+                      key={r.business}
+                      src={r.logo}
+                      alt={r.business}
+                      width={44}
+                      height={44}
+                      className="h-11 w-11 rounded-full bg-white object-contain p-1 ring-2 ring-navy"
+                    />
+                  ))}
+                </div>
+                <div>
+                  <Stars />
+                  <p className="mt-1 text-sm text-white/80">
+                    Trusted by <span className="font-semibold text-white">500+ spas</span> across
+                    the U.S.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl bg-ink shadow-lg">
-              <HlsVideo
-                src={HERO_VIDEO_SRC}
-                ariaLabel="Profit Clarity Analysis explainer video"
-                className="aspect-video w-full object-cover"
-                cover={<HeroCover photo={founders[0]!.photo} />}
+            <div className="relative">
+              <div className="overflow-hidden rounded-2xl bg-navy-deep shadow-[0_30px_80px_-30px_rgb(0_0_0/0.6)] ring-1 ring-white/10">
+                <HlsVideo
+                  src={HERO_VIDEO_SRC}
+                  ariaLabel="Profit Clarity Analysis explainer video"
+                  className="aspect-video w-full object-cover"
+                  cover={<HeroCover photo={founders[0]!.photo} />}
+                />
+              </div>
+              <img
+                src="/brand/pf-advanced.webp"
+                alt="Profit First Certified Advanced firm"
+                width={96}
+                height={96}
+                className="absolute -bottom-8 -left-4 h-20 w-20 drop-shadow-xl sm:h-24 sm:w-24 lg:-left-8"
               />
             </div>
           </div>
         </section>
 
+        {/* Results: overlaps the hero */}
+        <section
+          aria-label="Average client results"
+          className="relative z-10 -mt-14 px-4 lg:-mt-16"
+        >
+          <div className="mx-auto max-w-4xl rounded-2xl bg-white px-3 py-6 sm:py-7 shadow-[0_24px_60px_-24px_oklch(0.297_0.065_237/0.35)] ring-1 ring-border sm:px-10">
+            <dl className="grid grid-cols-3 divide-x divide-border text-center">
+              {RESULTS.map((r) => (
+                <div key={r.label} className="flex flex-col-reverse px-2">
+                  <dt className="mt-1 text-xs text-muted-foreground sm:text-sm">{r.label}</dt>
+                  <dd className="font-display text-[1.65rem] leading-tight tabular-nums text-navy sm:text-5xl">
+                    <span className="text-pink-deep">+</span>
+                    {r.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-5 text-center text-xs text-muted-foreground">
+              Average client results. Individual results may vary.
+            </p>
+          </div>
+        </section>
+
         {/* Trusted by: logo slider, full width, no label */}
-        <section className="border-b border-border bg-background">
-          <div className="overflow-hidden py-4 sm:py-6">
+        <section className="bg-background">
+          <div className="overflow-hidden py-8 sm:py-10">
             <div className="trusted-logos-track flex w-max">
               <img
                 src={trustedSpasLogosAsset.url}
-                alt="Logos of spas that trust True Profit Salons"
+                alt="Logos of spas that trust True Profit Spas"
                 loading="lazy"
                 className="block h-[clamp(56px,8.83vw,113px)] w-auto max-w-none shrink-0"
               />
@@ -350,265 +520,379 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Who we are + team (single section) */}
-        <section id="who-we-are" className="scroll-mt-24 bg-cream">
-          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:py-20">
-            <div className="mx-auto grid w-full max-w-md grid-cols-2 gap-4 lg:max-w-none">
-              {founders.map((f) => (
-                <figure key={f.name}>
-                  <img
-                    src={f.photo}
-                    alt={f.name}
-                    loading="lazy"
-                    className="aspect-[4/5] w-full rounded-2xl object-cover object-top shadow-md"
-                  />
-                  <figcaption className="mt-3">
-                    <p className="font-display text-lg font-semibold text-foreground">{f.name}</p>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-primary">{f.role}</p>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary">Who We Are</p>
-              <h2 className="mt-2 text-3xl sm:text-4xl">The Team Behind Your Numbers</h2>
-              <p className="mt-4 text-muted-foreground">
-                Ross Loveland is an Advanced Certified Profit First Professional and Certified Master
-                who has helped hundreds of spas increase profit, take home more money, and build
-                businesses that feel calm and predictable.
-              </p>
-              <p className="mt-4 text-muted-foreground">
-                We're a team of Profit First Certified advisors who work exclusively with spas.
-                You're supported by Profit Advisors Nicole, Patrick, Alexandra, and Erika,
-                QuickBooks Specialist Mariana, and Administrative Director Mary.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Events: our experts at industry events (photos to be added) */}
-        <section id="events" className="scroll-mt-24 bg-plum/5">
-          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-            <h2 className="text-3xl sm:text-4xl">{EVENTS_HEADING}</h2>
-            <ScrollCarousel
-              ariaLabel="Photos from industry events"
-              trackClassName="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border"
-            >
-              {eventPhotos.map((photo, i) => (
-                <figure key={i} className="w-[62%] shrink-0 snap-start sm:w-[34%] lg:w-[23%]">
-                  {photo.src ? (
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      loading="lazy"
-                      className="aspect-[3/4] w-full rounded-2xl object-cover object-top shadow-md"
-                    />
-                  ) : (
-                    <div
-                      role="img"
-                      aria-label={`Placeholder for event photo ${i + 1}`}
-                      className="grid aspect-[3/4] w-full place-items-center rounded-2xl border-2 border-dashed border-border bg-card text-center"
-                    >
-                      <div className="text-muted-foreground">
-                        <ImageIcon aria-hidden="true" className="mx-auto h-8 w-8" />
-                        <p className="mt-2 text-sm font-medium">Event photo {i + 1}</p>
-                      </div>
-                    </div>
-                  )}
-                </figure>
-              ))}
-            </ScrollCarousel>
-          </div>
-        </section>
-
         {/* Problems */}
-        <section id="problems" className="scroll-mt-24 mx-auto max-w-6xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">We Find the Problem. Then We Fix It.</h2>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
-            Built for spa owners who are busy but can't see where the profit goes.
-          </p>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {problems.map(({ icon: Icon, title, text }, i) => (
-              <li
-                key={title}
-                className="rounded-2xl border border-border bg-card p-5 shadow-sm"
-              >
-                <div className="flex items-center gap-3">
-                  <span
-                    className={`grid h-10 w-10 shrink-0 place-items-center rounded-full text-white ${
-                      i % 2 === 0 ? "bg-gold" : "bg-plum"
-                    }`}
-                  >
-                    <Icon aria-hidden="true" className="h-5 w-5" />
-                  </span>
-                  <h3 className="text-lg font-semibold leading-snug text-foreground">{title}</h3>
-                </div>
-                <p className="mt-1.5 text-sm text-muted-foreground">{text}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Client stories (video testimonials) */}
-        <section id="stories" className="scroll-mt-24 bg-cream">
-          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-            <h2 className="text-3xl sm:text-4xl">Client Stories, In Their Own Words</h2>
-            <ScrollCarousel
-              ariaLabel="Client story videos"
-              trackClassName="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-color:var(--color-primary)_var(--color-border)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-border"
-            >
-              {CLIENT_STORIES.map(({ videoId, name, business, quote }) => (
-                <figure key={videoId} className="w-[78%] shrink-0 snap-start sm:w-[46%] lg:w-[30%]">
-                  <YouTubeEmbed videoId={videoId} title={`${name}, ${business}`} />
-                  <blockquote className="mt-4 font-display text-base italic leading-tight text-foreground">
-                    &ldquo;{quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-3 text-sm font-semibold text-foreground">
-                    {name} <span className="font-normal text-muted-foreground">- {business}</span>
-                  </figcaption>
-                </figure>
+        <section id="problems" className="scroll-mt-24">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_1.4fr] lg:gap-16 lg:py-24">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <SectionHeading
+                eyebrow="Sound familiar?"
+                title="We Find the Problem. Then We Fix It."
+                intro="Built for spa owners who are busy but can't see where the profit goes."
+              />
+            </div>
+            <ul className="grid gap-x-10 gap-y-2 sm:grid-cols-2">
+              {problems.map(({ icon: Icon, title, text }) => (
+                <li key={title} className="reveal border-t border-border py-6">
+                  <Icon aria-hidden="true" className="h-6 w-6 text-mauve" strokeWidth={1.75} />
+                  <h3 className="mt-4 text-xl">{title}</h3>
+                  <p className="mt-2 text-muted-foreground">{text}</p>
+                </li>
               ))}
-            </ScrollCarousel>
+            </ul>
           </div>
         </section>
-        <CtaButton />
 
-        {/* What's included */}
-        <section id="included" className="scroll-mt-24 bg-ink text-ink-foreground">
-          <div className="mx-auto max-w-6xl px-4 py-14 lg:py-20">
-            <h2 className="text-3xl text-ink-foreground sm:text-4xl">
-              What's Included in Your Comprehensive Analysis
-            </h2>
-            <p className="mt-3 max-w-2xl text-ink-foreground/70">
-              One 60-minute call. A written plan at the end.
-            </p>
-            <ol className="mt-9 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+        {/* What's included + who it's for */}
+        <section id="included" className="scroll-mt-24 bg-blush-soft">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 lg:grid-cols-[1fr_1.3fr] lg:gap-16 lg:py-24">
+            <div>
+              <SectionHeading
+                eyebrow="Your 60-minute session"
+                title="What's Included in Your Comprehensive Analysis"
+                intro="One 60-minute call. A written plan at the end."
+              />
+              <div className="mt-10 rounded-2xl bg-white p-6 shadow-[0_16px_40px_-24px_oklch(0.297_0.065_237/0.3)] sm:p-7">
+                <h3 className="text-xl">This is a great fit if:</h3>
+                <ul className="mt-4 space-y-3">
+                  {goodFit.map((item) => (
+                    <li key={item} className="flex gap-3 text-foreground">
+                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blush text-pink-deep">
+                        <Check aria-hidden="true" className="h-3.5 w-3.5" strokeWidth={2.5} />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <ol className="divide-y divide-navy/10">
               {included.map((item, i) => (
-                <li key={item.title} className="flex gap-4">
+                <li key={item.title} className="reveal flex gap-5 py-5 first:pt-0">
                   <span
                     aria-hidden="true"
-                    className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold text-sm font-bold text-ink"
+                    className="w-10 shrink-0 font-display text-3xl leading-none tabular-nums text-pink-deep"
                   >
-                    {i + 1}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="text-lg font-semibold text-ink-foreground">{item.title}</h3>
-                    <p className="mt-1 text-sm text-ink-foreground/75">{item.text}</p>
+                    <h3 className="text-xl">{item.title}</h3>
+                    <p className="mt-1.5 text-muted-foreground">{item.text}</p>
                   </div>
                 </li>
               ))}
             </ol>
           </div>
         </section>
+
+        {/* Client stories (video testimonials + written spa reviews) */}
+        <section id="stories" className="scroll-mt-24">
+          <div className="mx-auto max-w-6xl px-4 py-16 lg:py-24">
+            <SectionHeading eyebrow="Client stories" title="Client Stories, In Their Own Words" />
+            <ScrollCarousel ariaLabel="Client story videos" trackClassName={carouselTrack}>
+              {CLIENT_STORIES.map(({ videoId, name, business, quote }) => (
+                <figure key={videoId} className="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[31%]">
+                  <YouTubeEmbed videoId={videoId} title={`${name}, ${business}`} />
+                  <blockquote className="mt-4 font-display text-lg leading-snug text-navy">
+                    &ldquo;{quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-3 text-sm font-semibold text-navy">
+                    {name} <span className="font-normal text-muted-foreground">- {business}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </ScrollCarousel>
+
+            <h3 className="mt-14 text-2xl">What spa and wellness owners say</h3>
+            <div className="mt-6 gap-5 sm:columns-2 lg:columns-3">
+              {SPA_REVIEWS.map((r) => (
+                <figure
+                  key={r.business}
+                  className="reveal mb-5 break-inside-avoid rounded-2xl bg-blush-soft p-6"
+                >
+                  <Stars className="h-3.5 w-3.5" />
+                  <blockquote className="mt-3 text-foreground">&ldquo;{r.quote}&rdquo;</blockquote>
+                  <figcaption className="mt-5 flex items-center gap-3">
+                    <img
+                      src={r.logo}
+                      alt=""
+                      width={40}
+                      height={40}
+                      loading="lazy"
+                      className="h-10 w-10 rounded-full bg-white object-contain p-1 ring-1 ring-border"
+                    />
+                    <span className="text-sm font-semibold text-navy">{r.business}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
         <CtaButton />
 
+        {/* Who we are + team */}
+        <section id="who-we-are" className="scroll-mt-24 bg-blush-soft">
+          <div className="mx-auto max-w-6xl px-4 py-16 lg:py-24">
+            <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
+              <div className="mx-auto grid w-full max-w-md grid-cols-2 gap-4 lg:max-w-none">
+                {founders.map((f, i) => (
+                  <figure key={f.name} className={i === 1 ? "mt-10" : ""}>
+                    <img
+                      src={f.photo}
+                      alt={f.name}
+                      loading="lazy"
+                      className="aspect-[4/5] w-full rounded-2xl object-cover object-top shadow-[0_20px_50px_-25px_oklch(0.297_0.065_237/0.45)]"
+                    />
+                    <figcaption className="mt-3">
+                      <p className="font-display text-lg text-navy">{f.name}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-mauve">
+                        {f.role}
+                      </p>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <div>
+                <SectionHeading eyebrow="Who we are" title="The Team Behind Your Numbers" />
+                <p className="mt-5 text-lg text-muted-foreground">
+                  Ross Loveland is an Advanced Certified Profit First Professional and Certified
+                  Master who has helped hundreds of spas increase profit, take home more money, and
+                  build businesses that feel calm and predictable.
+                </p>
+                <p className="mt-4 text-muted-foreground">
+                  We're a Profit First Certified Advanced firm. The Profit First method is a proven
+                  cash flow system that puts profit and owner's pay first with every dollar that
+                  enters your business.
+                </p>
+                <img
+                  src="/brand/badges.webp"
+                  alt="Certified QuickBooks Online ProAdvisor, Profit First Certified Professional, Profit First Certified Master"
+                  width={900}
+                  height={313}
+                  loading="lazy"
+                  className="mt-8 h-auto w-full max-w-sm"
+                />
+              </div>
+            </div>
+
+            <div className="mt-16 border-t border-navy/10 pt-10">
+              <p className="eyebrow">Your support team</p>
+              <ul className="mt-6 grid grid-cols-3 gap-x-4 gap-y-8 sm:grid-cols-6">
+                {advisors.map((a) => (
+                  <li key={a.name} className="text-center">
+                    <img
+                      src={a.photo}
+                      alt={a.name}
+                      width={120}
+                      height={120}
+                      loading="lazy"
+                      className="mx-auto aspect-square w-full max-w-28 rounded-2xl object-cover"
+                    />
+                    <p className="mt-3 font-display text-base text-navy">{a.name}</p>
+                    <p className="text-xs text-muted-foreground">{a.role}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Events */}
+        <section id="events" className="scroll-mt-24">
+          <div className="mx-auto max-w-6xl px-4 py-16 lg:py-24">
+            <SectionHeading eyebrow="In the industry" title={EVENTS_HEADING} />
+            <ScrollCarousel ariaLabel="Photos from industry events" trackClassName={carouselTrack}>
+              {eventPhotos.map((photo, i) => (
+                <figure key={i} className="w-[64%] shrink-0 snap-start sm:w-[34%] lg:w-[23%]">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    loading="lazy"
+                    className="aspect-[3/4] w-full rounded-2xl object-cover object-top"
+                  />
+                </figure>
+              ))}
+            </ScrollCarousel>
+          </div>
+        </section>
+
         {/* FAQ */}
-        <section id="faq" className="scroll-mt-24 mx-auto max-w-3xl px-4 py-14 lg:py-20">
-          <h2 className="text-3xl sm:text-4xl">Frequently Asked Questions</h2>
-          <div className="mt-8 divide-y divide-border rounded-2xl border border-border bg-card">
-            {faqs.map((faq) => (
-              <details key={faq.q} className="group p-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-foreground">
-                  {faq.q}
-                  <span
-                    aria-hidden="true"
-                    className="shrink-0 text-primary transition-transform group-open:rotate-45"
+        <section id="faq" className="scroll-mt-24 border-t border-border">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_1.5fr] lg:gap-16 lg:py-24">
+            <div>
+              <SectionHeading eyebrow="FAQ" title="Frequently Asked Questions" />
+              <p className="mt-6 text-muted-foreground">
+                Still have a question? Talk to a real person.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm font-medium text-navy">
+                <li>
+                  <a
+                    href={`tel:${PHONE.replace(/[^\d+]/g, "")}`}
+                    className="inline-flex items-center gap-2 hover:text-pink-deep"
                   >
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 text-muted-foreground">{faq.a}</p>
-              </details>
-            ))}
+                    <Phone aria-hidden="true" className="h-4 w-4 text-mauve" />
+                    <span dir="ltr">{PHONE}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="inline-flex items-center gap-2 break-all hover:text-pink-deep"
+                  >
+                    <Mail aria-hidden="true" className="h-4 w-4 text-mauve" />
+                    {EMAIL}
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="divide-y divide-border border-y border-border">
+              {faqs.map((faq) => (
+                <details key={faq.q} className="group py-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-navy [&::-webkit-details-marker]:hidden">
+                    {faq.q}
+                    <span
+                      aria-hidden="true"
+                      className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-blush text-xl leading-none text-pink-deep transition-transform duration-200 group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3 max-w-prose text-muted-foreground">{faq.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Final CTA + form */}
-        <section id="claim" className="scroll-mt-24 bg-ink text-ink-foreground">
-          <div className="mx-auto max-w-3xl px-4 py-14 lg:py-20">
-            <h2 className="text-3xl text-ink-foreground sm:text-4xl">
-              Ready to Keep More of What You Earn?
-            </h2>
-            <p className="mt-3 text-ink-foreground/75">
-              Tell us a little about your spa. Our team will reach out to schedule your call.
-            </p>
-            <div className="mt-8">
+        <section id="claim" className="navy-glow scroll-mt-20 text-white">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 lg:grid-cols-[1fr_1.15fr] lg:gap-16 lg:py-24">
+            <div>
+              <SectionHeading
+                light
+                eyebrow="Limited time offer"
+                title="Ready to Keep More of What You Earn?"
+                intro="Tell us a little about your spa. Our team will reach out to schedule your call."
+              />
+              <div className="mt-6 flex items-end gap-3">
+                <span className="pb-1 text-lg text-white/50 line-through">$500</span>
+                <span className="font-display text-5xl leading-none tabular-nums">$250</span>
+                <span className="pb-1 text-sm text-white/70">· 60 minutes · No payment today</span>
+              </div>
+              <ol className="mt-10 space-y-6">
+                {steps.map((s, i) => (
+                  <li key={s.title} className="flex gap-4">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 font-display text-pink ring-1 ring-white/15">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <p className="font-semibold text-white">{s.title}</p>
+                      <p className="mt-0.5 text-sm text-white/70">{s.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <img
+                src="/brand/badges.webp"
+                alt=""
+                aria-hidden="true"
+                width={900}
+                height={313}
+                loading="lazy"
+                className="mt-10 h-auto w-full max-w-[17rem] opacity-95"
+              />
+            </div>
+            <div>
               <LeadForm />
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-border bg-background">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <div className="grid gap-10 sm:grid-cols-3">
+      <footer className="bg-blush">
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <div className="grid gap-10 sm:grid-cols-[1.4fr_1fr_1fr]">
             <div>
-              <p className="font-display text-lg font-semibold text-foreground">
-                True Profit Salons
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <img
+                src="/brand/true-profit-spas-logo.webp"
+                alt="True Profit Spas"
+                width={126}
+                height={48}
+                loading="lazy"
+                className="h-12 w-auto"
+              />
+              <p className="mt-3 max-w-xs text-sm text-navy/75">
                 Bookkeeping, CFO advisory, and tax - built for spa owners.
               </p>
-              <ul className="mt-4 flex items-center gap-4 text-muted-foreground">
-                <li>
-                  <a
-                    href="https://www.linkedin.com/in/rossloveland/"
-                    aria-label="LinkedIn"
-                    className="hover:text-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/trueprofitsalons/"
-                    aria-label="Instagram"
-                    className="hover:text-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Instagram className="h-5 w-5" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.facebook.com/TrueProfitSalons/"
-                    aria-label="Facebook"
-                    className="hover:text-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Facebook className="h-5 w-5" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/@TrueProfitSalons"
-                    aria-label="YouTube"
-                    className="hover:text-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Youtube className="h-5 w-5" />
-                  </a>
-                </li>
+              <ul className="mt-5 flex items-center gap-2 text-navy">
+                {[
+                  {
+                    href: "https://www.linkedin.com/in/rossloveland/",
+                    label: "LinkedIn",
+                    Icon: Linkedin,
+                  },
+                  {
+                    href: "https://www.instagram.com/trueprofitsalons/",
+                    label: "Instagram",
+                    Icon: Instagram,
+                  },
+                  {
+                    href: "https://www.facebook.com/TrueProfitSalons/",
+                    label: "Facebook",
+                    Icon: Facebook,
+                  },
+                  {
+                    href: "https://www.youtube.com/@TrueProfitSalons",
+                    label: "YouTube",
+                    Icon: Youtube,
+                  },
+                ].map(({ href, label, Icon }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      aria-label={label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="grid h-10 w-10 place-items-center rounded-full bg-white/70 transition-colors hover:bg-white hover:text-pink-deep"
+                    >
+                      <Icon className="h-[18px] w-[18px]" />
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-foreground">Navigate</p>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li><a href="#problems" className="hover:text-primary">Problems We Solve</a></li>
-                <li><a href="#included" className="hover:text-primary">What's Included</a></li>
-                <li><a href="#stories" className="hover:text-primary">Client Stories</a></li>
-                <li><a href="#who-we-are" className="hover:text-primary">Our Team</a></li>
-                <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
+              <p className="text-sm font-semibold uppercase tracking-wider text-navy">Navigate</p>
+              <ul className="mt-4 space-y-2 text-sm text-navy/75">
+                <li>
+                  <a href="#problems" className="hover:text-pink-deep">
+                    Problems We Solve
+                  </a>
+                </li>
+                <li>
+                  <a href="#included" className="hover:text-pink-deep">
+                    What's Included
+                  </a>
+                </li>
+                <li>
+                  <a href="#stories" className="hover:text-pink-deep">
+                    Client Stories
+                  </a>
+                </li>
+                <li>
+                  <a href="#who-we-are" className="hover:text-pink-deep">
+                    Our Team
+                  </a>
+                </li>
+                <li>
+                  <a href="#faq" className="hover:text-pink-deep">
+                    FAQ
+                  </a>
+                </li>
                 <li>
                   <a
                     href="https://trueprofitsalons.com/privacy-policy/"
-                    className="hover:text-primary"
+                    className="hover:text-pink-deep"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -619,15 +903,15 @@ function LandingPage() {
             </div>
 
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-foreground">Contact</p>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <p className="text-sm font-semibold uppercase tracking-wider text-navy">Contact</p>
+              <ul className="mt-4 space-y-2 text-sm text-navy/75">
                 <li>
-                  <a href={`tel:${PHONE.replace(/[^\d]/g, "")}`} className="hover:text-primary">
+                  <a href={`tel:${PHONE.replace(/[^\d+]/g, "")}`} className="hover:text-pink-deep">
                     {PHONE}
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${EMAIL}`} className="break-all hover:text-primary">
+                  <a href={`mailto:${EMAIL}`} className="break-all hover:text-pink-deep">
                     {EMAIL}
                   </a>
                 </li>
@@ -635,11 +919,11 @@ function LandingPage() {
               </ul>
             </div>
           </div>
-
-          <p className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
-            © {new Date().getFullYear()} True Profit Salons. True Profit Salons is a DBA of Grow Green Financial, LLC.
-          </p>
         </div>
+        <p className="bg-navy px-4 py-4 text-center text-xs text-white/70">
+          © {new Date().getFullYear()} True Profit Spas. True Profit Salons is a DBA of Grow Green
+          Financial, LLC.
+        </p>
       </footer>
 
       <StickyMobileCta />

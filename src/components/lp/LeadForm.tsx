@@ -148,7 +148,7 @@ export function LeadForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8 text-center">
+      <div className="rounded-2xl bg-card p-6 text-center text-foreground shadow-[0_30px_80px_-30px_rgb(0_0_0/0.5)] sm:p-8">
         <span className="inline-flex rounded-full bg-accent px-3 py-1 text-xs font-semibold tracking-wide text-accent-foreground uppercase">
           You're on the list
         </span>
@@ -167,7 +167,7 @@ export function LeadForm() {
   const progress = (step / TOTAL_STEPS) * 100;
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-8">
+    <div className="rounded-2xl bg-card p-5 text-foreground shadow-[0_30px_80px_-30px_rgb(0_0_0/0.5)] sm:p-8">
       <div className="flex items-center justify-between">
         {step > 1 ? (
           <button
@@ -243,7 +243,11 @@ export function LeadForm() {
                 />
               </div>
             </div>
-            <NextButton onClick={() => { if (validateStep(3)) goTo(4); }} />
+            <NextButton
+              onClick={() => {
+                if (validateStep(3)) goTo(4);
+              }}
+            />
           </div>
         )}
 
@@ -285,7 +289,11 @@ export function LeadForm() {
                 <FieldError message={errors.phone} />
               </div>
             </div>
-            <NextButton onClick={() => { if (validateStep(4)) goTo(5); }} />
+            <NextButton
+              onClick={() => {
+                if (validateStep(4)) goTo(5);
+              }}
+            />
           </div>
         )}
 
@@ -317,7 +325,7 @@ export function LeadForm() {
               type="button"
               onClick={submitLead}
               disabled={submitting}
-              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
+              className="btn-cta mt-6 w-full px-6 py-4 text-base disabled:pointer-events-none disabled:opacity-60"
             >
               {submitting ? (
                 <>
@@ -360,8 +368,10 @@ function StepCards({
               type="button"
               onClick={() => onSelect(option)}
               aria-pressed={selected}
-              className={`rounded-xl border px-5 py-4 text-left text-base font-medium transition-colors hover:border-primary hover:bg-secondary ${
-                selected ? "border-primary bg-secondary text-foreground" : "border-border bg-card text-foreground"
+              className={`rounded-xl border px-5 py-4 text-left text-base font-medium transition-colors hover:border-pink hover:bg-secondary ${
+                selected
+                  ? "border-primary bg-secondary text-foreground"
+                  : "border-border bg-card text-foreground"
               }`}
             >
               {option}
@@ -378,7 +388,7 @@ function NextButton({ onClick }: { onClick: () => void }) {
     <button
       type="button"
       onClick={onClick}
-      className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+      className="btn-cta mt-6 w-full px-6 py-3.5 text-base sm:w-auto"
     >
       Continue
       <ArrowRight aria-hidden="true" className="h-4 w-4" />

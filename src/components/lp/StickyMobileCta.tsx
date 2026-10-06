@@ -6,7 +6,11 @@ export function StickyMobileCta() {
   useEffect(() => {
     const onScroll = () => {
       const hero = document.getElementById("hero");
-      setVisible(hero ? hero.getBoundingClientRect().bottom <= 0 : false);
+      const claim = document.getElementById("claim");
+      const pastHero = hero ? hero.getBoundingClientRect().bottom <= 0 : false;
+      // Hide once the form section is on screen; the bar would just point at itself.
+      const atForm = claim ? claim.getBoundingClientRect().top < window.innerHeight : false;
+      setVisible(pastHero && !atForm);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -19,10 +23,7 @@ export function StickyMobileCta() {
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <a
-        href="#claim"
-        className="flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground"
-      >
+      <a href="#claim" className="btn-cta w-full px-6 py-3.5 text-sm">
         Claim My 50% Off Comprehensive Analysis
       </a>
     </div>
