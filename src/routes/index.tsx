@@ -466,7 +466,7 @@ function LandingPage() {
 
       {/* Sticky top bar */}
       <header className="sticky top-0 z-40 border-b border-border/80 bg-white/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-2.5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3">
           <a href="#hero" aria-label="True Profit Spas - back to top" className="shrink-0">
             <img
               src={spaLogoAsset.url}
