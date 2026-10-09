@@ -26,6 +26,7 @@ import { YouTubeEmbed } from "@/components/lp/YouTubeEmbed";
 import { ScrollCarousel } from "@/components/lp/ScrollCarousel";
 import cariLovelandAsset from "@/assets/cari-loveland.png.asset.json";
 import trustedSpasLogosAsset from "@/assets/trusted-spas-smooth.webp.asset.json";
+import spaLogoAsset from "@/assets/true-profit-spa-logo.png.asset.json";
 import eventPhoto1 from "@/assets/event-photo-1.jpg.asset.json";
 import eventPhoto2 from "@/assets/event-photo-2.jpg.asset.json";
 import eventPhoto3 from "@/assets/event-photo-3.jpg.asset.json";
@@ -468,10 +469,10 @@ function LandingPage() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-2.5">
           <a href="#hero" aria-label="True Profit Spas - back to top" className="shrink-0">
             <img
-              src="/brand/true-profit-spas-logo.webp"
+              src={spaLogoAsset.url}
               alt="True Profit Spas"
-              width={126}
-              height={48}
+              width={585}
+              height={390}
               className="h-11 w-auto sm:h-12"
             />
           </a>
@@ -974,10 +975,10 @@ function LandingPage() {
           <div className="grid gap-10 sm:grid-cols-[1.4fr_1fr_1fr]">
             <div>
               <img
-                src="/brand/true-profit-spas-logo.webp"
+                src={spaLogoAsset.url}
                 alt="True Profit Spas"
-                width={126}
-                height={48}
+                width={585}
+                height={390}
                 loading="lazy"
                 className="h-12 w-auto"
               />
