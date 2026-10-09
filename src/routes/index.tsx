@@ -473,7 +473,7 @@ function LandingPage() {
               alt="True Profit Spas"
               width={585}
               height={390}
-              className="h-11 w-auto sm:h-12"
+              className="h-12 w-auto sm:h-16"
             />
           </a>
           <nav
@@ -980,7 +980,7 @@ function LandingPage() {
                 width={585}
                 height={390}
                 loading="lazy"
-                className="h-12 w-auto"
+                className="h-20 w-auto"
               />
               <p className="mt-3 max-w-xs text-sm text-navy/75">
                 Bookkeeping, CFO advisory, and tax - built for spa owners.
